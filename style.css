@@ -92,39 +92,6 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.institucional {
-  max-width: 720px;
-  margin: 80px auto;
-  padding: 0 20px;
-  font-family: Georgia, serif;
-}
-
-.intro p {
-  font-size: 1.2em;
-  margin-bottom: 60px;
-  line-height: 1.6;
-}
-
-.bloco {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 40px 0;
-}
-
-.bloco h2 {
-  margin-bottom: 8px;
-}
-
-.bloco p {
-  color: #cbd5e1;
-  margin-bottom: 12px;
-}
-
-.bloco a {
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 1px solid currentColor;
-}
-
 .page {
   max-width: 900px;
   margin: 60px auto;
