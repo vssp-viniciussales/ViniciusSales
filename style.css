@@ -1,8 +1,11 @@
 :root {
-    --bg: #0f0f12;
-    --fg: #eaeaea;
-    --muted: #9a9a9a;
-    --accent: #c5a46d;
+    --bg-main: #0E1A2B;
+    --bg-card: rgba(255,255,255,0.03);
+    --fg-main: #F4F6F8;
+    --fg-muted: #A0A8B2;
+    --accent-main: #F4F6F8;
+    --accent-gold: #8C7A4A;
+    --accent-steel: #7A8491;
 }
 
 * {
@@ -11,71 +14,80 @@
 
 body {
     margin: 0;
-    font-family: "Georgia", "Times New Roman", serif;
-    background-color: var(--bg);
-    color: var(--fg);
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg-main);
+    color: var(--fg-main);
     line-height: 1.7;
 }
 
 header {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 40px 20px;
+    padding: 60px 20px 40px;
     text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 header h1 {
-    margin: 0;
-    font-weight: normal;
-    letter-spacing: 2px;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 26px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    font-size: 22px;
+    margin: 0;
 }
 
 nav {
-    margin-top: 15px;
+    margin-top: 24px;
 }
 
 nav a {
-    color: var(--muted);
+    color: var(--fg-muted);
     text-decoration: none;
-    margin: 0 12px;
-    font-size: 14px;
-    letter-spacing: 1px;
+    margin: 0 14px;
+    font-size: 12px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 nav a:hover {
-    color: var(--accent);
+    color: var(--accent-main);
 }
 
 main {
-    max-width: 720px;
+    max-width: 820px;
     margin: 80px auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 section {
-    margin-bottom: 80px;
+    background: var(--bg-card);
+    padding: 48px 48px;
+    margin-bottom: 64px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
 h2 {
+    font-family: "Libre Baskerville", Georgia, serif;
     font-size: 18px;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 30px;
-    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 28px;
 }
 
 p {
     font-size: 17px;
-    color: var(--fg);
+    color: var(--fg-main);
+    margin-bottom: 20px;
+}
+
+strong {
+    color: var(--accent-main);
 }
 
 footer {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
-    color: var(--muted);
+    color: var(--fg-muted);
     font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
