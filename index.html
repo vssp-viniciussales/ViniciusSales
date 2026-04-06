@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vinícius Sales Padovani — Empresário, construindo família, fé e negócios em tempo real. @vssp">
+<meta name="keywords" content="Vinícius Padovani, vssp, desenvolvimento masculino, empreendedorismo, família, fé">
+<meta property="og:title" content="Vinícius Padovani · @vssp">
+<meta property="og:description" content="Não sou o homem que chegou lá. Sou o homem chegando.">
+<meta property="og:image" content="https://vssp.com.br/og-image.jpg">
+<title>Vinícius Padovani · @vssp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANG TOGGLE -->
+<div class="lang-toggle" id="langToggle">
+  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+  <span class="lang-sep">·</span>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">VSSP</div>
+  <div class="nav-links">
+    <a href="#sobre" class="nav-link" data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="#historia" class="nav-link" data-pt="História" data-en="Story">História</a>
+    <a href="#pilares" class="nav-link" data-pt="Pilares" data-en="Pillars">Pilares</a>
+    <a href="#negocios" class="nav-link" data-pt="Negócios" data-en="Business">Negócios</a>
+    <a href="#contato" class="nav-link" data-pt="Contato" data-en="Contact">Contato</a>
+  </div>
+  <button class="nav-menu" id="navMenu" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sobre" class="mobile-link" data-pt="Sobre" data-en="About">Sobre</a>
+  <a href="#historia" class="mobile-link" data-pt="História" data-en="Story">História</a>
+  <a href="#pilares" class="mobile-link" data-pt="Pilares" data-en="Pillars">Pilares</a>
+  <a href="#negocios" class="mobile-link" data-pt="Negócios" data-en="Business">Negócios</a>
+  <a href="#contato" class="mobile-link" data-pt="Contato" data-en="Contact">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-frame"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-kicker" data-pt="Paulínia, SP · Brasil" data-en="Paulínia, SP · Brazil">Paulínia, SP · Brasil</div>
+
+    <h1 class="hero-name">
+      <span class="hero-name-first">Vinícius</span>
+      <span class="hero-name-last">Padovani</span>
+    </h1>
+
+    <div class="hero-handle">@vssp</div>
+
+    <p class="hero-manifesto">
+      <span data-pt="Não sou o homem que chegou lá." data-en="I'm not the man who made it.">Não sou o homem que chegou lá.</span><br>
+      <span class="ouro" data-pt="Sou o homem chegando." data-en="I'm the man on his way.">Sou o homem chegando.</span>
+    </p>
+
+    <div class="hero-tags">
+      <span class="hero-tag" data-pt="Fé" data-en="Faith">Fé</span>
+      <span class="hero-tag" data-pt="Família" data-en="Family">Família</span>
+      <span class="hero-tag" data-pt="Negócios" data-en="Business">Negócios</span>
+      <span class="hero-tag" data-pt="Corpo" data-en="Body">Corpo</span>
+      <span class="hero-tag" data-pt="Legado" data-en="Legacy">Legado</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#historia" class="btn-primary">
+        <span data-pt="Ver a história" data-en="See the story">Ver a história</span>
+      </a>
+      <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn-secondary">
+        <span data-pt="Instagram" data-en="Instagram">Instagram</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-pt="role" data-en="scroll">role</span>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-num">01</span>
+      <span data-pt="Sobre" data-en="About">Sobre</span>
+    </div>
+
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <h2 class="section-title" data-pt="Um homem em construção." data-en="A man under construction.">Um homem em construção.</h2>
+        <p class="body-text" data-pt="Empresário com múltiplas frentes ativas — logística, tecnologia, representação comercial e consultoria. Casado com a Bárbara. Construindo família, fé e geração de forma concreta e intencional." data-en="Entrepreneur with multiple active ventures — logistics, technology, commercial representation and consulting. Married to Bárbara. Building family, faith and generation in a concrete and intentional way.">
+          Empresário com múltiplas frentes ativas — logística, tecnologia, representação comercial e consultoria. Casado com a Bárbara. Construindo família, fé e geração de forma concreta e intencional.
+        </p>
+        <p class="body-text" data-pt="O @vssp não é um perfil de nicho. É a documentação de uma vida — com tudo que já aprendi e tudo que ainda estou aprendendo." data-en="@vssp is not a niche profile. It's the documentation of a life — with everything I've already learned and everything I'm still learning.">
+          O @vssp não é um perfil de nicho. É a documentação de uma vida — com tudo que já aprendi e tudo que ainda estou aprendendo.
+        </p>
+        <div class="sobre-quote">
+          <p data-pt="&quot;Ele não fala bonito. Ele fala o que sustenta.&quot;" data-en="&quot;He doesn't speak beautifully. He speaks what sustains.&quot;">"Ele não fala bonito. Ele fala o que sustenta."</p>
+        </div>
+      </div>
+
+      <div class="sobre-stats">
+        <div class="stat-card">
+          <div class="stat-num">15</div>
+          <div class="stat-label" data-pt="anos quando saiu de casa" data-en="years old when he left home">anos quando saiu de casa</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4+</div>
+          <div class="stat-label" data-pt="negócios ativos" data-en="active businesses">negócios ativos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">7</div>
+          <div class="stat-label" data-pt="pilares de vida" data-en="life pillars">pilares de vida</div>
+        </div>
+        <div class="stat-card stat-card-ouro">
+          <div class="stat-num">∞</div>
+          <div class="stat-label" data-pt="construção em andamento" data-en="construction in progress">construção em andamento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA -->
+<section class="section section-dark" id="historia">
+  <div class="container">
+    <div class="section-label light">
+      <span class="section-num">02</span>
+      <span data-pt="História" data-en="Story">História</span>
+    </div>
+
+    <h2 class="section-title light" data-pt="A história que ninguém copia." data-en="The story no one can copy.">A história que ninguém copia.</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">0–6</div>
+          <h3 class="timeline-title" data-pt="A família que existia" data-en="The family that existed">A família que existia</h3>
+          <p class="timeline-text" data-pt="Nasceu em Caldas, MG. Família estruturada, em crescimento financeiro. Segurança que durou 6 anos — e desapareceu com a separação dos pais. A primeira grande perda." data-en="Born in Caldas, MG. Structured family, financially growing. Security that lasted 6 years — and disappeared with his parents' separation. The first great loss.">
+            Nasceu em Caldas, MG. Família estruturada, em crescimento financeiro. Segurança que durou 6 anos — e desapareceu com a separação dos pais. A primeira grande perda.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">15</div>
+          <h3 class="timeline-title" data-pt="Emancipado — sozinho" data-en="Emancipated — alone">Emancipado — sozinho</h3>
+          <p class="timeline-text" data-pt="Saiu de casa aos 15. Não por dramaturgia — por necessidade. Emancipado legalmente para resolver um problema da família. Casa vazia. Liberdade que dói. Aprende tudo na marra." data-en="Left home at 15. Not for drama — out of necessity. Legally emancipated to solve a family problem. Empty house. Freedom that hurts. Learned everything the hard way.">
+            Saiu de casa aos 15. Não por dramaturgia — por necessidade. Emancipado legalmente para resolver um problema da família. Casa vazia. Liberdade que dói. Aprende tudo na marra.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">18–25</div>
+          <h3 class="timeline-title" data-pt="Funcionava. Mas não vivia." data-en="Functioning. But not living.">Funcionava. Mas não vivia.</h3>
+          <p class="timeline-text" data-pt="Trabalho, dinheiro, resultado. O sistema 'eu resolvo' funcionava no mundo externo e cobrava um preço alto em conexão, profundidade e paz. Aos 25: capaz, resiliente — e vazio." data-en="Work, money, results. The 'I handle it' system worked externally and cost dearly in connection, depth and peace. At 25: capable, resilient — and empty.">
+            Trabalho, dinheiro, resultado. O sistema "eu resolvo" funcionava no mundo externo e cobrava um preço alto em conexão, profundidade e paz. Aos 25: capaz, resiliente — e vazio.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot ouro-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year ouro-year">A virada</div>
+          <h3 class="timeline-title ouro-title" data-pt="A Bárbara. A fé. O 'vamos juntos'." data-en="Bárbara. Faith. 'Let's do it together'.">A Bárbara. A fé. O "vamos juntos".</h3>
+          <p class="timeline-text" data-pt="Ela não entrou no jogo. Não se moldou. Exigiu inteireza. Uma decisão financeira tomada sozinho quebrou a confiança — e abriu o espelho sem escapatória. Virada: de 'eu resolvo' para 'vamos juntos'. A fé chegou como decisão, não emoção." data-en="She didn't play the game. Didn't conform. Demanded wholeness. A financial decision made alone broke trust — and opened a mirror with no escape. The turn: from 'I handle it' to 'let's do it together'. Faith came as a decision, not an emotion.">
+            Ela não entrou no jogo. Não se moldou. Exigiu inteireza. Uma decisão financeira tomada sozinho quebrou a confiança — e abriu o espelho sem escapatória. Virada: de "eu resolvo" para "vamos juntos". A fé chegou como decisão, não emoção.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot active-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">Agora</div>
+          <h3 class="timeline-title" data-pt="Construindo em tempo real." data-en="Building in real time.">Construindo em tempo real.</h3>
+          <p class="timeline-text" data-pt="Família estruturada. Negócios em múltiplas frentes. Fé como ancoragem. Corpo como responsabilidade. Documentando cada passo — não porque chegou, mas porque está chegando." data-en="Structured family. Business on multiple fronts. Faith as anchor. Body as responsibility. Documenting every step — not because he arrived, but because he's arriving.">
+            Família estruturada. Negócios em múltiplas frentes. Fé como ancoragem. Corpo como responsabilidade. Documentando cada passo — não porque chegou, mas porque está chegando.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section" id="pilares">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-num">03</span>
+      <span data-pt="Pilares" data-en="Pillars">Pilares</span>
+    </div>
+
+    <h2 class="section-title" data-pt="7 territórios. Uma vida." data-en="7 territories. One life.">7 territórios. Uma vida.</h2>
+
+    <div class="pilares-grid">
+      <div class="pilar-card" style="--accent: #1B5E20;">
+        <div class="pilar-icon">✝</div>
+        <h3 class="pilar-name" data-pt="Fé" data-en="Faith">Fé</h3>
+        <p class="pilar-desc" data-pt="Não pregação. Vivência. Retorno a Deus como decisão — junto com a Bárbara. Ancoragem real no caos do dia a dia." data-en="Not preaching. Living. Return to God as a decision — together with Bárbara. Real anchoring in everyday chaos.">Não pregação. Vivência. Retorno a Deus como decisão — junto com a Bárbara. Ancoragem real no caos do dia a dia.</p>
+      </div>
+
+      <div class="pilar-card" style="--accent: #8B2E2E;">
+        <div class="pilar-icon">⚭</div>
+        <h3 class="pilar-name" data-pt="Família" data-en="Family">Família</h3>
+        <p class="pilar-desc" data-pt="Casamento que não romantiza — constrói. Parceria real. Planejando filhos. Documentando o que funciona e o que custa." data-en="Marriage that doesn't romanticize — it builds. Real partnership. Planning children. Documenting what works and what costs.">Casamento que não romantiza — constrói. Parceria real. Planejando filhos. Documentando o que funciona e o que custa.</p>
+      </div>
+
+      <div class="pilar-card" style="--accent: #1B3A6B;">
+        <div class="pilar-icon">◈</div>
+        <h3 class="pilar-name" data-pt="Finanças" data-en="Finances">Finanças</h3>
+        <p class="pilar-desc" data-pt="Aprendidas na marra, aos 15. Dinheiro como responsabilidade, não número. Estrutura antes de crescimento." data-en="Learned the hard way, at 15. Money as responsibility, not number. Structure before growth.">Aprendidas na marra, aos 15. Dinheiro como responsabilidade, não número. Estrutura antes de crescimento.</p>
+      </div>
+
+      <div class="pilar-card" style="--accent: #5C3D1E;">
+        <div class="pilar-icon">▲</div>
+        <h3 class="pilar-name" data-pt="Negócios" data-en="Business">Negócios</h3>
+        <p class="pilar-desc" data-pt="Múltiplas frentes simultâneas. Bastidores reais. Não só resultado — processo. Autoridade construída com consistência." data-en="Multiple simultaneous fronts. Real behind the scenes. Not just results — process. Authority built with consistency.">Múltiplas frentes simultâneas. Bastidores reais. Não só resultado — processo. Autoridade construída com consistência.</p>
+      </div>
+
+      <div class="pilar-card" style="--accent: #1A237E;">
+        <div class="pilar-icon">◉</div>
+        <h3 class="pilar-name" data-pt="Corpo" data-en="Body">Corpo</h3>
+        <p class="pilar-desc" data-pt="Não estética. Responsabilidade. Homem que não cuida do corpo não aguenta o peso do que está construindo." data-en="Not aesthetics. Responsibility. A man who doesn't take care of his body can't bear the weight of what he's building.">Não estética. Responsabilidade. Homem que não cuida do corpo não aguenta o peso do que está construindo.</p>
+      </div>
+
+      <div class="pilar-card" style="--accent: #004D40;">
+        <div class="pilar-icon">◌</div>
+        <h3 class="pilar-name" data-pt="Estilo de Vida" data-en="Lifestyle">Estilo de Vida</h3>
+        <p class="pilar-desc" data-pt="Low profile. Tranquilo. Intencional. A vida que vale a pena não é a mais agitada — é a que você construiu com propósito." data-en="Low profile. Calm. Intentional. The life worth living isn't the most hectic — it's the one you built with purpose.">Low profile. Tranquilo. Intencional. A vida que vale a pena não é a mais agitada — é a que você construiu com propósito.</p>
+      </div>
+
+      <div class="pilar-card pilar-ouro" style="--accent: #C8A97E;">
+        <div class="pilar-icon">◆</div>
+        <h3 class="pilar-name" data-pt="Paternidade" data-en="Fatherhood">Paternidade</h3>
+        <p class="pilar-desc" data-pt="Ainda não chegou — mas já está sendo construída. Presente, firme, seguro. O que o pai não foi + o que o pai tinha de bom. Com direção." data-en="Not here yet — but already being built. Present, firm, secure. What his father wasn't + what his father had that was good. With direction.">Ainda não chegou — mas já está sendo construída. Presente, firme, seguro. O que o pai não foi + o que o pai tinha de bom. Com direção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEGÓCIOS -->
+<section class="section section-dark" id="negocios">
+  <div class="container">
+    <div class="section-label light">
+      <span class="section-num">04</span>
+      <span data-pt="Negócios" data-en="Business">Negócios</span>
+    </div>
+
+    <h2 class="section-title light" data-pt="Construindo em múltiplas frentes." data-en="Building on multiple fronts.">Construindo em múltiplas frentes.</h2>
+
+    <div class="negocios-grid">
+
+      <div class="negocio-card">
+        <div class="negocio-num">01</div>
+        <h3 class="negocio-name">Atlas Logística</h3>
+        <p class="negocio-desc" data-pt="Transporte de passageiros e serviços para escritório. Operação consolidada em Paulínia, SP." data-en="Passenger transport and office services. Consolidated operation in Paulínia, SP.">Transporte de passageiros e serviços para escritório. Operação consolidada em Paulínia, SP.</p>
+        <div class="negocio-tag" data-pt="Logística" data-en="Logistics">Logística</div>
+      </div>
+
+      <div class="negocio-card">
+        <div class="negocio-num">02</div>
+        <h3 class="negocio-name">VT Negócios</h3>
+        <p class="negocio-desc" data-pt="Holding em construção com parceiro Túlio. Estrutura para múltiplos negócios verticais." data-en="Holding company under construction with partner Túlio. Structure for multiple business verticals.">Holding em construção com parceiro Túlio. Estrutura para múltiplos negócios verticais.</p>
+        <div class="negocio-tag" data-pt="Holding" data-en="Holding">Holding</div>
+      </div>
+
+      <div class="negocio-card">
+        <div class="negocio-num">03</div>
+        <h3 class="negocio-name">VTech</h3>
+        <p class="negocio-desc" data-pt="Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium." data-en="VT Negócios' technology arm. Apple product resale with premium positioning.">Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium.</p>
+        <div class="negocio-tag" data-pt="Tecnologia" data-en="Technology">Tecnologia</div>
+      </div>
+
+      <div class="negocio-card">
+        <div class="negocio-num">04</div>
+        <h3 class="negocio-name">Grupo Villela</h3>
+        <p class="negocio-desc" data-pt="Representação comercial focada em restituição de impostos para empresas. Prospecção ativa." data-en="Commercial representation focused on tax restitution for companies. Active prospecting.">Representação comercial focada em restituição de impostos para empresas. Prospecção ativa.</p>
+        <div class="negocio-tag" data-pt="Financeiro" data-en="Financial">Financeiro</div>
+      </div>
+
+      <div class="negocio-card negocio-destaque">
+        <div class="negocio-num">05</div>
+        <h3 class="negocio-name" data-pt="Consultoria" data-en="Consulting">Consultoria</h3>
+        <p class="negocio-desc" data-pt="Conhecimento convertido em consultoria aplicada. O que a vida cobrou pra ensinar, devolvido a quem está construindo." data-en="Knowledge converted into applied consulting. What life charged to teach, returned to those who are building.">Conhecimento convertido em consultoria aplicada. O que a vida cobrou pra ensinar, devolvido a quem está construindo.</p>
+        <div class="negocio-tag" data-pt="Em desenvolvimento" data-en="In development">Em desenvolvimento</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section" id="instagram">
+  <div class="container">
+    <div class="section-label">
+      <span class="section-num">05</span>
+      <span data-pt="Conteúdo" data-en="Content">Conteúdo</span>
+    </div>
+
+    <div class="instagram-block">
+      <div class="instagram-text">
+        <h2 class="section-title" data-pt="A construção acontece ao vivo." data-en="The construction happens live.">A construção acontece ao vivo.</h2>
+        <p class="body-text" data-pt="Fé, família, finanças, negócios, corpo e estilo de vida — documentados em tempo real. Sem motivação barata. Sem coach de palco. Com experiência real de quem está construindo." data-en="Faith, family, finances, business, body and lifestyle — documented in real time. No cheap motivation. No stage coach. With real experience from someone who is building.">
+          Fé, família, finanças, negócios, corpo e estilo de vida — documentados em tempo real. Sem motivação barata. Sem coach de palco. Com experiência real de quem está construindo.
+        </p>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn-primary">
+          <span data-pt="Seguir @vssp" data-en="Follow @vssp">Seguir @vssp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+      <div class="instagram-preview">
+        <div class="ig-frame">
+          <div class="ig-header">
+            <div class="ig-avatar"></div>
+            <div class="ig-meta">
+              <div class="ig-handle">@vssp.viniciussales</div>
+              <div class="ig-sub" data-pt="Em construção" data-en="Under construction">Em construção</div>
+            </div>
+          </div>
+          <div class="ig-posts-grid">
+            <div class="ig-post ig-post-dark">
+              <p data-pt="Saí de casa aos 15." data-en="Left home at 15.">Saí de casa aos 15.</p>
+            </div>
+            <div class="ig-post ig-post-ouro">
+              <p data-pt="&quot;Vamos juntos.&quot;" data-en="&quot;Let's do it together.&quot;">"Vamos juntos."</p>
+            </div>
+            <div class="ig-post ig-post-dark">
+              <p data-pt="Fé como decisão." data-en="Faith as decision.">Fé como decisão.</p>
+            </div>
+            <div class="ig-post ig-post-mid">
+              <p data-pt="Esforço sem direção é desperdício de vida." data-en="Effort without direction is wasted life.">Esforço sem direção é desperdício de vida.</p>
+            </div>
+            <div class="ig-post ig-post-ouro">
+              <p data-pt="Não perfeito. Mas coerente." data-en="Not perfect. But coherent.">Não perfeito. Mas coerente.</p>
+            </div>
+            <div class="ig-post ig-post-dark">
+              <p data-pt="Construindo ao vivo." data-en="Building live.">Construindo ao vivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section section-dark" id="contato">
+  <div class="container">
+    <div class="section-label light">
+      <span class="section-num">06</span>
+      <span data-pt="Contato" data-en="Contact">Contato</span>
+    </div>
+
+    <div class="contato-grid">
+      <div class="contato-text">
+        <h2 class="section-title light" data-pt="Fala comigo." data-en="Talk to me.">Fala comigo.</h2>
+        <p class="body-text light" data-pt="Para parcerias, consultorias ou qualquer assunto sério. Sem enrolação." data-en="For partnerships, consulting or any serious matter. No fuss.">Para parcerias, consultorias ou qualquer assunto sério. Sem enrolação.</p>
+      </div>
+
+      <div class="contato-links">
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="contato-info">
+            <div class="contato-label">Instagram</div>
+            <div class="contato-value">@vssp.viniciussales</div>
+          </div>
+          <svg class="contato-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+
+        <a href="mailto:contato@vssp.com.br" class="contato-item">
+          <div class="contato-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </div>
+          <div class="contato-info">
+            <div class="contato-label">Email</div>
+            <div class="contato-value">contato@vssp.com.br</div>
+          </div>
+          <svg class="contato-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">VSSP</div>
+        <p class="footer-tagline" data-pt="Um homem em construção em tempo real." data-en="A man building in real time.">Um homem em construção em tempo real.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a>
+        <a href="#historia" data-pt="História" data-en="Story">História</a>
+        <a href="#pilares" data-pt="Pilares" data-en="Pillars">Pilares</a>
+        <a href="#negocios" data-pt="Negócios" data-en="Business">Negócios</a>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank">@vssp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-pt="© 2025 Vinícius Padovani · Todos os direitos reservados" data-en="© 2025 Vinícius Padovani · All rights reserved">© 2025 Vinícius Padovani · Todos os direitos reservados</span>
+      <span class="footer-made" data-pt="Feito com intenção." data-en="Made with intention.">Feito com intenção.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
