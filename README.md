@@ -9,6 +9,7 @@ Publicado via GitHub Pages em: `https://SEU-USUARIO.github.io/vssp`
 ```
 vssp/
 ├── index.html   # Página principal
+├── shared.css   # Páginas
 ├── style.css    # Estilos completos
 ├── script.js    # Interações e bilíngue
 └── README.md    # Este arquivo
