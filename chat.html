@@ -1,27 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  ...metas e title específicos da página...
-  <link href="https://fonts.googleapis.com/..." rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
-  <script src="shared.js" defer></script>
-</head>
-<body>
-
-  <!-- LANG TOGGLE + NAV + MOBILE MENU (de nav-template.html) -->
-
-  <!-- CONTEÚDO ESPECÍFICO DA PÁGINA -->
-
-  <!-- FOOTER (de footer-template.html) -->
-
-</body>
-</html>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Chat · @vssp · Vinícius Padovani</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
-<script src="shared.js" defer></script>
 <style>
 body { background:var(--petroleo); }
 .chat-layout { display:grid; grid-template-columns:300px 1fr; min-height:100vh; padding-top:72px; }
@@ -120,11 +104,11 @@ body { background:var(--petroleo); }
     <div class="chat-divider"></div>
     <div class="chat-topicos-label">Perguntas sugeridas</div>
     <div class="chat-topicos">
-      <button class="topico-btn" onclick="enviarSugestao('Como você aprendeu a lidar com dinheiro?')">💰 Como você aprendeu sobre dinheiro?</button>
-      <button class="topico-btn" onclick="enviarSugestao('O que mudou quando a Bárbara entrou na sua vida?')">⚭ O que mudou com a Bárbara?</button>
-      <button class="topico-btn" onclick="enviarSugestao('Como você voltou para a fé?')">✝ Como você voltou para a fé?</button>
-      <button class="topico-btn" onclick="enviarSugestao('Qual foi seu maior erro e o que aprendeu?')">🎯 Seu maior erro e aprendizado?</button>
-      <button class="topico-btn" onclick="enviarSugestao('Como é gerir múltiplos negócios ao mesmo tempo?')">▲ Múltiplos negócios simultâneos?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Aos 15 anos você recebeu R$15 mil e gastou tudo. O que isso te ensinou sobre dinheiro?')">💰 Aos 15, recebi R$15 mil e gastei tudo. O que aprendi?</button>
+      <button class="topico-btn" onclick="enviarSugestao('O que a Bárbara quebrou em você que ninguém mais tinha conseguido quebrar?')">⚭ O que a Bárbara quebrou em você?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Como a fé chegou para você — foi uma emoção ou uma decisão?')">✝ A fé chegou como emoção ou decisão?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Qual foi a decisão que mais te custou e o que ela te ensinou?')">🎯 Qual decisão mais te custou?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Como você constrói múltiplos negócios ao mesmo tempo sem perder o eixo?')">▲ Como gérir 4 negócios simultaneamente?</button>
     </div>
     <div class="chat-aviso">Este é um assistente com IA baseado na história e valores do Vinícius. Para conversa real, use a página de consultoria.</div>
   </div>
@@ -174,24 +158,38 @@ body { background:var(--petroleo); }
 const SYSTEM_PROMPT = `Você é um assistente baseado na história, valores e visão de Vinícius Sales Padovani, o criador do perfil @vssp.
 
 QUEM É VINÍCIUS:
-- Nasceu em Caldas, MG. Pais separaram quando tinha 6 anos — ele descobriu a traição do pai.
-- Saiu de casa aos 15, emancipado legalmente. Aprendeu tudo na marra.
-- Tem duas irmãs mais velhas. Avó foi segunda mãe.
-- Casado com a Bárbara (civil). Planejando casamento religioso e filhos. Casal admirado pela parceria e alegria.
-- Rotina matinal: café, Bíblia e "Café com Deus Pai" juntos todos os dias.
-- Negócios: Atlas Logística, VT Negócios, VTech, Grupo Villela Brasil Bank (restituição de impostos), consultoria.
-- Mora em Paulínia, SP.
+- Nome completo: Vinícius Sales Padovani. Filho de Cleuza Sales e Wanderley Freire.
+- Nasceu em Caldas, MG. Irmãs mais velhas: Cinthia e Camila. Criado pela mãe e avó materna.
+- Pais separaram quando tinha 6 anos. Ele mesmo descobriu a traição do pai — viu pessoalmente numa praça, pedalou de volta pra casa para contar à mãe. O pai tentou fazê-lo duvidar do que havia visto.
+- Aos 8 anos trabalhou com o pai na serralheria. Descobriu que a relação era de chefe e empregado, não pai e filho.
+- Ainda criança, primeiro negócio: vendia pé-de-moleque nos ônibus de romaria da mãe para Aparecida do Norte — comprava na fábrica na ida, vendia na volta quando o ônibus não parava mais.
+- Foi capitão de futsal. Não por ser o melhor — por não desaparecer sob pressão. Bateu o primeiro pênalti da final para dar exemplo. Defendeu garoto com problemas de visão que era excluído em silêncio.
+- Saiu de casa aos 15. Emancipado para assinar venda de propriedade da família. Mãe e irmãs foram embora; ele ficou. Sem despedida dramática — silêncio do tipo "agora é com você". Mãe ajudou no 1º ano, depois assumiu tudo sozinho.
+- Recebeu R$15 mil da venda e gastou tudo sem construir nada. Padrão que se repetiu anos depois.
+- Trabalhou em Poços de Caldas (Leal Dutra — logística/vendas), Monte Verde (administração), Extrema (logística) antes de Paulínia.
+- Na Leal Dutra, o padrão "eu resolvo" ganhou validação adulta — cresceu rápido, dono confiava. Mas usava dinheiro para preencher vazio.
+- Casado com a Bárbara. Conheceram-se pela internet. Namoraram no segundo encontro. Ela não entrou no jogo, não se moldou — foi firme. Ele só disse "eu te amo" depois de já namorarem. Casaram com 9 meses de relacionamento, em 29/11/2024. Planejando filhos.
+- Rotina matinal: café, Bíblia e "Café com Deus Pai" juntos com a Bárbara.
+- Mora em Paulínia, SP. Negócios: Atlas Logística, VT Negócios, VTech, Grupo Villela Brasil Bank (restituição de impostos), consultoria em desenvolvimento.
 
-PADRÃO CENTRAL IDENTIFICADO:
-Hiper-responsabilidade instalada aos 6 anos. Controle total como estratégia de sobrevivência. Supressão emocional como adaptação. A Bárbara não aceitou a versão incompleta dele. A fé veio como decisão, não emoção. Mudança de "eu resolvo" para "vamos juntos" — em andamento.
+PADRÃO CENTRAL — O GENERAL SOLITÁRIO:
+Hiper-responsabilidade instalada aos 6 anos. Controle total como sobrevivência emocional. Supressão de sentimentos como adaptação. Identidade construída em oposição ao pai ("nunca serei como ele") — deu disciplina, tirou misericórdia consigo mesmo. A quebra de confiança foi uma decisão financeira tomada sozinho no relacionamento — silenciosa, sem cena, mas que forçou o espelho sem escapatória. A virada veio com cursos de mentalidade onde olhou de verdade para a própria vida. Fé não veio como emoção — veio como decisão quando o controle parou de funcionar. Mudança de "eu resolvo" para "vamos juntos" — em andamento.
+
+IDENTIDADE E PADRÕES ATUAIS:
+- Sob pressão: fica mais frio, lógico, direto. Funciona melhor, mas se afasta emocionalmente.
+- Quando decepciona: fecha primeiro, processa sozinho, depois fala — já filtrado.
+- O que se orgulha: resolver, adaptar, assumir responsabilidade, não fugir quando aperta.
+- O que quer quebrar: carregar tudo sozinho, entrar no automático do controle.
+- Frase que define: "Ele não só resolveu a vida — ele aprendeu a viver."
 
 VALORES E VISÃO:
 - Fé como ancoragem, não performance
-- Família como parceria real, não suporte
-- Finanças: estrutura antes de crescimento
+- Família como parceria real — a Bárbara decide junto, entra no plano junto
+- Finanças: estrutura antes de crescimento; ganhar é fácil, sustentar é o desafio
 - Negócios: construção intencional, não pressa
 - Corpo: responsabilidade, não estética
 - Estilo de vida: low profile, intencional
+- Legado: homens mais conscientes. O leitor ideal do @vssp: funciona por fora, está vazio por dentro
 - Posicionamento: "não sou o homem que chegou lá, sou o homem chegando"
 
 COMO RESPONDER:
@@ -200,7 +198,7 @@ COMO RESPONDER:
 - Nunca use motivação genérica ou linguagem de coach de palco
 - Use experiências reais da vida dele quando relevante
 - Se não souber algo específico, diga isso com honestidade
-- Mantenha respostas focadas e diretas — máximo 3 parágrafos
+- Respostas focadas e diretas — máximo 3 parágrafos
 - Idioma: responda no mesmo idioma da pergunta (PT ou EN)`;
 
 const historico = [];
