@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Produtos · @vssp · Vinícius Padovani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+.produtos-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:48px; }
+.produto-card {
+  background:var(--petroleo2); border:1px solid rgba(200,169,126,.12);
+  border-radius:16px; overflow:hidden; transition:transform .2s, border-color .2s;
+  display:flex; flex-direction:column;
+}
+.produto-card:hover { transform:translateY(-4px); border-color:rgba(200,169,126,.3); }
+.produto-card.destaque { border-color:rgba(200,169,126,.35); }
+
+.produto-badge { background:var(--petroleo); padding:40px; display:flex; align-items:center; justify-content:center; font-size:52px; position:relative; }
+.produto-badge-tag { position:absolute; top:16px; right:16px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--ouro); color:var(--petroleo); padding:4px 12px; border-radius:100px; font-weight:700; }
+.produto-badge-soon { background:rgba(242,237,216,.15); color:var(--bege); }
+
+.produto-body { padding:28px; flex:1; display:flex; flex-direction:column; }
+.produto-categoria { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:10px; }
+.produto-nome { font-family:var(--font-display); font-size:20px; color:var(--bege); margin-bottom:12px; }
+.produto-desc { font-size:14px; line-height:1.8; color:rgba(242,237,216,.5); margin-bottom:20px; flex:1; }
+.produto-includes { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
+.produto-includes li { font-size:13px; color:rgba(242,237,216,.55); display:flex; align-items:flex-start; gap:8px; }
+.produto-includes li::before { content:'✓'; color:var(--ouro); flex-shrink:0; }
+.produto-footer { display:flex; align-items:center; justify-content:space-between; padding-top:20px; border-top:1px solid rgba(200,169,126,.1); }
+.produto-preco { font-family:var(--font-display); font-size:24px; color:var(--ouro); }
+.produto-preco span { font-family:var(--font-mono); font-size:11px; color:var(--taupe); display:block; margin-bottom:2px; }
+
+/* EM BREVE */
+.em-breve-banner { background:rgba(200,169,126,.06); border:1px solid rgba(200,169,126,.15); border-radius:12px; padding:24px; text-align:center; margin-top:12px; }
+.em-breve-txt { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--taupe); opacity:.6; }
+
+/* NOTIFICAÇÃO */
+.notif-form { background:var(--petroleo2); border:1px solid rgba(200,169,126,.15); border-radius:16px; padding:40px; margin-top:60px; text-align:center; }
+.notif-titulo { font-family:var(--font-display); font-size:24px; color:var(--bege); margin-bottom:8px; }
+.notif-sub { font-size:14px; color:rgba(242,237,216,.45); margin-bottom:28px; }
+.notif-row { display:flex; gap:12px; max-width:480px; margin:0 auto; }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
+  <span class="lang-sep">·</span>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">VSSP</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="historia.html" class="nav-link">História</a>
+    <a href="manifesto.html" class="nav-link">Manifesto</a>
+    <a href="negocios.html" class="nav-link">Negócios</a>
+    <a href="consultoria.html" class="nav-link nav-cta">Consultoria</a>
+  </div>
+  <button class="nav-menu" id="navMenu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-link">Início</a>
+  <a href="historia.html" class="mobile-link">História</a>
+  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-frame"></div>
+  <div class="page-hero-inner fade-up">
+    <div class="page-kicker">Produtos · @vssp</div>
+    <h1 class="page-title" data-pt="Ferramentas para<br><span>quem está construindo.</span>" data-en="Tools for<br><span>those who are building.</span>">Ferramentas para<br><span>quem está construindo.</span></h1>
+    <p class="page-subtitle" data-pt="Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real — para quem quer estrutura, não inspiração vaga." data-en="Not a motivation course. These are practical resources based on what I learned in real life — for those who want structure, not vague inspiration.">Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real — para quem quer estrutura, não inspiração vaga.</p>
+  </div>
+</div>
+
+<section class="section section-dark">
+<div class="container">
+  <div class="sec-label light" data-pt="Disponíveis agora" data-en="Available now">Disponíveis agora</div>
+  <h2 class="sec-title light" data-pt="Recursos que você pode usar hoje." data-en="Resources you can use today.">Recursos que você pode usar hoje.</h2>
+
+  <div class="produtos-grid">
+
+    <!-- PLANILHA FINANCEIRA -->
+    <div class="produto-card destaque">
+      <div class="produto-badge">
+        📊
+        <span class="produto-badge-tag" data-pt="Grátis" data-en="Free">Grátis</span>
+      </div>
+      <div class="produto-body">
+        <div class="produto-categoria" data-pt="Planilha · Finanças" data-en="Spreadsheet · Finances">Planilha · Finanças</div>
+        <div class="produto-nome" data-pt="Planilha de Controle Financeiro @vssp" data-en="@vssp Financial Control Spreadsheet">Planilha de Controle Financeiro @vssp</div>
+        <div class="produto-desc" data-pt="A planilha que uso para dar destino a cada real antes do mês começar. Simples, sem fórmulas complicadas, direto ao ponto." data-en="The spreadsheet I use to allocate every dollar before the month begins. Simple, no complex formulas, straight to the point.">A planilha que uso para dar destino a cada real antes do mês começar. Simples, sem fórmulas complicadas, direto ao ponto.</div>
+        <ul class="produto-includes">
+          <li data-pt="Controle de entradas e saídas por categoria" data-en="Income and expense tracking by category">Controle de entradas e saídas por categoria</li>
+          <li data-pt="Planejamento mensal com destino definido" data-en="Monthly planning with defined allocation">Planejamento mensal com destino definido</li>
+          <li data-pt="Reserva de emergência e metas" data-en="Emergency reserve and goals">Reserva de emergência e metas</li>
+          <li data-pt="Revisão semanal (15 min por semana)" data-en="Weekly review (15 min per week)">Revisão semanal (15 min por semana)</li>
+        </ul>
+        <div class="produto-footer">
+          <div class="produto-preco"><span data-pt="Investimento" data-en="Investment">Investimento</span>R$ 0</div>
+          <button class="btn btn-primary" onclick="openWhatsApp('Olá Vinícius, quero a planilha de controle financeiro gratuita do @vssp!')" data-pt="Baixar grátis" data-en="Download free">Baixar grátis</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUIA DO TESTE -->
+    <div class="produto-card">
+      <div class="produto-badge">
+        📋
+        <span class="produto-badge-tag" data-pt="Grátis" data-en="Free">Grátis</span>
+      </div>
+      <div class="produto-body">
+        <div class="produto-categoria" data-pt="Guia · Desenvolvimento" data-en="Guide · Development">Guia · Desenvolvimento</div>
+        <div class="produto-nome" data-pt="Guia de Resultado — Teste de Masculinidade" data-en="Result Guide — Masculinity Test">Guia de Resultado — Teste de Masculinidade</div>
+        <div class="produto-desc" data-pt="PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história." data-en="Complete PDF with in-depth analysis of the 4 test profiles + action plan for each. Based on my own story.">PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história.</div>
+        <ul class="produto-includes">
+          <li data-pt="Análise dos 4 perfis de masculinidade" data-en="Analysis of 4 masculinity profiles">Análise dos 4 perfis de masculinidade</li>
+          <li data-pt="Plano de ação de 90 dias por perfil" data-en="90-day action plan by profile">Plano de ação de 90 dias por perfil</li>
+          <li data-pt="Os padrões que ninguém nomeia" data-en="The patterns no one names">Os padrões que ninguém nomeia</li>
+        </ul>
+        <div class="produto-footer">
+          <div class="produto-preco"><span>Investimento</span>R$ 0</div>
+          <a href="teste-masculinidade.html" class="btn btn-primary" data-pt="Fazer o teste" data-en="Take the test">Fazer o teste</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EM BREVE -->
+  <div style="margin-top:60px;">
+    <div class="sec-label light" data-pt="Em breve" data-en="Coming soon">Em breve</div>
+    <h2 class="sec-title light" data-pt="O que está sendo construído." data-en="What's being built.">O que está sendo construído.</h2>
+  </div>
+
+  <div class="produtos-grid">
+
+    <div class="produto-card">
+      <div class="produto-badge">
+        📖
+        <span class="produto-badge-tag produto-badge-soon" data-pt="Em breve" data-en="Soon">Em breve</span>
+      </div>
+      <div class="produto-body">
+        <div class="produto-categoria">Livro Digital</div>
+        <div class="produto-nome" data-pt="Eu Resolvo — e o que isso me custou" data-en="I Handle It — and what it cost me">Eu Resolvo — e o que isso me custou</div>
+        <div class="produto-desc" data-pt="A história completa da virada de 'eu resolvo sozinho' para 'vamos juntos'. Com os padrões identificados, as ferramentas e o caminho que funcionou." data-en="The complete story of the turn from 'I handle it alone' to 'let's do it together'. With identified patterns, tools and the path that worked.">A história completa da virada de "eu resolvo sozinho" para "vamos juntos". Com os padrões identificados, as ferramentas e o caminho que funcionou.</div>
+        <div class="em-breve-banner"><div class="em-breve-txt" data-pt="PREVISÃO: 2º SEMESTRE 2025" data-en="EXPECTED: 2ND HALF 2025">PREVISÃO: 2º SEMESTRE 2025</div></div>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="produto-badge">
+        🎯
+        <span class="produto-badge-tag produto-badge-soon">Em breve</span>
+      </div>
+      <div class="produto-body">
+        <div class="produto-categoria">Curso Online</div>
+        <div class="produto-nome" data-pt="Estrutura Antes de Crescimento" data-en="Structure Before Growth">Estrutura Antes de Crescimento</div>
+        <div class="produto-desc" data-pt="Curso prático de estruturação financeira e de negócios para homens que trabalham muito e sentem que não avançam." data-en="Practical course on financial and business structuring for men who work hard and feel they aren't advancing.">Curso prático de estruturação financeira e de negócios para homens que trabalham muito e sentem que não avançam.</div>
+        <div class="em-breve-banner"><div class="em-breve-txt">EM DESENVOLVIMENTO</div></div>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="produto-badge">
+        🔖
+        <span class="produto-badge-tag produto-badge-soon">Em breve</span>
+      </div>
+      <div class="produto-body">
+        <div class="produto-categoria">Kit Digital</div>
+        <div class="produto-nome" data-pt="Kit Construção Masculina" data-en="Masculine Construction Kit">Kit Construção Masculina</div>
+        <div class="produto-desc" data-pt="Planilhas, templates, roteiros e checklists para as 7 áreas da vida. O sistema que uso para manter tudo em movimento ao mesmo tempo." data-en="Spreadsheets, templates, scripts and checklists for the 7 life areas. The system I use to keep everything moving simultaneously.">Planilhas, templates, roteiros e checklists para as 7 áreas da vida. O sistema que uso para manter tudo em movimento ao mesmo tempo.</div>
+        <div class="em-breve-banner"><div class="em-breve-txt">EM DESENVOLVIMENTO</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NOTIFICAÇÃO -->
+  <div class="notif-form" data-reveal>
+    <div class="notif-titulo" data-pt="Quer ser avisado primeiro?" data-en="Want to be notified first?">Quer ser avisado primeiro?</div>
+    <div class="notif-sub" data-pt="Deixe seu WhatsApp e aviso quando cada produto for lançado." data-en="Leave your WhatsApp and I'll notify you when each product launches.">Deixe seu WhatsApp e aviso quando cada produto for lançado.</div>
+    <div class="notif-row">
+      <input class="form-input" id="notifWa" type="tel" placeholder="(XX) XXXXX-XXXX" style="flex:1;">
+      <button class="btn btn-primary" onclick="notificar()" data-pt="Avisa eu" data-en="Notify me">Avisa eu</button>
+    </div>
+    <div id="notifOk" style="display:none;margin-top:16px;font-family:var(--font-mono);font-size:11px;color:var(--ouro);letter-spacing:2px;" data-pt="ANOTADO. TE AVISO EM BREVE." data-en="NOTED. I'LL NOTIFY YOU SOON.">ANOTADO. TE AVISO EM BREVE.</div>
+  </div>
+
+</div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo">VSSP</div><div class="footer-tag">Um homem em construção em tempo real.</div></div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a><a href="historia.html">História</a>
+        <a href="manifesto.html">Manifesto</a><a href="consultoria.html">Consultoria</a>
+        <a href="produtos.html">Produtos</a><a href="teste-masculinidade.html">Teste</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Vinícius Padovani · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126,.4);">Feito com intenção.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+function notificar() {
+  const wa = document.getElementById('notifWa').value;
+  if (!wa) return;
+  openWhatsApp(`Olá Vinícius! Quero ser avisado quando lançar os produtos do @vssp. Meu WhatsApp: ${wa}`);
+  document.getElementById('notifOk').style.display = 'block';
+}
+</script>
+</body>
+</html>
