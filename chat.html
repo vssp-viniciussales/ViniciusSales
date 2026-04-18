@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Chat · @vssp · Vinícius Padovani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+body { background:var(--petroleo); }
+.chat-layout { display:grid; grid-template-columns:300px 1fr; min-height:100vh; padding-top:72px; }
+
+/* SIDEBAR */
+.chat-sidebar { background:var(--petroleo2); border-right:1px solid rgba(200,169,126,.1); padding:32px 24px; display:flex; flex-direction:column; }
+.chat-avatar { width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--petroleo3), var(--petroleo)); border:2px solid var(--ouro); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:20px; color:var(--ouro); margin-bottom:16px; }
+.chat-nome { font-family:var(--font-display); font-size:18px; color:var(--bege); margin-bottom:4px; }
+.chat-status { display:flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.35); letter-spacing:1px; margin-bottom:24px; }
+.chat-status-dot { width:6px; height:6px; border-radius:50%; background:#4CAF50; animation:pulse 2s ease-in-out infinite; }
+.chat-bio { font-size:13px; line-height:1.8; color:rgba(242,237,216,.45); margin-bottom:24px; }
+.chat-divider { height:1px; background:rgba(200,169,126,.1); margin-bottom:24px; }
+.chat-topicos-label { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.6; margin-bottom:14px; }
+.chat-topicos { display:flex; flex-direction:column; gap:8px; }
+.topico-btn { background:rgba(255,255,255,.04); border:1px solid rgba(200,169,126,.1); border-radius:8px; padding:10px 14px; font-size:13px; color:rgba(242,237,216,.6); cursor:pointer; text-align:left; transition:all .2s; }
+.topico-btn:hover { border-color:rgba(200,169,126,.3); color:var(--bege); background:rgba(200,169,126,.06); }
+.chat-aviso { margin-top:auto; padding-top:24px; font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.2); line-height:1.7; letter-spacing:.5px; }
+
+/* CHAT MAIN */
+.chat-main { display:flex; flex-direction:column; height:calc(100vh - 72px); }
+.chat-header { padding:20px 32px; border-bottom:1px solid rgba(200,169,126,.1); display:flex; align-items:center; gap:12px; }
+.chat-header-info { }
+.chat-header-nome { font-family:var(--font-display); font-size:16px; color:var(--bege); }
+.chat-header-sub { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.3); letter-spacing:1px; }
+
+.chat-messages { flex:1; overflow-y:auto; padding:32px; display:flex; flex-direction:column; gap:20px; }
+.chat-messages::-webkit-scrollbar { width:4px; }
+.chat-messages::-webkit-scrollbar-track { background:transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background:rgba(200,169,126,.2); border-radius:2px; }
+
+.msg { display:flex; gap:12px; max-width:80%; animation:fadeUp .3s var(--ease) both; }
+.msg.user { align-self:flex-end; flex-direction:row-reverse; }
+.msg-avatar { width:36px; height:36px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:12px; }
+.msg-avatar.vssp { background:linear-gradient(135deg, var(--petroleo3), var(--petroleo)); border:1px solid rgba(200,169,126,.3); color:var(--ouro); }
+.msg-avatar.user { background:rgba(200,169,126,.2); color:var(--ouro); font-size:14px; }
+.msg-bubble { padding:14px 18px; border-radius:12px; font-size:15px; line-height:1.7; }
+.msg-bubble.vssp { background:var(--petroleo2); border:1px solid rgba(200,169,126,.1); color:rgba(242,237,216,.8); border-radius:4px 12px 12px 12px; }
+.msg-bubble.user { background:var(--ouro); color:var(--petroleo); font-weight:600; border-radius:12px 4px 12px 12px; }
+.msg-time { font-family:var(--font-mono); font-size:9px; color:rgba(242,237,216,.2); margin-top:4px; letter-spacing:1px; }
+
+.typing { display:none; }
+.typing.visible { display:flex; }
+.typing-dots { display:flex; gap:4px; align-items:center; padding:14px 18px; background:var(--petroleo2); border:1px solid rgba(200,169,126,.1); border-radius:4px 12px 12px 12px; }
+.typing-dot { width:6px; height:6px; border-radius:50%; background:rgba(200,169,126,.4); animation:typingDot 1.2s ease-in-out infinite; }
+.typing-dot:nth-child(2) { animation-delay:.2s; }
+.typing-dot:nth-child(3) { animation-delay:.4s; }
+@keyframes typingDot { 0%,80%,100% { transform:scale(1); opacity:.4; } 40% { transform:scale(1.2); opacity:1; } }
+
+/* INPUT */
+.chat-input-wrap { padding:20px 32px; border-top:1px solid rgba(200,169,126,.1); display:flex; gap:12px; align-items:flex-end; }
+.chat-input {
+  flex:1; background:rgba(255,255,255,.05); border:1px solid rgba(200,169,126,.15);
+  border-radius:12px; padding:14px 18px; font-family:var(--font-sans); font-size:15px;
+  color:var(--bege); outline:none; resize:none; max-height:120px; min-height:52px;
+  transition:border-color .2s;
+}
+.chat-input::placeholder { color:rgba(242,237,216,.25); }
+.chat-input:focus { border-color:rgba(200,169,126,.4); }
+.chat-send { width:48px; height:48px; border-radius:10px; background:var(--ouro); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--petroleo); transition:background .2s, transform .2s; flex-shrink:0; }
+.chat-send:hover { background:var(--ouro-dark); transform:scale(1.05); }
+.chat-send:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+
+@media(max-width:768px) {
+  .chat-layout { grid-template-columns:1fr; }
+  .chat-sidebar { display:none; }
+  .chat-main { height:calc(100vh - 72px); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav" style="background:rgba(14,27,44,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,126,.1);">
+  <a href="index.html" class="nav-logo">VSSP</a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="historia.html" class="nav-link">História</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="consultoria.html" class="nav-link nav-cta">Consultoria</a>
+  </div>
+  <button class="nav-menu" id="navMenu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-link">Início</a>
+  <a href="historia.html" class="mobile-link">História</a>
+  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+</div>
+
+<div class="chat-layout">
+
+  <!-- SIDEBAR -->
+  <div class="chat-sidebar">
+    <div class="chat-avatar">VP</div>
+    <div class="chat-nome">Vinícius Padovani</div>
+    <div class="chat-status"><span class="chat-status-dot"></span>Assistente ativo</div>
+    <div class="chat-bio">Este assistente foi treinado com a história, valores e visão do Vinícius. Pode responder sobre fé, família, finanças, negócios e desenvolvimento masculino.</div>
+    <div class="chat-divider"></div>
+    <div class="chat-topicos-label">Perguntas sugeridas</div>
+    <div class="chat-topicos">
+      <button class="topico-btn" onclick="enviarSugestao('Como você aprendeu a lidar com dinheiro?')">💰 Como você aprendeu sobre dinheiro?</button>
+      <button class="topico-btn" onclick="enviarSugestao('O que mudou quando a Bárbara entrou na sua vida?')">⚭ O que mudou com a Bárbara?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Como você voltou para a fé?')">✝ Como você voltou para a fé?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Qual foi seu maior erro e o que aprendeu?')">🎯 Seu maior erro e aprendizado?</button>
+      <button class="topico-btn" onclick="enviarSugestao('Como é gerir múltiplos negócios ao mesmo tempo?')">▲ Múltiplos negócios simultâneos?</button>
+    </div>
+    <div class="chat-aviso">Este é um assistente com IA baseado na história e valores do Vinícius. Para conversa real, use a página de consultoria.</div>
+  </div>
+
+  <!-- CHAT -->
+  <div class="chat-main">
+    <div class="chat-header">
+      <div class="msg-avatar vssp">VP</div>
+      <div class="chat-header-info">
+        <div class="chat-header-nome">Assistente @vssp</div>
+        <div class="chat-header-sub">Baseado na história e valores de Vinícius Padovani</div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg">
+        <div class="msg-avatar vssp">VP</div>
+        <div>
+          <div class="msg-bubble vssp">Olá. Sou um assistente baseado na história e nos valores do Vinícius Padovani.<br><br>Posso conversar sobre fé, família, finanças, negócios, desenvolvimento masculino e a trajetória dele.<br><br>O que você quer saber?</div>
+          <div class="msg-time">Agora</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="typing" id="typing">
+      <div style="padding:0 32px 0;display:flex;gap:12px;align-items:flex-start;">
+        <div class="msg-avatar vssp">VP</div>
+        <div class="typing-dots">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-wrap">
+      <textarea class="chat-input" id="chatInput" placeholder="Escreva sua pergunta..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="chat-send" id="sendBtn" onclick="enviar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const SYSTEM_PROMPT = `Você é um assistente baseado na história, valores e visão de Vinícius Sales Padovani, o criador do perfil @vssp.
+
+QUEM É VINÍCIUS:
+- Nasceu em Caldas, MG. Pais separaram quando tinha 6 anos — ele descobriu a traição do pai.
+- Saiu de casa aos 15, emancipado legalmente. Aprendeu tudo na marra.
+- Tem duas irmãs mais velhas. Avó foi segunda mãe.
+- Casado com a Bárbara (civil). Planejando casamento religioso e filhos. Casal admirado pela parceria e alegria.
+- Rotina matinal: café, Bíblia e "Café com Deus Pai" juntos todos os dias.
+- Negócios: Atlas Logística, VT Negócios, VTech, Grupo Villela Brasil Bank (restituição de impostos), consultoria.
+- Mora em Paulínia, SP.
+
+PADRÃO CENTRAL IDENTIFICADO:
+Hiper-responsabilidade instalada aos 6 anos. Controle total como estratégia de sobrevivência. Supressão emocional como adaptação. A Bárbara não aceitou a versão incompleta dele. A fé veio como decisão, não emoção. Mudança de "eu resolvo" para "vamos juntos" — em andamento.
+
+VALORES E VISÃO:
+- Fé como ancoragem, não performance
+- Família como parceria real, não suporte
+- Finanças: estrutura antes de crescimento
+- Negócios: construção intencional, não pressa
+- Corpo: responsabilidade, não estética
+- Estilo de vida: low profile, intencional
+- Posicionamento: "não sou o homem que chegou lá, sou o homem chegando"
+
+COMO RESPONDER:
+- Tom: direto, sem enrolação, fundo quando o assunto pede
+- Voz: primeira pessoa quando falar como Vinícius
+- Nunca use motivação genérica ou linguagem de coach de palco
+- Use experiências reais da vida dele quando relevante
+- Se não souber algo específico, diga isso com honestidade
+- Mantenha respostas focadas e diretas — máximo 3 parágrafos
+- Idioma: responda no mesmo idioma da pergunta (PT ou EN)`;
+
+const historico = [];
+
+async function enviar() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  adicionarMensagem(msg, 'user');
+  input.value = '';
+  autoResize(input);
+  document.getElementById('sendBtn').disabled = true;
+  document.getElementById('typing').classList.add('visible');
+  scrollBottom();
+
+  historico.push({ role: 'user', content: msg });
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 500,
+        system: SYSTEM_PROMPT,
+        messages: historico
+      })
+    });
+
+    const data = await resp.json();
+    const texto = data.content?.[0]?.text || 'Não consegui processar. Tente novamente.';
+    historico.push({ role: 'assistant', content: texto });
+
+    document.getElementById('typing').classList.remove('visible');
+    adicionarMensagem(texto, 'vssp');
+  } catch(e) {
+    document.getElementById('typing').classList.remove('visible');
+    adicionarMensagem('Algo deu errado. Para conversa direta, use o WhatsApp ou a página de consultoria.', 'vssp');
+  }
+
+  document.getElementById('sendBtn').disabled = false;
+  scrollBottom();
+}
+
+function adicionarMensagem(texto, tipo) {
+  const wrap = document.getElementById('chatMessages');
+  const agora = new Date().toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+
+  const div = document.createElement('div');
+  div.className = `msg ${tipo === 'user' ? 'user' : ''}`;
+
+  const textoFormatado = texto.replace(/\n/g, '<br>');
+
+  div.innerHTML = `
+    <div class="msg-avatar ${tipo}">${tipo === 'vssp' ? 'VP' : '👤'}</div>
+    <div>
+      <div class="msg-bubble ${tipo}">${textoFormatado}</div>
+      <div class="msg-time">${agora}</div>
+    </div>
+  `;
+  wrap.appendChild(div);
+  scrollBottom();
+}
+
+function scrollBottom() {
+  const wrap = document.getElementById('chatMessages');
+  setTimeout(() => wrap.scrollTop = wrap.scrollHeight, 100);
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar(); }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function enviarSugestao(texto) {
+  document.getElementById('chatInput').value = texto;
+  enviar();
+}
+</script>
+</body>
+</html>
