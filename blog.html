@@ -2,61 +2,36 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog · @vssp · Vinícius Padovani — General Solitário, Masculinidade e Construção de Vida</title>
-<meta name="description" content="Reflexões profundas sobre fé, família, finanças, negócios e identidade masculina. O conceito do General Solitário — o padrão que sabota homens de alta performance em silêncio.">
-<meta name="keywords" content="general solitário, masculinidade, desenvolvimento masculino, identidade masculina, homem de alta performance, fé e família, finanças pessoais, vinícius padovani, vssp">
-<meta name="author" content="Vinícius Padovani">
-<link rel="canonical" href="https://vssp-viniciussales.github.io/vsp-viniciussales/blog.html">
-<meta property="og:title" content="Blog @vssp · General Solitário e Construção de Vida Masculina">
-<meta property="og:description" content="Reflexões sobre o padrão do General Solitário — o homem que funciona perfeitamente por fora e está falhando em silêncio por dentro.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vssp-viniciussales.github.io/vsp-viniciussales/blog.html">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog @vssp · Vinícius Padovani">
-<meta name="twitter:description" content="O padrão do General Solitário e a construção de uma vida masculina real.">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blog @vssp — Vinícius Padovani",
-  "description": "Reflexões sobre fé, família, finanças, negócios e o conceito do General Solitário",
-  "url": "https://vssp-viniciussales.github.io/vsp-viniciussales/blog.html",
-  "author": {
-    "@type": "Person",
-    "name": "Vinícius Padovani",
-    "url": "https://vssp-viniciussales.github.io/vsp-viniciussales/"
-  }
-}
-</script>
+<title>Blog · @vssp · Vinícius Padovani</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
 .blog-grid { display:grid; grid-template-columns:2fr 1fr; gap:48px; margin-top:48px; }
 .artigo-destaque {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126,.15);
+  background:var(--petroleo2); border:1px solid rgba(200,169,126.15);
   border-radius:16px; overflow:hidden; cursor:pointer;
   transition:border-color .2s, transform .2s;
 }
-.artigo-destaque:hover { border-color:rgba(200,169,126,.4); transform:translateY(-4px); }
+.artigo-destaque:hover { border-color:rgba(200,169,126.4); transform:translateY(-4px); }
 .artigo-banner { height:240px; background:linear-gradient(135deg, var(--petroleo) 0%, var(--petroleo3) 100%); display:flex; align-items:center; justify-content:center; font-size:72px; position:relative; }
 .artigo-banner-tag { position:absolute; top:20px; left:20px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--ouro); color:var(--petroleo); padding:4px 14px; border-radius:100px; font-weight:700; }
 .artigo-corpo { padding:32px; }
 .artigo-categoria { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:10px; }
 .artigo-titulo { font-family:var(--font-display); font-size:clamp(18px,2.5vw,26px); color:var(--bege); margin-bottom:12px; line-height:1.3; }
-.artigo-resumo { font-size:14px; line-height:1.8; color:rgba(242,237,216,.5); margin-bottom:20px; }
-.artigo-meta { display:flex; align-items:center; gap:16px; font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.3); letter-spacing:1px; }
+.artigo-resumo { font-size:14px; line-height:1.8; color:rgba(242,237,216.5); margin-bottom:20px; }
+.artigo-meta { display:flex; align-items:center; gap:16px; font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.3); letter-spacing:1px; }
 
 /* LISTA LATERAL */
 .lista-artigos { display:flex; flex-direction:column; gap:16px; }
 .artigo-mini {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126,.1);
+  background:var(--petroleo2); border:1px solid rgba(200,169,126.1);
   border-radius:12px; padding:20px; cursor:pointer; transition:border-color .2s;
 }
-.artigo-mini:hover { border-color:rgba(200,169,126,.35); }
+.artigo-mini:hover { border-color:rgba(200,169,126.35); }
 .am-cat { font-family:var(--font-mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:6px; }
 .am-titulo { font-family:var(--font-display); font-size:15px; color:var(--bege); margin-bottom:6px; line-height:1.3; }
-.am-meta { font-family:var(--font-mono); font-size:9px; color:rgba(242,237,216,.25); }
+.am-meta { font-family:var(--font-mono); font-size:9px; color:rgba(242,237,216.25); }
 
 /* ARTIGO ABERTO */
 .artigo-open { display:none; }
@@ -64,8 +39,8 @@
 .ao-back { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--taupe); cursor:pointer; display:flex; align-items:center; gap:8px; margin-bottom:32px; }
 .ao-back:hover { color:var(--ouro); }
 .ao-titulo { font-family:var(--font-display); font-size:clamp(28px,5vw,52px); color:var(--bege); margin-bottom:20px; line-height:1.15; }
-.ao-meta { font-family:var(--font-mono); font-size:11px; color:rgba(242,237,216,.3); letter-spacing:1px; margin-bottom:48px; }
-.ao-corpo { font-size:17px; line-height:2; color:rgba(242,237,216,.7); max-width:680px; }
+.ao-meta { font-family:var(--font-mono); font-size:11px; color:rgba(242,237,216.3); letter-spacing:1px; margin-bottom:48px; }
+.ao-corpo { font-size:17px; line-height:2; color:rgba(242,237,216.7); max-width:680px; }
 .ao-corpo p { margin-bottom:24px; }
 .ao-corpo strong { color:var(--bege); }
 .ao-corpo em { color:var(--ouro); font-style:normal; }
@@ -74,8 +49,8 @@
 
 /* CATEGORIAS */
 .cats { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
-.cat-btn { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:100px; border:1px solid rgba(200,169,126,.2); color:rgba(242,237,216,.45); cursor:pointer; transition:all .2s; background:none; }
-.cat-btn:hover, .cat-btn.active { border-color:var(--ouro); color:var(--ouro); }
+.cat-btn { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:100px; border:1px solid rgba(200,169,126.2); color:rgba(242,237,216.45); cursor:pointer; transition:all .2s; background:none; }
+.cat-btn:hover.cat-btn.active { border-color:var(--ouro); color:var(--ouro); }
 </style>
 </head>
 <body>
@@ -138,14 +113,14 @@
       </div>
       <div class="artigo-corpo">
         <div class="artigo-categoria">Mentalidade</div>
-        <div class="artigo-titulo">Eu sei resolver tudo. Mas não sei viver. — A diferença que ninguém explica.</div>
+        <div class="artigo-titulo">Eu sei resolver tudo. Mas não sei viver: a diferença que ninguém explica.</div>
         <div class="artigo-resumo">O problema não é competência. É presença. Pode ser extremamente capaz de funcionar e completamente ausente de viver. Isso tem um nome, tem origem e tem saída.</div>
         <div class="artigo-meta">
           <span>Vinícius Padovani</span>
           <span>·</span>
           <span>8 min de leitura</span>
           <span>·</span>
-          <span>Abr 2025</span>
+          <span>Abr 2026</span>
         </div>
       </div>
     </div>
@@ -155,22 +130,22 @@
       <div class="artigo-mini" onclick="abrirArtigo(1)">
         <div class="am-cat">Finanças</div>
         <div class="am-titulo">Dinheiro sem destino não é liberdade. É caos com saldo positivo.</div>
-        <div class="am-meta">5 min · Abr 2025</div>
+        <div class="am-meta">5 min · Abr 2026</div>
       </div>
       <div class="artigo-mini" onclick="abrirArtigo(2)">
         <div class="am-cat">Família</div>
         <div class="am-titulo">A decisão que mais me custou não foi financeira.</div>
-        <div class="am-meta">6 min · Abr 2025</div>
+        <div class="am-meta">6 min · Abr 2026</div>
       </div>
       <div class="artigo-mini" onclick="abrirArtigo(3)">
         <div class="am-cat">Fé</div>
-        <div class="am-titulo">Fé como decisão — o que muda quando você para de esperar sentir.</div>
-        <div class="am-meta">7 min · Mar 2025</div>
+        <div class="am-titulo">Fé como decisão: o que muda quando você para de esperar sentir.</div>
+        <div class="am-meta">7 min · Mar 2026</div>
       </div>
       <div class="artigo-mini" onclick="abrirArtigo(4)">
         <div class="am-cat">Negócios</div>
         <div class="am-titulo">Por que homens esforçados ficam parados no mesmo lugar.</div>
-        <div class="am-meta">5 min · Mar 2025</div>
+        <div class="am-meta">5 min · Mar 2026</div>
       </div>
     </div>
 
@@ -197,8 +172,8 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126,.4);">Feito com intenção.</span>
+      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
     </div>
   </div>
 </footer>
@@ -207,163 +182,86 @@
 <script>
 const artigos = [
   {
-    titulo: "General Solitário — o padrão que ninguém fala sobre homens de alta performance.",
-    categoria: "Mentalidade", data: "Abril 2026", tempo: "10 min",
+    titulo: "Eu sei resolver tudo. Mas não sei viver: a diferença que ninguém explica.",
+    categoria: "Mentalidade", data: "Abril 2025", tempo: "8 min",
     corpo: `
-      <h2>O que é o General Solitário</h2>
-      <p>O <strong>General Solitário</strong> é o padrão comportamental de homens que funcionam perfeitamente por fora e estão falhando silenciosamente por dentro. Que entregam no trabalho e somem em casa. Que resolvem tudo e não pedem nada. Que confundem controle com força e solidão com independência.</p>
-      <p>Eu identifiquei esse padrão em mim depois de anos operando nele sem perceber. E quando dei nome a ele, comecei a reconhecê-lo em quase todo homem que conheço que funciona bem externamente.</p>
-      <blockquote>"O General Solitário não é um vilão. É um sobrevivente que nunca recebeu permissão para parar de guerrear."</blockquote>
-
-      <h3>Como o General Solitário nasce</h3>
-      <p>Ele não nasce do nada. Nasce de uma necessidade real. Em algum momento da vida — infância, adolescência, uma crise específica — esse homem aprendeu que depender era arriscado. Que confiar podia custar caro. Que a única variável verdadeiramente confiável era ele mesmo.</p>
-      <p>No meu caso, aprendi isso aos 6 anos. Vi a traição do meu pai. Pedalei de volta para casa para contar à minha mãe. E quando meu pai tentou me fazer duvidar do que eu havia visto com os próprios olhos, algo quebrou que demorou décadas para eu entender completamente.</p>
-      <p>Aquele dia instalou uma equação que ainda operava em mim aos 30 anos: <strong>sentir = vulnerabilidade. Vulnerabilidade = risco. Controle = sobrevivência.</strong></p>
-
-      <h3>Os 5 sinais de que você é um General Solitário</h3>
-      <p><strong>1. Você resolve antes de perguntar.</strong> Não é eficiência — é controle disfarçado de competência. Você analisa, decide e age. E depois apresenta a solução para quem deveria ter sido incluído antes.</p>
-      <p><strong>2. Sob pressão, você some emocionalmente.</strong> Fica mais frio, mais lógico, mais direto. Você funciona melhor — e quem está do seu lado sente que você foi embora sem sair do lugar.</p>
-      <p><strong>3. Você não sabe pedir ajuda sem sentir fraqueza.</strong> Pedir é possível. Mas cada vez que você pede, existe um custo interno. Então você evita. E vai acumulando um peso que carrega chamando de responsabilidade.</p>
-      <p><strong>4. Você está presente fisicamente e ausente de verdade.</strong> Está no jantar, mas está pensando no problema que não resolveu. Está com os filhos, mas parte de você ainda está no trabalho.</p>
-      <p><strong>5. Você funciona bem — mas não sente que avança.</strong> Muito esforço, pouco movimento real. Não é falta de trabalho. É ausência de direção — e de alguém construindo junto.</p>
-
-      <h3>O que o General Solitário custa</h3>
-      <p>Ele vence todas as batalhas externas. E perde, em silêncio, o que mais importa: a presença real em casa, a parceria genuína no casamento, a paz que nenhum resultado externo preenche.</p>
-      <p>No meu caso, o custo apareceu dentro do meu casamento com a Bárbara. Uma decisão financeira tomada sozinho. Ela não gritou. Não fez cena. Ficou claro que a confiança havia sido afetada. Esse silêncio pesou mais do que qualquer explosão jamais pesaria.</p>
-      <p>Foi ali que o espelho não teve mais como ser evitado.</p>
-
-      <h3>Como sair do General Solitário</h3>
-      <p>Sair não é parar de resolver. É aprender que existe espaço entre o problema e a solução onde você pode estar presente. Onde você pode sentir sem precisar imediatamente agir.</p>
-      <p>A transição que estou vivendo — de "eu resolvo" para "vamos juntos" — não é mudança de comportamento superficial. É revisão de um sistema de crenças instalado aos 6 anos. E está acontecendo ao vivo, documentado aqui no @vssp.</p>
-      <p>Se você se reconheceu em algum ponto desse texto, faça o teste de masculinidade no link da bio. É gratuito e leva 5 minutos. O resultado vai nomear exatamente em qual estágio você está — e qual é o próximo passo específico para você.</p>
-    `
-  },
-  {
-    titulo: "Eu sei resolver tudo. Mas não sei viver. — A diferença que ninguém explica.",
-    categoria: "Mentalidade", data: "Abril 2026", tempo: "8 min",
-    corpo: `
-      <p>Essa frase saiu de mim em um momento específico. Não como insight filosófico — como diagnóstico doloroso.</p>
-      <p>Eu tinha <strong>construído uma capacidade enorme de funcionar</strong>. Desde os 15 anos, quando minha família foi embora de Caldas e eu fiquei sozinho na mesma casa — sem despedida dramática, só o silêncio do "agora é com você". Aprendi a resolver. A entregar. A dar conta.</p>
-      <p>Na Leal Dutra, em Poços de Caldas, o sistema ganhou validação adulta. O dono confiava. Eu crescia rápido. Ganhava mais que os amigos. E gastava tudo — porque dinheiro era prova de que estava no controle.</p>
+      <p>Essa frase saiu de mim num momento específico. Não como insight filosófico, como diagnóstico doloroso.</p>
+      <p>Eu tinha <strong>construído uma capacidade enorme de funcionar</strong>. Trabalho: entregava. Dinheiro: quando faltava, resolvia. Problema: aparecia, eu resolvia. Era o cara. O que dá conta.</p>
       <blockquote>"Mas viver é diferente de funcionar. E eu estava confundindo os dois há anos."</blockquote>
-
       <h3>O problema não é a competência</h3>
-      <p>O problema é quando a competência vira o único modo de existir. Quando você opera no piloto automático de sobrevivência mesmo em momentos que pedem presença — com a parceira, com a família, consigo mesmo.</p>
+      <p>O problema é quando a competência vira o único modo de existir. Quando você opera no piloto automático de sobrevivência mesmo em momentos que pedem presença, com a parceira, com a família, consigo mesmo.</p>
       <p>Eu funcionava. <em>Perfeitamente.</em> E estava completamente ausente das coisas que importavam de verdade.</p>
-
-      <h3>De onde vem esse padrão</h3>
-      <p>No meu caso, vem de ter aprendido aos 6 anos que o mundo é instável. Que as pessoas em quem você confia podem desaparecer. Que a única variável confiável é você mesmo. Aprendi isso de um jeito específico — vi a traição do meu pai, pedalei para casa para contar à minha mãe, e quando ele tentou me fazer duvidar do que havia visto, algo quebrou profundamente.</p>
+      <h3>De onde vem isso</h3>
+      <p>No meu caso, vem de ter aprendido cedo que o mundo é instável. Que as pessoas em quem você confia podem desaparecer. Que a única variável confiável é você mesmo.</p>
       <p>Então o sistema se fechou. <strong>Resolver = sobreviver. Sentir = vulnerabilidade. Vulnerabilidade = risco.</strong></p>
-      <p>Esse padrão tem um nome: <strong>General Solitário</strong>. Ele funciona por anos com eficiência impressionante — e cobra um preço que o ego não consegue calcular.</p>
-
-      <h3>O que quebrou o ciclo</h3>
-      <p>A Bárbara. Não com grito, não com drama. Com silêncio. Uma decisão financeira tomada sozinho dentro do casamento — o velho padrão ativado sem que eu percebesse. O silêncio dela pesou mais do que qualquer confronto jamais pesaria.</p>
-      <p>Foi ali que percebi: o sistema que me salvou por décadas estava custando o que mais importava.</p>
-
-      <h3>A saída prática</h3>
+      <p>Esse sistema funcionou por anos. E cobrou um preço que só percebi quando alguém que eu amava me mostrou o espelho, sem grito, sem drama. Só a clareza silenciosa de quem viu o que eu não queria ver.</p>
+      <h3>A saída</h3>
       <p>Não é parar de resolver. É aprender que existe espaço entre o problema e a solução onde você pode estar presente. Onde você pode sentir sem precisar imediatamente agir.</p>
-      <p>É entender que <em>viver não é um intervalo entre problemas.</em> É o que acontece enquanto você os resolve — ou deixa alguns sem resolver por um tempo.</p>
-      <p>Eu ainda estou aprendendo isso. Todos os dias. Mas pelo menos agora sei que existe diferença — e sei o nome do padrão que me impedia de perceber.</p>
+      <p>É entender que <em>viver não é um intervalo entre problemas.</em> É o que acontece enquanto você os resolve ou deixa alguns sem resolver por um tempo.</p>
+      <p>Eu ainda estou aprendendo isso. Todos os dias. Mas pelo menos agora eu sei que existe diferença.</p>
     `
   },
   {
     titulo: "Dinheiro sem destino não é liberdade. É caos com saldo positivo.",
-    categoria: "Finanças", data: "Abril 2026", tempo: "7 min",
+    categoria: "Finanças", data: "Abril 2025", tempo: "5 min",
     corpo: `
-      <p>Aos 15 anos recebi R$15 mil da venda de uma propriedade da família. Achei que sabia lidar com dinheiro. Não sabia.</p>
-      <p>Gastei tudo. Sem construir nada. Sem sistema. Sem destino para nenhum real.</p>
-      <p>E esse padrão se repetiu. Dinheiro entrava. Eu gastava. Voltava ao zero. Por anos.</p>
+      <p>Aprendi sobre dinheiro da forma mais cara possível: na necessidade. Aos 15, sozinho, pagando minhas próprias contas sem manual, sem rede, sem ninguém pra perguntar.</p>
+      <p>E o que aprendi não foi teoria de investimento. Foi algo mais básico e mais poderoso:</p>
       <blockquote>"O problema nunca é o quanto entra. É o que você faz com o que entra antes de ele sumir."</blockquote>
-
-      <h3>Por que o dinheiro some — a verdade que ninguém fala</h3>
-      <p>Dinheiro some porque não tem missão. Dinheiro sem destino definido vai cumprir a missão dos outros: banco, mercado, impulso, desconforto emocional disfarçado de compra.</p>
-      <p>No meu caso, eu usava dinheiro para preencher um vazio. Para confirmar que estava no controle. Que estava bem. Só que não estava — e nenhum gasto resolvia isso.</p>
-      <p>É o que chamo de automedicação financeira. O <strong>General Solitário</strong> que não consegue pedir ajuda emocional vai comprar algo em vez disso. E no mês seguinte, o saldo volta ao zero.</p>
-
       <h3>O mito do salário</h3>
-      <p>A crença mais cara que existe sobre dinheiro é que o problema é o quanto entra. Já vi homens ganhando 10 vezes mais do que eu chegando no dia 15 sem nada. Não porque gastavam demais. Porque o dinheiro não tinha destino antes de entrar.</p>
-      <p>Salário não resolve problema de sistema. Mais dinheiro num sistema ruim só produz mais caos com saldo maior.</p>
-
-      <h3>O sistema que funciona na prática</h3>
-      <p>Antes do mês começar, cada real já tem nome. Não é orçamento rígido — é intenção clara. A diferença entre planejamento e controle obsessivo é essa: um te liberta, o outro te aprisiona.</p>
-      <p>Na prática: separe as categorias que existem na sua vida (moradia, alimentação, transporte, investimento, lazer, parceira). Antes de cada mês começar, distribua o que entra entre essas categorias. O que não tem categoria não pode ser gasto.</p>
-      <p>Quando o dinheiro tem destino, você para de reagir ao mês. Começa a construir o mês. Essa é a diferença entre ganhar dinheiro e sustentar dinheiro. Ganhar é fácil. Sustentar — esse é o desafio real.</p>
-
-      <h3>O que estou construindo agora</h3>
-      <p>Estou construindo o sistema financeiro com a Bárbara — juntos, com planilha aberta, com limite definido para gasto individual sem consultar o outro. Não é perfeito ainda. Estamos no processo. E documento aqui porque autoridade real não é falar do que já resolveu — é falar do que está resolvendo agora.</p>
+      <p>Já vi homens que ganham 10 vezes mais do que eu na época chegando no dia 15 sem nada. Não porque gastavam demais. Porque o dinheiro <strong>não tinha destino antes de entrar.</strong></p>
+      <p>Dinheiro sem missão vai cumprir a missão dos outros: banco, mercado, impulso.</p>
+      <h3>O sistema simples que funciona</h3>
+      <p>Antes do mês começar, cada real já tem nome. Não é orçamento rígido, é intenção clara. A diferença entre planejamento e controle obsessivo é essa: um te liberta, o outro te aprisiona.</p>
+      <p>Quando o dinheiro tem destino, você para de reagir ao mês. Começa a construir o mês.</p>
     `
   },
   {
     titulo: "A decisão que mais me custou não foi financeira.",
-    categoria: "Família", data: "Abril 2026", tempo: "6 min",
+    categoria: "Família", data: "Abril 2025", tempo: "6 min",
     corpo: `
-      <p>Tem decisões que custam dinheiro. Essa custou confiança — que é muito mais caro.</p>
-      <p>Tomei uma decisão dentro do meu casamento com a Bárbara que envolvia mais do que eu. Tomei sozinho. Por padrão, não por maldade. Era o que eu sempre havia feito desde os 15 anos morando sozinho: analisei, decidi, agi.</p>
+      <p>Tem decisões que custam dinheiro. Essa custou confiança, que é muito mais caro.</p>
+      <p>Tomei uma decisão dentro do meu relacionamento que envolvia mais do que eu. Tomei sozinho. Por padrão, não por maldade. Era o que eu sempre havia feito: analisei, decidi, agi.</p>
       <blockquote>"Ela não gritou. Não fez cena. Mas ficou claro que a confiança havia sido afetada. E isso pesou mais do que qualquer aperto financeiro jamais pesaria."</blockquote>
-
-      <h3>O custo oculto do General Solitário no casamento</h3>
-      <p>O padrão de "eu resolvo sozinho" tem um custo que só aparece quando ele afeta alguém além de você. Por anos, esse sistema produzia resultado no trabalho e isolamento no resto da vida — sem que eu percebesse, porque o isolamento nunca chegou como problema visível.</p>
-      <p>No casamento, o custo ficou visível de uma forma que não pude ignorar. Não porque ela gritou. Porque ficou em silêncio de um jeito que eu reconheci imediatamente: confiança afetada.</p>
-
-      <h3>O que essa decisão ensinou</h3>
+      <h3>O que isso ensinou</h3>
+      <p>Que o sistema de "eu resolvo sozinho" tem um custo oculto que só aparece quando ele afeta alguém além de você.</p>
       <p>Que <strong>controle não é força.</strong> É o limite do que uma pessoa consegue sustentar sem parceria real.</p>
-      <p>Que a vergonha de errar não é o problema. O problema é a armadura que você usa para não admitir que errou — para si mesmo e para quem está ao seu lado.</p>
-      <p>Que o "vamos juntos" não é uma decisão única. É uma prática diária que começa antes de tomar a decisão, não depois.</p>
-
-      <h3>O depois — e o processo que continua</h3>
-      <p>Aquele momento me obrigou a olhar para mim sem defesa. Pela primeira vez, eu senti que o meu padrão não afetava só a minha vida. Era sobre nós.</p>
-      <p>E ali começou a virada real — não mudança de comportamento, mas revisão de um sistema de crenças instalado aos 6 anos. Que ainda está em processo. Que não está concluído.</p>
-      <p>Documentar isso não é fraqueza. É o tipo de autoridade que dura: não quem já chegou, mas quem está chegando e mostra o caminho em tempo real.</p>
+      <p>Que a vergonha de errar não é o problema. O problema é a armadura que você usa pra não admitir que errou, para si mesmo e para quem está ao seu lado.</p>
+      <h3>O depois</h3>
+      <p>Aquele momento me obrigou a olhar para mim sem defesa. E ali começou a virada real. Não uma conta que entrou. Uma lição que chegou da forma mais cara possível e que eu não troco por nada.</p>
     `
   },
   {
-    titulo: "Fé como decisão — o que muda quando você para de esperar sentir.",
-    categoria: "Fé", data: "Março 2026", tempo: "7 min",
+    titulo: "Fé como decisão: o que muda quando você para de esperar sentir.",
+    categoria: "Fé", data: "Março 2025", tempo: "7 min",
     corpo: `
-      <p>Fiquei anos longe de Deus. Não por rejeição — por indiferença. Achava que não precisava. Que eu dava conta sozinho.</p>
+      <p>Fiquei anos longe de Deus. Não por rejeição, por indiferença. Achava que não precisava. Que eu dava conta.</p>
       <p>E dava. Até não dar mais.</p>
-      <blockquote>"A fé não veio como emoção. Veio como decisão. Quando o controle parou de funcionar."</blockquote>
-
-      <h3>O que eu entendia errado sobre fé</h3>
-      <p>Eu esperava sentir algo para começar a crer. Uma crise dramática, uma revelação clara, um momento de clareza espiritual. Nada disso veio da forma que eu imaginava.</p>
-      <p>O que veio foi diferente: um cansaço do controle. Uma percepção de que eu estava carregando sozinho o que não era para ser carregado sozinho. Que o General Solitário — esse sistema de hiper-responsabilidade que me protegeu por décadas — tinha um limite.</p>
-      <p>E quando cheguei nesse limite, não havia mais argumento para a indiferença.</p>
-
-      <h3>Fé como decisão — o que isso significa na prática</h3>
-      <p>Não é performance religiosa. Não é comportamento público de quem quer parecer espiritual. É uma ordem interna que se impôs quando todas as outras ordens pararam de funcionar sozinhas.</p>
-      <p>Na prática, no dia a dia, a fé aparece na manhã com a Bárbara: café, Bíblia, o livro "Café com Deus Pai". Não como ritual de checklist. Como âncora. O dia começa diferente quando começa orientado — e essa diferença é mensurável em tomadas de decisão, em presença e em paz.</p>
-
-      <h3>O que mudou depois da decisão</h3>
-      <p>Não virei outra pessoa. Não parei de ter dúvidas. Não tenho respostas para tudo. Mas algo se organizou internamente que não consigo explicar só com lógica.</p>
-      <p>A principal mudança: parei de tentar controlar tudo. E quando o General Solitário tenta assumir o controle de volta — o que ainda acontece — existe agora um ponto de referência externo a ele. Algo que ele não consegue controlar e que, paradoxalmente, organiza o que estava caótico.</p>
-      <p>Isso é o que posso dizer com honestidade: fé como decisão funciona diferente de fé como sentimento. E essa diferença é o que sustenta nos dias em que o sentimento não aparece.</p>
+      <blockquote>"A fé não veio como emoção. Veio como decisão. Depois de ter tentado tudo do meu jeito e ainda assim sentir um vazio que nenhum resultado externo preenchia."</blockquote>
+      <h3>O que eu entendia errado</h3>
+      <p>Eu esperava sentir algo para começar a crer. Uma crise, uma revelação, um momento de clareza. Nada disso veio da forma que eu imaginava.</p>
+      <p>O que veio foi diferente: um cansaço do controle. Uma percepção de que eu estava carregando sozinho o que não era para ser carregado sozinho.</p>
+      <h3>O que mudou</h3>
+      <p>Não virei outra pessoa. Não parei de ter dúvidas. Mas algo se organizou internamente que eu não consigo explicar só com lógica.</p>
+      <p>As manhãs com a Bárbara, café, Bíblia, o livro, viraram âncora. Não ritual de performance. <em>Ancoragem real.</em> O dia começa diferente quando começa orientado.</p>
+      <p>Isso é o que posso dizer com honestidade: fé como decisão funciona diferente de fé como sentimento. E essa diferença é o que sustenta nos dias que o sentimento não aparece.</p>
     `
   },
   {
     titulo: "Por que homens esforçados ficam parados no mesmo lugar.",
-    categoria: "Negócios", data: "Março 2026", tempo: "6 min",
+    categoria: "Negócios", data: "Março 2025", tempo: "5 min",
     corpo: `
       <p>Não é falta de esforço. Nunca foi.</p>
       <p>Conheço homens que trabalham 12 horas por dia, que não descansam, que não param. E continuam no mesmo lugar ano após ano.</p>
-      <p>Eu estive nesse lugar. Por anos.</p>
       <blockquote>"Esforço sem direção não é virtude. É desperdício de vida."</blockquote>
-
-      <h3>O ciclo invisível que mantém o homem parado</h3>
-      <p>Trabalha mais → ganha mais → gasta mais → precisa trabalhar mais. Parece progresso. Não é. É a esteira funcionando. Você está se movendo, mas não está avançando.</p>
-      <p>O problema não é a quantidade de esforço. É a ausência de <strong>destino claro</strong> para onde esse esforço vai. Velocidade sem direção é só cansaço acumulado.</p>
-
-      <h3>O General Solitário e o trabalho sem direção</h3>
-      <p>O <strong>General Solitário</strong> trabalha muito porque trabalhar é a única forma que ele conhece de provar valor. Não para os outros — para si mesmo. Cada hora trabalhada é uma confirmação de que ele está no controle, de que está fazendo a sua parte.</p>
-      <p>O problema é que "fazer a parte" sem saber para onde vai essa parte é trabalhar sem construir. É confundir ocupação com produção — e o General Solitário é especialista nisso.</p>
-
-      <h3>A pergunta que muda o jogo</h3>
-      <p>"Estou trabalhando suficiente?" é a pergunta errada. Ela te faz trabalhar mais.</p>
-      <p>"Estou trabalhando na direção certa?" é a que muda o jogo. Ela te faz trabalhar melhor.</p>
-      <p>E melhor, com direção clara, produz resultado que esforço isolado jamais vai produzir.</p>
-
-      <h3>O que quebrou o ciclo no meu caso</h3>
-      <p>Não foi mais esforço. Foi direção — e a decisão de construir essa direção junto com a Bárbara, não sozinho. O General Solitário quer definir a direção individualmente e depois apresentar o mapa pronto. A virada acontece quando você define a direção com quem vai caminhar junto.</p>
-      <p>Tenho quatro negócios ativos hoje — Atlas Logística, VT Negócios, VTech e Grupo Villela. E o @vssp. Nenhum deles está no potencial que poderia estar porque fragmentei atenção em vez de direção. Estou resolvendo isso em tempo real. É isso que documenta aqui.</p>
+      <h3>O ciclo invisível</h3>
+      <p>Trabalha mais → ganha mais → gasta mais → precisa trabalhar mais. Parece progresso. Não é. É a esteira funcionando.</p>
+      <p>O problema não é a quantidade de esforço. É a ausência de <strong>destino claro</strong> para onde esse esforço vai.</p>
+      <h3>A pergunta que muda tudo</h3>
+      <p>"Estou trabalhando suficiente?" é a pergunta errada.</p>
+      <p>"Estou trabalhando na direção certa?" é a que muda o jogo.</p>
+      <p>A primeira te faz trabalhar mais. A segunda te faz trabalhar melhor. E melhor, com direção, produz resultado que mais nunca vai produzir.</p>
+      <p>Eu estive nesse ciclo. O que quebrou não foi esforço adicional, foi direção clara. Saber exatamente para onde eu queria ir mudou a qualidade de cada hora que trabalhei a partir daí.</p>
     `
   }
 ];
@@ -378,7 +276,7 @@ function abrirArtigo(idx) {
     <div class="ao-titulo">${a.titulo}</div>
     <div class="ao-meta">Vinícius Padovani · ${a.tempo} de leitura · ${a.data}</div>
     <div class="ao-corpo">${a.corpo}</div>
-    <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(200,169,126,.1);display:flex;gap:14px;flex-wrap:wrap;">
+    <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(200,169,126.1);display:flex;gap:14px;flex-wrap:wrap;">
       <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria</a>
       <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn btn-outline">Seguir @vssp</a>
     </div>

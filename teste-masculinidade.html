@@ -12,12 +12,12 @@ body { background:var(--petroleo); }
 .quiz-kicker { font-family:var(--font-mono); font-size:10px; letter-spacing:5px; color:var(--ouro); text-transform:uppercase; margin-bottom:20px; opacity:.7; }
 .quiz-titulo { font-family:var(--font-display); font-size:clamp(32px,6vw,56px); font-weight:900; color:var(--bege); line-height:1.1; margin-bottom:16px; }
 .quiz-titulo span { color:var(--ouro); }
-.quiz-sub { font-family:var(--font-serif); font-style:italic; font-size:18px; color:rgba(242,237,216,.55); margin-bottom:48px; line-height:1.6; }
+.quiz-sub { font-family:var(--font-serif); font-style:italic; font-size:18px; color:rgba(242,237,216.55); margin-bottom:48px; line-height:1.6; }
 
 /* PROGRESSO */
-.progress-bar { height:2px; background:rgba(200,169,126,.1); border-radius:1px; margin-bottom:40px; }
+.progress-bar { height:2px; background:rgba(200,169,126.1); border-radius:1px; margin-bottom:40px; }
 .progress-fill { height:100%; background:var(--ouro); border-radius:1px; transition:width .5s var(--ease); }
-.progress-label { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.3); letter-spacing:2px; margin-bottom:12px; }
+.progress-label { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.3); letter-spacing:2px; margin-bottom:12px; }
 
 /* PERGUNTA */
 .pergunta { animation:fadeUp .4s var(--ease) both; }
@@ -25,13 +25,13 @@ body { background:var(--petroleo); }
 .q-texto { font-family:var(--font-display); font-size:clamp(18px,3vw,26px); color:var(--bege); line-height:1.4; margin-bottom:32px; }
 .q-opcoes { display:flex; flex-direction:column; gap:12px; }
 .opcao {
-  background:rgba(255,255,255,.04); border:1px solid rgba(200,169,126,.15);
+  background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.15);
   border-radius:10px; padding:18px 20px; cursor:pointer;
-  font-size:15px; color:rgba(242,237,216,.7); line-height:1.5;
+  font-size:15px; color:rgba(242,237,216.7); line-height:1.5;
   transition:all .2s; text-align:left;
 }
-.opcao:hover { border-color:rgba(200,169,126,.5); background:rgba(200,169,126,.08); color:var(--bege); }
-.opcao.selected { border-color:var(--ouro); background:rgba(200,169,126,.12); color:var(--bege); }
+.opcao:hover { border-color:rgba(200,169,126.5); background:rgba(200,169,126.08); color:var(--bege); }
+.opcao.selected { border-color:var(--ouro); background:rgba(200,169,126.12); color:var(--bege); }
 .opcao-letra { display:inline-block; font-family:var(--font-mono); font-size:10px; color:var(--ouro); letter-spacing:2px; margin-right:12px; }
 
 .btn-next { margin-top:28px; opacity:0; pointer-events:none; transition:opacity .3s; }
@@ -43,15 +43,15 @@ body { background:var(--petroleo); }
 .res-num { font-family:var(--font-display); font-size:96px; font-weight:900; color:var(--ouro); line-height:1; }
 .res-label { font-family:var(--font-mono); font-size:11px; letter-spacing:3px; color:var(--taupe); margin-top:8px; }
 .res-categoria { font-family:var(--font-display); font-size:28px; color:var(--bege); text-align:center; margin-bottom:24px; }
-.res-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216,.6); margin-bottom:32px; }
+.res-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216.6); margin-bottom:32px; }
 .res-pontos { display:flex; flex-direction:column; gap:16px; margin-bottom:40px; }
 .res-ponto {
-  background:rgba(255,255,255,.04); border:1px solid rgba(200,169,126,.1);
+  background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.1);
   border-radius:10px; padding:20px;
 }
 .res-ponto-titulo { font-family:var(--font-display); font-size:15px; color:var(--bege); margin-bottom:6px; }
-.res-ponto-desc { font-size:13px; color:rgba(242,237,216,.5); line-height:1.7; }
-.res-cta { background:rgba(200,169,126,.08); border:1px solid rgba(200,169,126,.2); border-radius:14px; padding:32px; text-align:center; }
+.res-ponto-desc { font-size:13px; color:rgba(242,237,216.5); line-height:1.7; }
+.res-cta { background:rgba(200,169,126.08); border:1px solid rgba(200,169,126.2); border-radius:14px; padding:32px; text-align:center; }
 .res-cta-txt { font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--bege); margin-bottom:20px; line-height:1.6; }
 </style>
 </head>
@@ -86,8 +86,8 @@ body { background:var(--petroleo); }
   <div id="quizIntro">
     <div class="quiz-kicker">Teste · @vssp · 2025</div>
     <h1 class="quiz-titulo" data-pt="Que tipo de homem<br>você está <span>sendo</span>?" data-en="What kind of man<br>are you <span>being</span>?">Que tipo de homem<br>você está <span>sendo</span>?</h1>
-    <p class="quiz-sub" data-pt="Não é sobre o que você quer ser. É sobre quem você está sendo agora — nos momentos reais, nas decisões difíceis, nas relações que importam." data-en="It's not about who you want to be. It's about who you're being now — in real moments, difficult decisions, the relationships that matter.">Não é sobre o que você quer ser. É sobre quem você está sendo agora — nos momentos reais, nas decisões difíceis, nas relações que importam.</p>
-    <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px;font-family:var(--font-mono);font-size:11px;color:rgba(242,237,216,.35);letter-spacing:2px;">
+    <p class="quiz-sub" data-pt="Não é sobre o que você quer ser. É sobre quem você está sendo agora, nos momentos reais, nas decisões difíceis, nas relações que importam." data-en="It's not about who you want to be. It's about who you're being now, in real moments, difficult decisions, the relationships that matter.">Não é sobre o que você quer ser. É sobre quem você está sendo agora, nos momentos reais, nas decisões difíceis, nas relações que importam.</p>
+    <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px;font-family:var(--font-mono);font-size:11px;color:rgba(242,237,216.35);letter-spacing:2px;">
       <span>10 perguntas</span><span>·</span><span>5 min</span><span>·</span><span>Resultado honesto</span>
     </div>
     <button class="btn btn-primary" onclick="iniciarQuiz()" data-pt="Começar o teste" data-en="Start the test">Começar o teste</button>
@@ -112,7 +112,7 @@ const perguntas = [
     texto: "Quando algo dá errado numa decisão que afeta a sua família ou parceira, o que você faz primeiro?",
     opcoes: [
       { letra:"A", texto:"Processo sozinho, resolvo o problema antes de falar com ela.", pontos: 1 },
-      { letra:"B", texto:"Fico na defensiva — é difícil admitir que errei.", pontos: 2 },
+      { letra:"B", texto:"Fico na defensiva, é difícil admitir que errei.", pontos: 2 },
       { letra:"C", texto:"Falo sobre o que aconteceu antes de ter todas as respostas.", pontos: 4 },
       { letra:"D", texto:"Assumo a responsabilidade diretamente e trabalho a solução junto.", pontos: 5 }
     ]
@@ -120,77 +120,77 @@ const perguntas = [
   {
     texto: "Você sabe exatamente para onde vai cada real que você ganha?",
     opcoes: [
-      { letra:"A", texto:"Não — o dinheiro some e não sei bem como.", pontos: 1 },
-      { letra:"B", texto:"Mais ou menos — conheço os gastos maiores.", pontos: 2 },
+      { letra:"A", texto:"Não, o dinheiro some e não sei bem como.", pontos: 1 },
+      { letra:"B", texto:"Mais ou menos, conheço os gastos maiores.", pontos: 2 },
       { letra:"C", texto:"Tenho uma ideia, mas sem sistema formal.", pontos: 3 },
-      { letra:"D", texto:"Sim — tenho destino definido para cada categoria.", pontos: 5 }
+      { letra:"D", texto:"Sim, tenho destino definido para cada categoria.", pontos: 5 }
     ]
   },
   {
     texto: "Quando você está sob pressão extrema (crise, prazo, conflito), o que acontece com quem está perto de você?",
     opcoes: [
-      { letra:"A", texto:"Eles ficam distantes — eu me fecho e resolvo sozinho.", pontos: 1 },
+      { letra:"A", texto:"Eles ficam distantes, eu me fecho e resolvo sozinho.", pontos: 1 },
       { letra:"B", texto:"Às vezes eles sentem o peso mesmo eu não dizendo nada.", pontos: 2 },
       { letra:"C", texto:"Eu aviso que estou em modo foco, mas explico o que acontece.", pontos: 4 },
-      { letra:"D", texto:"Incluo quem é relevante na solução — não carrego sozinho.", pontos: 5 }
+      { letra:"D", texto:"Incluo quem é relevante na solução, não carrego sozinho.", pontos: 5 }
     ]
   },
   {
-    texto: "Com que frequência você age de acordo com o que diz que acredita — em casa, no trabalho, nas relações?",
+    texto: "Com que frequência você age de acordo com o que diz que acredita, em casa, no trabalho, nas relações?",
     opcoes: [
-      { letra:"A", texto:"Raramente — existe distância entre o que falo e como ajo.", pontos: 1 },
-      { letra:"B", texto:"Às vezes — dependo do ambiente e de quem está olhando.", pontos: 2 },
-      { letra:"C", texto:"Na maior parte — mas ainda tenho inconsistências que vejo.", pontos: 3 },
-      { letra:"D", texto:"Consistentemente — coerência é inegociável pra mim.", pontos: 5 }
+      { letra:"A", texto:"Raramente, existe distância entre o que falo e como ajo.", pontos: 1 },
+      { letra:"B", texto:"Às vezes, dependo do ambiente e de quem está olhando.", pontos: 2 },
+      { letra:"C", texto:"Na maior parte, mas ainda tenho inconsistências que vejo.", pontos: 3 },
+      { letra:"D", texto:"Consistentemente, coerência é inegociável para mim.", pontos: 5 }
     ]
   },
   {
     texto: "Como você lida com o seu corpo, saúde e energia física?",
     opcoes: [
-      { letra:"A", texto:"Ignoro — tudo bem enquanto funciona.", pontos: 1 },
+      { letra:"A", texto:"Ignoro, tudo bem enquanto funciona.", pontos: 1 },
       { letra:"B", texto:"Penso nisso mas raramente faço algo.", pontos: 2 },
-      { letra:"C", texto:"Tenho rotina inconsistente — começo e paro.", pontos: 3 },
-      { letra:"D", texto:"Trato como responsabilidade — cuido com regularidade.", pontos: 5 }
+      { letra:"C", texto:"Tenho rotina inconsistente, começo e paro.", pontos: 3 },
+      { letra:"D", texto:"Trato como responsabilidade, cuido com regularidade.", pontos: 5 }
     ]
   },
   {
-    texto: "Você tem uma direção clara para os próximos 12 meses — não desejos vagos, mas direção concreta?",
+    texto: "Você tem uma direção clara para os próximos 12 meses, não desejos vagos, mas direção concreta?",
     opcoes: [
-      { letra:"A", texto:"Não — vou vivendo e adaptando conforme aparece.", pontos: 1 },
+      { letra:"A", texto:"Não, vou vivendo e adaptando conforme aparece.", pontos: 1 },
       { letra:"B", texto:"Tenho alguns objetivos mas sem plano real.", pontos: 2 },
       { letra:"C", texto:"Tenho direção mas falta estrutura para executar.", pontos: 3 },
-      { letra:"D", texto:"Sim — tenho metas definidas e estou em movimento.", pontos: 5 }
+      { letra:"D", texto:"Sim, tenho metas definidas e estou em movimento.", pontos: 5 }
     ]
   },
   {
-    texto: "Quando você falha — em qualquer área — qual é sua resposta interna mais honesta?",
+    texto: "Quando você falha, em qualquer área, qual é sua resposta interna mais honesta?",
     opcoes: [
       { letra:"A", texto:"Me culpo por muito tempo ou nego que foi erro meu.", pontos: 1 },
-      { letra:"B", texto:"Aceito, mas é difícil — demoro pra processar.", pontos: 2 },
+      { letra:"B", texto:"Aceito, mas é difícil, demoro pra processar.", pontos: 2 },
       { letra:"C", texto:"Analiso o que aconteceu e ajusto sem drama excessivo.", pontos: 4 },
-      { letra:"D", texto:"Assumo, aprendo e sigo — erro faz parte de construção.", pontos: 5 }
+      { letra:"D", texto:"Assumo, aprendo e sigo, erro faz parte de construção.", pontos: 5 }
     ]
   },
   {
     texto: "Sua fé ou espiritualidade tem espaço real no seu dia a dia?",
     opcoes: [
-      { letra:"A", texto:"Não — não é uma área que trabalho.", pontos: 1 },
+      { letra:"A", texto:"Não, não é uma área que trabalho.", pontos: 1 },
       { letra:"B", texto:"Às vezes, mais em momentos difíceis.", pontos: 2 },
-      { letra:"C", texto:"Estou buscando — ainda em desenvolvimento.", pontos: 3 },
-      { letra:"D", texto:"Sim — é ancoragem real, não performance.", pontos: 5 }
+      { letra:"C", texto:"Estou buscando, ainda em desenvolvimento.", pontos: 3 },
+      { letra:"D", texto:"Sim, é ancoragem real, não performance.", pontos: 5 }
     ]
   },
   {
     texto: "Como você se relaciona com pedir ajuda quando algo está pesado demais?",
     opcoes: [
-      { letra:"A", texto:"Não peço — isso parece fraqueza.", pontos: 1 },
+      { letra:"A", texto:"Não peço, isso parece fraqueza.", pontos: 1 },
       { letra:"B", texto:"Peço raramente e com muita resistência interna.", pontos: 2 },
       { letra:"C", texto:"Peço, mas ainda é desconfortável.", pontos: 3 },
-      { letra:"D", texto:"Peço naturalmente — sei que não preciso carregar tudo.", pontos: 5 }
+      { letra:"D", texto:"Peço naturalmente, sei que não preciso carregar tudo.", pontos: 5 }
     ]
   },
   {
-    texto: "Se alguém próximo olhasse para a sua vida hoje — sua rotina, suas decisões, suas relações — o que diria que você está construindo?",
+    texto: "Se alguém próximo olhasse para a sua vida hoje, sua rotina, suas decisões, suas relações, o que diria que você está construindo?",
     opcoes: [
       { letra:"A", texto:"Provavelmente diria que estou sobrevivendo, não construindo.", pontos: 1 },
       { letra:"B", texto:"Que estou tentando, mas sem clareza de direção.", pontos: 2 },
@@ -269,34 +269,34 @@ function mostrarResultado() {
   if (pct <= 30) {
     categoria = "Suportando a vida";
     cor = "#E57373";
-    desc = "Você está reagindo mais do que construindo. Não é julgamento — é diagnóstico. O padrão que está operando agora tem custo e você provavelmente já sente isso.";
+    desc = "Você está reagindo mais do que construindo. Não é julgamento, é diagnóstico. O padrão que está operando agora tem custo e você provavelmente já sente isso.";
     pontos = [
-      { titulo: "Direção urgente", desc: "Sem destino definido, esforço vira movimento sem progresso. O primeiro passo é definir onde você quer chegar — mesmo que ainda não saiba como." },
+      { titulo: "Direção urgente", desc: "Sem destino definido, esforço vira movimento sem progresso. O primeiro passo é definir onde você quer chegar, mesmo que ainda não saiba como." },
       { titulo: "Estrutura antes de crescimento", desc: "Resolver o que aparece funciona a curto prazo. A longo prazo, é balde com buraco. Precisa de sistema." },
       { titulo: "Abertura como força", desc: "Carregar tudo sozinho não é força. É o limite do que uma pessoa consegue sustentar sozinha." }
     ];
   } else if (pct <= 55) {
-    categoria = "Em movimento — sem direção clara";
+    categoria = "Em movimento, sem direção clara";
     cor = "#FFCC80";
-    desc = "Você está se esforçando — mas a sensação de correr numa esteira é real. Tem algo sendo construído, mas falta estrutura e clareza de onde você quer chegar.";
+    desc = "Você está se esforçando, mas a sensação de correr numa esteira é real. Tem algo sendo construído, mas falta estrutura e clareza de onde você quer chegar.";
     pontos = [
       { titulo: "Defina o destino", desc: "Esforço sem direção é desperdício de vida. Antes de aumentar a velocidade, confirme a direção." },
-      { titulo: "Consistência sobre intensidade", desc: "O problema não é falta de motivação — é falta de sistema que funciona mesmo nos dias ruins." },
+      { titulo: "Consistência sobre intensidade", desc: "O problema não é falta de motivação, é falta de sistema que funciona mesmo nos dias ruins." },
       { titulo: "Inclua quem importa", desc: "A construção solitária tem um teto. Quem está ao seu lado pode ser recurso, não só responsabilidade." }
     ];
   } else if (pct <= 75) {
     categoria = "Construindo com consciência";
     cor = "#C8A97E";
-    desc = "Você está em construção real — com direção, com responsabilidade e com algum nível de consciência sobre o que ainda não está funcionando. Isso já é muito diferente da maioria.";
+    desc = "Você está em construção real, com direção, com responsabilidade e com algum nível de consciência sobre o que ainda não está funcionando. Isso já é muito diferente da maioria.";
     pontos = [
-      { titulo: "Afine a consistência", desc: "O próximo nível não é fazer mais — é ser mais consistente no que já está fazendo bem." },
-      { titulo: "Nomeie o que ainda trava", desc: "Você já vê os pontos cegos. Nomeá-los publicamente — para você e para quem confia — acelera a mudança." },
-      { titulo: "Parceria real", desc: "Construção junto não é delegar — é decidir junto. Quanto mais você incluir, maior o teto do que você pode construir." }
+      { titulo: "Afine a consistência", desc: "O próximo nível não é fazer mais, é ser mais consistente no que já está fazendo bem." },
+      { titulo: "Nomeie o que ainda trava", desc: "Você já vê os pontos cegos. Nomeá-los publicamente, para você e para quem confia, acelera a mudança." },
+      { titulo: "Parceria real", desc: "Construção junto não é delegar, é decidir junto. Quanto mais você incluir, maior o teto do que você pode construir." }
     ];
   } else {
     categoria = "Homem em construção intencional";
     cor = "#81C784";
-    desc = "Você está operando com consistência, responsabilidade e clareza. Não perfeição — intenção. Esse é o padrão que faz diferença a longo prazo.";
+    desc = "Você está operando com consistência, responsabilidade e clareza. Não perfeição, intenção. Esse é o padrão que faz diferença a longo prazo.";
     pontos = [
       { titulo: "Documente e compartilhe", desc: "O que você está construindo tem valor para outros homens que ainda não chegaram onde você está. Não guarde." },
       { titulo: "Cuide do que ainda falta", desc: "Mesmo com consistência, há pontos de melhoria. Identifique-os e trabalhe com a mesma intenção." },

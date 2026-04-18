@@ -9,36 +9,36 @@
 <style>
 .produtos-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:48px; }
 .produto-card {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126,.12);
+  background:var(--petroleo2); border:1px solid rgba(200,169,126.12);
   border-radius:16px; overflow:hidden; transition:transform .2s, border-color .2s;
   display:flex; flex-direction:column;
 }
-.produto-card:hover { transform:translateY(-4px); border-color:rgba(200,169,126,.3); }
-.produto-card.destaque { border-color:rgba(200,169,126,.35); }
+.produto-card:hover { transform:translateY(-4px); border-color:rgba(200,169,126.3); }
+.produto-card.destaque { border-color:rgba(200,169,126.35); }
 
 .produto-badge { background:var(--petroleo); padding:40px; display:flex; align-items:center; justify-content:center; font-size:52px; position:relative; }
 .produto-badge-tag { position:absolute; top:16px; right:16px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--ouro); color:var(--petroleo); padding:4px 12px; border-radius:100px; font-weight:700; }
-.produto-badge-soon { background:rgba(242,237,216,.15); color:var(--bege); }
+.produto-badge-soon { background:rgba(242,237,216.15); color:var(--bege); }
 
 .produto-body { padding:28px; flex:1; display:flex; flex-direction:column; }
 .produto-categoria { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:10px; }
 .produto-nome { font-family:var(--font-display); font-size:20px; color:var(--bege); margin-bottom:12px; }
-.produto-desc { font-size:14px; line-height:1.8; color:rgba(242,237,216,.5); margin-bottom:20px; flex:1; }
+.produto-desc { font-size:14px; line-height:1.8; color:rgba(242,237,216.5); margin-bottom:20px; flex:1; }
 .produto-includes { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
-.produto-includes li { font-size:13px; color:rgba(242,237,216,.55); display:flex; align-items:flex-start; gap:8px; }
+.produto-includes li { font-size:13px; color:rgba(242,237,216.55); display:flex; align-items:flex-start; gap:8px; }
 .produto-includes li::before { content:'✓'; color:var(--ouro); flex-shrink:0; }
-.produto-footer { display:flex; align-items:center; justify-content:space-between; padding-top:20px; border-top:1px solid rgba(200,169,126,.1); }
+.produto-footer { display:flex; align-items:center; justify-content:space-between; padding-top:20px; border-top:1px solid rgba(200,169,126.1); }
 .produto-preco { font-family:var(--font-display); font-size:24px; color:var(--ouro); }
 .produto-preco span { font-family:var(--font-mono); font-size:11px; color:var(--taupe); display:block; margin-bottom:2px; }
 
 /* EM BREVE */
-.em-breve-banner { background:rgba(200,169,126,.06); border:1px solid rgba(200,169,126,.15); border-radius:12px; padding:24px; text-align:center; margin-top:12px; }
+.em-breve-banner { background:rgba(200,169,126.06); border:1px solid rgba(200,169,126.15); border-radius:12px; padding:24px; text-align:center; margin-top:12px; }
 .em-breve-txt { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--taupe); opacity:.6; }
 
 /* NOTIFICAÇÃO */
-.notif-form { background:var(--petroleo2); border:1px solid rgba(200,169,126,.15); border-radius:16px; padding:40px; margin-top:60px; text-align:center; }
+.notif-form { background:var(--petroleo2); border:1px solid rgba(200,169,126.15); border-radius:16px; padding:40px; margin-top:60px; text-align:center; }
 .notif-titulo { font-family:var(--font-display); font-size:24px; color:var(--bege); margin-bottom:8px; }
-.notif-sub { font-size:14px; color:rgba(242,237,216,.45); margin-bottom:28px; }
+.notif-sub { font-size:14px; color:rgba(242,237,216.45); margin-bottom:28px; }
 .notif-row { display:flex; gap:12px; max-width:480px; margin:0 auto; }
 </style>
 </head>
@@ -72,7 +72,7 @@
   <div class="page-hero-inner fade-up">
     <div class="page-kicker">Produtos · @vssp</div>
     <h1 class="page-title" data-pt="Ferramentas para<br><span>quem está construindo.</span>" data-en="Tools for<br><span>those who are building.</span>">Ferramentas para<br><span>quem está construindo.</span></h1>
-    <p class="page-subtitle" data-pt="Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real — para quem quer estrutura, não inspiração vaga." data-en="Not a motivation course. These are practical resources based on what I learned in real life — for those who want structure, not vague inspiration.">Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real — para quem quer estrutura, não inspiração vaga.</p>
+    <p class="page-subtitle" data-pt="Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real, para quem quer estrutura, não inspiração vaga." data-en="Not a motivation course. These are practical resources based on what I learned in real life, for those who want structure, not vague inspiration.">Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real, para quem quer estrutura, não inspiração vaga.</p>
   </div>
 </div>
 
@@ -114,7 +114,7 @@
       </div>
       <div class="produto-body">
         <div class="produto-categoria" data-pt="Guia · Desenvolvimento" data-en="Guide · Development">Guia · Desenvolvimento</div>
-        <div class="produto-nome" data-pt="Guia de Resultado — Teste de Masculinidade" data-en="Result Guide — Masculinity Test">Guia de Resultado — Teste de Masculinidade</div>
+        <div class="produto-nome" data-pt="Guia de Resultado. Teste de Masculinidade" data-en="Result Guide. Masculinity Test">Guia de Resultado. Teste de Masculinidade</div>
         <div class="produto-desc" data-pt="PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história." data-en="Complete PDF with in-depth analysis of the 4 test profiles + action plan for each. Based on my own story.">PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história.</div>
         <ul class="produto-includes">
           <li data-pt="Análise dos 4 perfis de masculinidade" data-en="Analysis of 4 masculinity profiles">Análise dos 4 perfis de masculinidade</li>
@@ -145,7 +145,7 @@
       </div>
       <div class="produto-body">
         <div class="produto-categoria">Livro Digital</div>
-        <div class="produto-nome" data-pt="Eu Resolvo — e o que isso me custou" data-en="I Handle It — and what it cost me">Eu Resolvo — e o que isso me custou</div>
+        <div class="produto-nome" data-pt="Eu Resolvo e o que isso me custou" data-en="I Handle It, and what it cost me">Eu Resolvo e o que isso me custou</div>
         <div class="produto-desc" data-pt="A história completa da virada de 'eu resolvo sozinho' para 'vamos juntos'. Com os padrões identificados, as ferramentas e o caminho que funcionou." data-en="The complete story of the turn from 'I handle it alone' to 'let's do it together'. With identified patterns, tools and the path that worked.">A história completa da virada de "eu resolvo sozinho" para "vamos juntos". Com os padrões identificados, as ferramentas e o caminho que funcionou.</div>
         <div class="em-breve-banner"><div class="em-breve-txt" data-pt="PREVISÃO: 2º SEMESTRE 2025" data-en="EXPECTED: 2ND HALF 2025">PREVISÃO: 2º SEMESTRE 2025</div></div>
       </div>
@@ -204,8 +204,8 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126,.4);">Feito com intenção.</span>
+      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
     </div>
   </div>
 </footer>

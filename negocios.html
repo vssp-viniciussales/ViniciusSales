@@ -7,29 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-.empresa-bloco { padding:80px 0; border-bottom:1px solid rgba(200,169,126,.1); }
+.empresa-bloco { padding:80px 0; border-bottom:1px solid rgba(200,169,126.1); }
 .empresa-bloco:last-child { border-bottom:none; }
 .empresa-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; align-items:center; }
 .empresa-grid.reverse { }
 .empresa-num { font-family:var(--font-display); font-size:96px; font-weight:900; color:var(--ouro); opacity:.08; line-height:1; margin-bottom:8px; }
 .empresa-categoria { font-family:var(--font-mono); font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:12px; }
 .empresa-nome { font-family:var(--font-display); font-size:clamp(28px,4vw,44px); color:var(--bege); margin-bottom:16px; }
-.empresa-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216,.55); margin-bottom:28px; }
+.empresa-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216.55); margin-bottom:28px; }
 .empresa-detalhe { display:flex; flex-direction:column; gap:12px; }
-.ed-item { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:rgba(242,237,216,.5); line-height:1.7; }
+.ed-item { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:rgba(242,237,216.5); line-height:1.7; }
 .ed-item::before { content:'→'; color:var(--ouro); flex-shrink:0; font-weight:700; }
-.empresa-visual { background:var(--petroleo2); border:1px solid rgba(200,169,126,.12); border-radius:16px; padding:48px; text-align:center; min-height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
+.empresa-visual { background:var(--petroleo2); border:1px solid rgba(200,169,126.12); border-radius:16px; padding:48px; text-align:center; min-height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
 .ev-icon { font-size:56px; }
 .ev-nome { font-family:var(--font-display); font-size:22px; color:var(--ouro); letter-spacing:2px; }
-.ev-sub { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216,.25); letter-spacing:3px; text-transform:uppercase; }
-.ev-tag { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:rgba(200,169,126,.1); border:1px solid rgba(200,169,126,.2); color:var(--ouro); padding:4px 14px; border-radius:100px; }
+.ev-sub { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.25); letter-spacing:3px; text-transform:uppercase; }
+.ev-tag { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:rgba(200,169,126.1); border:1px solid rgba(200,169,126.2); color:var(--ouro); padding:4px 14px; border-radius:100px; }
 
 /* FRENTES */
 .frentes { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:48px; }
-.frente-card { background:rgba(255,255,255,.04); border:1px solid rgba(200,169,126,.1); border-radius:12px; padding:24px; text-align:center; }
+.frente-card { background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.1); border-radius:12px; padding:24px; text-align:center; }
 .frente-icon { font-size:32px; margin-bottom:12px; }
 .frente-nome { font-family:var(--font-display); font-size:16px; color:var(--bege); margin-bottom:6px; }
-.frente-desc { font-size:12px; color:rgba(242,237,216,.4); line-height:1.6; }
+.frente-desc { font-size:12px; color:rgba(242,237,216.4); line-height:1.6; }
 </style>
 </head>
 <body>
@@ -131,7 +131,7 @@
         <div class="empresa-num">03</div>
         <div class="empresa-categoria">Tecnologia · Apple Premium</div>
         <div class="empresa-nome">VTech</div>
-        <div class="empresa-desc" data-pt="Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium, focada em experiência e valor — não só produto." data-en="VT Negócios' technology arm. Apple product resale with premium positioning, focused on experience and value — not just product.">Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium, focada em experiência e valor — não só produto.</div>
+        <div class="empresa-desc" data-pt="Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium, focada em experiência e valor, não só produto." data-en="VT Negócios' technology arm. Apple product resale with premium positioning, focused on experience and value, not just product.">Braço de tecnologia da VT Negócios. Revenda de produtos Apple com posicionamento premium, focada em experiência e valor, não só produto.</div>
         <div class="empresa-detalhe">
           <div class="ed-item" data-pt="Revenda de produtos Apple com posicionamento premium" data-en="Apple product resale with premium positioning">Revenda de produtos Apple com posicionamento premium</div>
           <div class="ed-item" data-pt="Foco em experiência de compra, não só produto" data-en="Focus on purchase experience, not just product">Foco em experiência de compra, não só produto</div>
@@ -160,10 +160,10 @@
         <div class="empresa-num">04</div>
         <div class="empresa-categoria">Financeiro · Representação Comercial</div>
         <div class="empresa-nome">Grupo Villela Brasil Bank</div>
-        <div class="empresa-desc" data-pt="Representação comercial ativa focada em recuperação tributária — restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva." data-en="Active commercial representation focused on tax recovery — restitution of taxes improperly paid by companies. Consultative, not aggressive approach.">Representação comercial ativa focada em recuperação tributária — restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva.</div>
+        <div class="empresa-desc" data-pt="Representação comercial ativa focada em recuperação tributária, restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva." data-en="Active commercial representation focused on tax recovery, restitution of taxes improperly paid by companies. Consultative, not aggressive approach.">Representação comercial ativa focada em recuperação tributária, restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva.</div>
         <div class="empresa-detalhe">
           <div class="ed-item" data-pt="Restituição tributária para MEI, ME e empresas de médio porte" data-en="Tax restitution for small and medium businesses">Restituição tributária para MEI, ME e empresas de médio porte</div>
-          <div class="ed-item" data-pt="Prospecção ativa via WhatsApp com abordagem consultiva" data-en="Active prospecting via WhatsApp with consultative approach">Prospecção ativa via WhatsApp com abordagem consultiva</div>
+          <div class="ed-item" data-pt="Prospecção ativa via WhatsApp com abordagem consultiva" data-en="Active para ospecting via WhatsApp with consultative approach">Prospecção ativa via WhatsApp com abordagem consultiva</div>
           <div class="ed-item" data-pt="Foco em Paulínia, SP e região" data-en="Focus on Paulínia, SP and region">Foco em Paulínia, SP e região</div>
         </div>
         <div style="margin-top:24px;">
@@ -180,7 +180,7 @@
         <div class="empresa-num">05</div>
         <div class="empresa-categoria">Consultoria · Em desenvolvimento</div>
         <div class="empresa-nome">Consultoria @vssp</div>
-        <div class="empresa-desc" data-pt="O que a vida cobrou pra ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida — com experiência real, não teoria." data-en="What life charged to teach, converted into applied consulting. Finances, business, masculine identity and life construction — with real experience, not theory.">O que a vida cobrou pra ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida — com experiência real, não teoria.</div>
+        <div class="empresa-desc" data-pt="O que a vida cobrou para ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida, com experiência real, não teoria." data-en="What life charged to teach, converted into applied consulting. Finances, business, masculine identity and life construction, with real experience, not theory.">O que a vida cobrou para ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida, com experiência real, não teoria.</div>
         <div class="empresa-detalhe">
           <div class="ed-item">Estruturação financeira pessoal e empresarial</div>
           <div class="ed-item">Primeiros passos e crescimento de negócios</div>
@@ -214,8 +214,8 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126,.4);">Feito com intenção.</span>
+      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
     </div>
   </div>
 </footer>
