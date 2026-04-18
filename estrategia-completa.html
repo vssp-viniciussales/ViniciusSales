@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>@vssp · Estratégia Completa · Monetização + Conteúdo + Influência</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Fraunces:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--petroleo:#0E1B2C;--petroleo2:#152438;--bege:#F2EDD8;--taupe:#C2B6AA;--ouro:#C8A97E;--verde:#1B5E20;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--petroleo);color:var(--bege);font-family:'Syne',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.container{max-width:960px;margin:0 auto;padding:0 32px;}
+/* HERO */
+.doc-hero{background:var(--petroleo2);border-bottom:1px solid rgba(200,169,126,.12);padding:64px 32px;text-align:center;}
+.doc-kicker{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--ouro);opacity:.7;margin-bottom:20px;}
+.doc-h1{font-family:'Cinzel',serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:var(--bege);line-height:1.1;margin-bottom:16px;}
+.doc-h1 em{color:var(--ouro);font-style:normal;}
+.doc-sub{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:rgba(242,237,216,.5);max-width:520px;margin:0 auto;}
+/* BLOCOS */
+.bloco{padding:72px 0;border-bottom:1px solid rgba(200,169,126,.08);}
+.bloco:last-child{border-bottom:none;}
+.bloco-header{margin-bottom:48px;}
+.bloco-num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);opacity:.5;margin-bottom:8px;}
+.bloco-h{font-family:'Cinzel',serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:var(--bege);line-height:1.15;margin-bottom:12px;}
+.bloco-h em{color:var(--ouro);font-style:normal;}
+.bloco-desc{font-size:15px;line-height:1.85;color:rgba(242,237,216,.5);max-width:640px;}
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+/* CARDS */
+.card{background:var(--petroleo2);border:1px solid rgba(200,169,126,.12);border-radius:12px;padding:28px;}
+.card-h{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--bege);margin-bottom:10px;}
+.card-body{font-size:14px;line-height:1.8;color:rgba(242,237,216,.55);}
+.card-body strong{color:var(--bege);}
+.card-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;background:rgba(200,169,126,.1);color:var(--ouro);border:1px solid rgba(200,169,126,.2);padding:4px 12px;border-radius:100px;margin-bottom:12px;}
+/* ESCADA DE VALOR */
+.escada{display:flex;flex-direction:column;gap:0;}
+.degrau{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid rgba(200,169,126,.08);}
+.degrau:last-child{border-bottom:none;}
+.degrau-n{font-family:'Cinzel',serif;font-size:32px;font-weight:900;color:var(--ouro);opacity:.15;flex-shrink:0;line-height:1;min-width:40px;margin-top:-4px;}
+.degrau-body{flex:1;}
+.degrau-title{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--bege);margin-bottom:4px;}
+.degrau-price{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--ouro);margin-bottom:8px;}
+.degrau-desc{font-size:13px;line-height:1.75;color:rgba(242,237,216,.45);}
+.degrau-prazo{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;color:rgba(200,169,126,.4);margin-top:6px;}
+/* FUNIL */
+.funil{display:flex;flex-direction:column;gap:0;}
+.funil-etapa{padding:20px 24px;border-left:2px solid rgba(200,169,126,.2);margin-left:12px;position:relative;margin-bottom:8px;}
+.funil-etapa::before{content:'';position:absolute;left:-6px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--petroleo2);border:2px solid rgba(200,169,126,.4);}
+.funil-etapa.active::before{background:var(--ouro);border-color:var(--ouro);}
+.funil-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);opacity:.6;margin-bottom:6px;}
+.funil-title{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--bege);margin-bottom:6px;}
+.funil-body{font-size:13px;line-height:1.75;color:rgba(242,237,216,.45);}
+/* CONTEÚDO TIPOS */
+.tipo-card{background:var(--petroleo2);border:1px solid rgba(200,169,126,.1);border-radius:10px;padding:20px;}
+.tipo-badge{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:12px;display:inline-block;}
+.tipo-badge.autoridade{background:rgba(27,94,32,.3);color:#81C784;border:1px solid rgba(27,94,32,.4);}
+.tipo-badge.historia{background:rgba(92,61,30,.3);color:#FFCC80;border:1px solid rgba(92,61,30,.4);}
+.tipo-badge.conversao{background:rgba(123,31,58,.3);color:#F48FB1;border:1px solid rgba(123,31,58,.4);}
+.tipo-badge.espontaneo{background:rgba(27,58,107,.3);color:#90CAF9;border:1px solid rgba(27,58,107,.4);}
+.tipo-title{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--bege);margin-bottom:8px;}
+.tipo-body{font-size:12px;line-height:1.75;color:rgba(242,237,216,.5);}
+/* PLANO 7 DIAS */
+.dia-row{padding:20px 0;border-bottom:1px solid rgba(200,169,126,.07);display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:20px;align-items:start;}
+.dia-row:last-child{border-bottom:none;}
+.dia-nome{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);padding-top:2px;}
+.dia-tema{font-size:13px;line-height:1.65;color:rgba(242,237,216,.7);}
+.dia-tema strong{color:var(--bege);display:block;margin-bottom:4px;}
+.dia-obj{font-size:12px;line-height:1.65;color:rgba(242,237,216,.4);}
+.dia-cta{font-size:12px;line-height:1.65;color:var(--ouro);font-family:'Fraunces',serif;font-style:italic;}
+/* CTAS */
+.cta-row{padding:16px 0;border-bottom:1px solid rgba(200,169,126,.06);}
+.cta-row:last-child{border-bottom:none;}
+.cta-antes{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(242,237,216,.3);text-decoration:line-through;margin-bottom:6px;}
+.cta-depois{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--bege);margin-bottom:4px;}
+.cta-why{font-size:12px;color:rgba(242,237,216,.4);}
+/* REPETIÇÃO */
+.rep-card{background:var(--petroleo2);border:1px solid rgba(200,169,126,.1);border-radius:10px;padding:20px;margin-bottom:12px;}
+.rep-freq{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--ouro);opacity:.6;margin-bottom:6px;}
+.rep-frase{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--bege);margin-bottom:6px;}
+.rep-como{font-size:12px;line-height:1.7;color:rgba(242,237,216,.4);}
+/* HIGHLIGHT BOX */
+.highlight{background:rgba(200,169,126,.07);border:1px solid rgba(200,169,126,.2);border-left:3px solid var(--ouro);border-radius:8px;padding:20px 24px;margin-top:20px;}
+.highlight p{font-size:14px;line-height:1.8;color:rgba(242,237,216,.7);}
+.highlight strong{color:var(--bege);}
+/* RESPONSIVO */
+@media(max-width:720px){
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .dia-row{grid-template-columns:1fr;gap:8px;}
+  .dia-nome{padding-top:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="doc-hero">
+  <div class="container">
+    <div class="doc-kicker">@vssp · Estratégia Completa · Abril 2026</div>
+    <h1 class="doc-h1">Blocos 2, 3 e 4<br><em>Monetização · Conteúdo · Autoridade</em></h1>
+    <p class="doc-sub">Tudo pronto para implementação. Estrutura de funil, escada de valor, plano de 7 dias e sistema de repetição.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BLOCO 2 — MONETIZAÇÃO E FUNIL
+════════════════════════════════════════ -->
+<div class="bloco">
+<div class="container">
+
+<div class="bloco-header">
+  <div class="bloco-num">Bloco 02</div>
+  <h2 class="bloco-h">Monetização<br>e <em>Funil.</em></h2>
+  <p class="bloco-desc">Estrutura completa de funil, escada de valor, oferta principal e integração com negócios existentes.</p>
+</div>
+
+<!-- 2.1 FUNIL COMPLETO -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">2.1 Funil Completo</h3>
+<div class="funil" style="margin-bottom:56px;">
+
+  <div class="funil-etapa active">
+    <div class="funil-label">Topo — Entrada Gratuita</div>
+    <div class="funil-title">Conteúdo + Teste de Masculinidade</div>
+    <div class="funil-body">Instagram (@vssp.viniciussales) → post do General Solitário → CTA para o teste. Resultado do teste enviado via WhatsApp → pessoa entra na lista. <strong>Meta: 200 leads/mês na lista.</strong></div>
+  </div>
+
+  <div class="funil-etapa">
+    <div class="funil-label">Meio — Nutrição + Produto Entrada</div>
+    <div class="funil-title">Lista de WhatsApp + Manual do General Solitário R$97</div>
+    <div class="funil-body">Lista aquecida com conteúdo semanal exclusivo (bastidores, reflexões não publicadas no feed). Lançamento do Manual a R$97 para a lista primeiro. <strong>Meta: 50 vendas no primeiro mês.</strong></div>
+  </div>
+
+  <div class="funil-etapa">
+    <div class="funil-label">Fundo — Consultoria Individual</div>
+    <div class="funil-title">Sessão Estratégica R$1.500</div>
+    <div class="funil-body">Formulário de qualificação. Retorno em 48h. Sessão de 90 minutos. 4 vagas abertas por vez. <strong>Meta: 4 clientes/mês = R$6.000.</strong></div>
+  </div>
+
+  <div class="funil-etapa">
+    <div class="funil-label">Retenção — Comunidade</div>
+    <div class="funil-title">Grupo Fechado R$300–500/mês</div>
+    <div class="funil-body">Para quem passou pela consultoria ou comprou o Manual. Sessões mensais em grupo, acesso direto. <strong>Meta: 30 membros = R$9.000–15.000/mês recorrente.</strong></div>
+  </div>
+
+</div>
+
+<!-- 2.2 ESCADA DE VALOR -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">2.2 Escada de Valor Completa</h3>
+<div class="escada" style="margin-bottom:56px;">
+
+  <div class="degrau">
+    <div class="degrau-n">1</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Teste de Masculinidade</div>
+      <div class="degrau-price">Gratuito</div>
+      <div class="degrau-desc">Diagnóstico do General Solitário em 10 perguntas. Resultado detalhado via WhatsApp. Porta de entrada principal do funil. Captura o lead com valor real.</div>
+      <div class="degrau-prazo">Já existe · Adicionar integração WhatsApp automática</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">2</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Manual do General Solitário</div>
+      <div class="degrau-price">R$97</div>
+      <div class="degrau-desc">PDF de 40–60 páginas. Diagnóstico completo do padrão, os 5 estágios da transição, protocolo de 30 dias para iniciar a mudança. Baseado no material já escrito.</div>
+      <div class="degrau-prazo">Prazo de criação: 3 semanas · Lançar para a lista primeiro</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">3</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Workshop Online "Da Resolução à Construção"</div>
+      <div class="degrau-price">R$497–997</div>
+      <div class="degrau-desc">4 módulos gravados. Exercícios. Método de transição do General Solitário para o "vamos juntos". Para quem quer mais profundidade que o Manual mas ainda não está pronto para consultoria.</div>
+      <div class="degrau-prazo">Prazo: Mês 2 após lançamento do Manual</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">4</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Consultoria Individual</div>
+      <div class="degrau-price">R$1.500/sessão</div>
+      <div class="degrau-desc">Sessão de 90 min. Diagnóstico preciso + plano de 60 dias. 4 vagas por vez. Topo de funil de autoridade — o produto que valida tudo mais.</div>
+      <div class="degrau-prazo">Já existe como ideia · Lançar com preço público esta semana</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">5</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Grupo Fechado Mensal</div>
+      <div class="degrau-price">R$300–500/mês</div>
+      <div class="degrau-desc">Comunidade de homens em transição. Sessões mensais em grupo. Acesso direto ao Vinícius. Conteúdo exclusivo de bastidores. Receita recorrente.</div>
+      <div class="degrau-prazo">Prazo: Mês 3 · Com os primeiros clientes de consultoria</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">6</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Imersão Presencial</div>
+      <div class="degrau-price">R$3.000–5.000</div>
+      <div class="degrau-desc">Evento de 1 dia, 15–20 homens máximo, em Paulínia ou São Paulo. Diagnóstico e plano individual. O produto de maior receita por unidade de tempo.</div>
+      <div class="degrau-prazo">Prazo: Mês 4–6 · Com prova social dos produtos anteriores</div>
+    </div>
+  </div>
+
+  <div class="degrau">
+    <div class="degrau-n">7</div>
+    <div class="degrau-body">
+      <div class="degrau-title">Livro "Ele não só resolveu a vida"</div>
+      <div class="degrau-price">Digital R$37 · Físico R$67</div>
+      <div class="degrau-desc">Produto de autoridade permanente. O material já existe em rascunho. Lançar digital primeiro em 90 dias. Gera prova social e alimenta todos os outros produtos do funil.</div>
+      <div class="degrau-prazo">URGENTE: Data de lançamento = 90 dias a partir de hoje</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 2.3 INTEGRAÇÃO NEGÓCIOS EXISTENTES -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">2.3 Pontes de Conteúdo → Leads para Negócios Existentes</h3>
+<div class="grid-2" style="margin-bottom:56px;">
+
+  <div class="card">
+    <div class="card-tag">Grupo Villela Brasil Bank</div>
+    <div class="card-h">Restituição Tributária</div>
+    <div class="card-body">
+      <strong>Público:</strong> empresários que seguem o @vssp por conta da história de negócios.<br><br>
+      <strong>Conteúdo ponte:</strong> 1 post por mês sobre "dinheiro que você já pagou e não sabia que podia recuperar". Caso real de empresa (anonimizado). CTA: "Você tem empresa? Fala comigo."<br><br>
+      <strong>Funil:</strong> Post → DM → qualificação → encaminhamento para o produto Villela. <strong>Ticket médio: R$3.000–15.000 de comissão por empresa.</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Leilões — Projeto com a Bárbara</div>
+    <div class="card-h">Compra e Venda via Leilão</div>
+    <div class="card-body">
+      <strong>Por que documentar:</strong> é o maior gerador de receita planejado (R$100k/mês em 3 anos) e o único negócio onde o "vamos juntos" é estrutural.<br><br>
+      <strong>Conteúdo ponte:</strong> série "bastidores de um leilão" — análise de lote, decisão de dar lance ou não, resultado. Transparência total sobre o processo.<br><br>
+      <strong>Prazo para iniciar:</strong> primeiro estudo de lote nos próximos 30 dias. <strong>Primeiro lance em 90 dias.</strong>
+    </div>
+  </div>
+
+</div>
+
+<!-- 2.4 MECÂNICA DE CONVERSÃO — FORMULÁRIO -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:16px;">2.4 Qualificação para Consultoria — Formulário</h3>
+<div class="card" style="margin-bottom:0;">
+  <div class="card-body" style="font-size:14px;">
+    <strong style="color:var(--bege);display:block;margin-bottom:12px;">Campos obrigatórios do formulário:</strong>
+    1. Nome e WhatsApp<br>
+    2. "Em uma frase: qual é o maior problema da sua vida agora?"<br>
+    3. "Você já identificou o General Solitário em você? Em qual situação ele aparece?"<br>
+    4. "Qual resultado você quer ao final da consultoria?"<br>
+    5. "O que te impediu de resolver isso até agora?"<br><br>
+    <strong style="color:var(--bege);">Por que esse formulário converte:</strong> obriga a pessoa a articular o problema antes de pagar — quem preenche já é um lead qualificado. Quem não preenche não está pronto e não seria um bom cliente.
+  </div>
+</div>
+
+</div><!-- /container -->
+</div><!-- /bloco 2 -->
+
+
+<!-- ═══════════════════════════════════════
+     BLOCO 3 — CONTEÚDO
+════════════════════════════════════════ -->
+<div class="bloco">
+<div class="container">
+
+<div class="bloco-header">
+  <div class="bloco-num">Bloco 03</div>
+  <h2 class="bloco-h">Documento<br>de <em>Conteúdo.</em></h2>
+  <p class="bloco-desc">Posicionamento editorial, proporção correta, plano de 7 dias e CTAs reescritos.</p>
+</div>
+
+<!-- 3.1 POSICIONAMENTO EDITORIAL -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">3.1 Posicionamento Editorial</h3>
+<div class="card" style="margin-bottom:40px;">
+  <div class="card-body">
+    <strong style="color:var(--bege);display:block;font-size:16px;margin-bottom:16px;">Mensagem central — repetir em tudo:</strong>
+    <div style="font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--bege);margin-bottom:20px;border-left:2px solid var(--ouro);padding-left:20px;">
+      "Não sou o homem que chegou lá. Sou o homem chegando. E estou documentando ao vivo."
+    </div>
+    <strong style="color:var(--bege);display:block;margin-bottom:12px;">Conceito proprietário — usar em todo conteúdo:</strong>
+    <strong style="color:var(--ouro);">General Solitário</strong> — o homem que funciona perfeitamente por fora e está falhando silenciosamente por dentro.<br><br>
+    <strong style="color:var(--bege);display:block;margin-bottom:12px;">Pilares editoriais:</strong>
+    ✝ Fé · ⚭ Família · ◈ Finanças · ▲ Negócios · ◉ Corpo · ◆ General Solitário (conceito transversal em tudo)<br><br>
+    <strong style="color:var(--bege);display:block;margin-bottom:12px;">Tom de voz:</strong>
+    Direto, sem rodeios, profundo quando o assunto pede. Nunca motivacional genérico. Nunca coach de palco. Frase curta quando o tema é sério. Conversa real quando é leve. A regra do Bárbara Test: "isso poderia ter sido escrito por qualquer outro perfil?" Se sim, reescreve.
+  </div>
+</div>
+
+<!-- 3.2 PROPORÇÃO EMOÇÃO vs AUTORIDADE -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">3.2 Tipos de Conteúdo — Proporção Correta</h3>
+<div class="grid-2" style="margin-bottom:40px;">
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="tipo-card">
+      <div class="tipo-badge historia">História · 35%</div>
+      <div class="tipo-title">História Real</div>
+      <div class="tipo-body">A cena da bicicleta. Os R$15 mil. A serralheria do pai. A decisão financeira com a Bárbara. Cada história real ancorada em aprendizado transferível. Regra: começa sempre com um detalhe específico — lugar, idade, objeto concreto.</div>
+    </div>
+    <div class="tipo-card">
+      <div class="tipo-badge autoridade">Autoridade · 30%</div>
+      <div class="tipo-title">Conteúdo Técnico</div>
+      <div class="tipo-body">Frameworks do General Solitário. Análise de padrão comportamental. Sistemas financeiros. Bastidores de negócio (Atlas, leilões, Villela). Provas de competência — não só narrativa emocional.</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="tipo-card">
+      <div class="tipo-badge conversao">Conversão · 20%</div>
+      <div class="tipo-title">Conteúdo de Conversão</div>
+      <div class="tipo-body">Posts com CTA explícito para consultoria, Manual ou teste. Não esconde a oferta. Vende ativamente pelo menos 1x/semana. Depoimentos quando existirem.</div>
+    </div>
+    <div class="tipo-card">
+      <div class="tipo-badge espontaneo">Espontâneo · 15%</div>
+      <div class="tipo-title">Não Filtrado / Presente</div>
+      <div class="tipo-body">Reflexão que surgiu hoje. Decisão que está sendo tomada agora. Momento com a Bárbara. Reel sem roteiro. Esse conteúdo cria a intimidade que nenhum outro formato alcança.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3.3 PLANO 7 DIAS -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:16px;">3.3 Plano de Conteúdo — 7 Dias</h3>
+<div style="background:var(--petroleo2);border:1px solid rgba(200,169,126,.1);border-radius:12px;padding:24px 28px;margin-bottom:40px;overflow-x:auto;">
+
+  <div class="dia-row" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,126,.4);padding-bottom:12px;border-bottom:1px solid rgba(200,169,126,.12);">
+    <div>Dia</div><div>Tema + Formato</div><div>Objetivo Estratégico</div><div>CTA</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Segunda</div>
+    <div class="dia-tema"><strong>Carrossel — General Solitário</strong>Definição + origem do padrão. 8 cards. Um sinal por card.</div>
+    <div class="dia-obj">Instalar o conceito. Criar salvamento. Direcionar para o teste.</div>
+    <div class="dia-cta">"Quantos dos 5 sinais são você? Faça o teste — link na bio."</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Terça</div>
+    <div class="dia-tema"><strong>Stories — presença + pensamento</strong>Foto da manhã. Pensamento sobre dinheiro ou negócio real do dia.</div>
+    <div class="dia-obj">Presença diária. Construir rotina visível.</div>
+    <div class="dia-cta">Sem CTA — só presença.</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Quarta</div>
+    <div class="dia-tema"><strong>Reel falado — sem roteiro</strong>3–4 min, câmera estática. Uma história real da infância/adolescência ou da semana atual.</div>
+    <div class="dia-obj">Criar intimidade máxima. É o formato de maior conexão disponível.</div>
+    <div class="dia-cta">"Se isso bateu, me conta nos comentários o que fez você se reconhecer."</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Quinta</div>
+    <div class="dia-tema"><strong>Carrossel — framework técnico</strong>Sistema, método, análise. Ex: "Como identificar o General Solitário nas suas finanças em 3 passos."</div>
+    <div class="dia-obj">Autoridade técnica. Prova de competência.</div>
+    <div class="dia-cta">"Salva esse carrossel. Se quiser trabalhar isso de forma estruturada — consultoria aberta, link na bio."</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Sexta</div>
+    <div class="dia-tema"><strong>Stories — revisão da semana</strong>O que aconteceu. O que aprendeu. Um número real (negócio, atleta, decisão).</div>
+    <div class="dia-obj">Transparência de processo. Diferenciar de contas de "chegada".</div>
+    <div class="dia-cta">Nenhum — só construção de confiança.</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Sábado</div>
+    <div class="dia-tema"><strong>Reel estático ou post pessoal</strong>Momento com a Bárbara. Uma frase de peso que surgiu na semana. Sem elaboração excessiva.</div>
+    <div class="dia-obj">Mostrar que existe vida além do conteúdo. Humanizar.</div>
+    <div class="dia-cta">"Salva esse post. Próxima vez que você for tomar uma decisão grande sozinho, lê de novo."</div>
+  </div>
+
+  <div class="dia-row">
+    <div class="dia-nome">Domingo</div>
+    <div class="dia-tema"><strong>Stories apenas</strong>Encerramento da semana. Antecipação do tema da próxima. Foto real.</div>
+    <div class="dia-obj">Criar expectativa para a semana seguinte.</div>
+    <div class="dia-cta">"Semana que vem: [tema específico]. Ativa as notificações."</div>
+  </div>
+
+</div>
+
+<!-- 3.4 REESCRITA DE CTAs -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">3.4 CTAs Reescritos — De Fraco para Forte</h3>
+<div style="margin-bottom:40px;">
+
+  <div class="cta-row">
+    <div class="cta-antes">❌ "Segue o @vssp para mais conteúdo."</div>
+    <div class="cta-depois">✓ "Se isso bateu, você provavelmente já opera como General Solitário há mais tempo do que imagina. Segue o @vssp — o próximo post vai nomear exatamente onde isso custa mais."</div>
+    <div class="cta-why">Por que funciona: cria curiosidade específica e conecta à dor real.</div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-antes">❌ "Salva esse post."</div>
+    <div class="cta-depois">✓ "Salva esse post. Da próxima vez que você for tomar uma decisão grande sozinho sem contar para ninguém, lê de novo antes."</div>
+    <div class="cta-why">Por que funciona: o CTA descreve um momento específico da vida do leitor, não uma ação genérica.</div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-antes">❌ "Consultoria disponível. Link na bio."</div>
+    <div class="cta-depois">✓ "Se você carrega há meses algo que não sabe como nomear — a sensação de que funciona por fora e está falhando por dentro — consultoria aberta. R$1.500. 4 vagas. Você sai com o diagnóstico e o plano dos próximos 60 dias. Link na bio."</div>
+    <div class="cta-why">Por que funciona: descreve a dor exata, entrega o preço, o processo e o resultado em uma frase.</div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-antes">❌ "Me conta nos comentários."</div>
+    <div class="cta-depois">✓ "Qual dos 5 sinais é você mais claramente? Comenta aqui — 1, 2, 3, 4 ou 5. Sem julgamento. Esse é exatamente o tipo de conversa que acontece por aqui."</div>
+    <div class="cta-why">Por que funciona: pergunta específica reduz fricção. "Sem julgamento" remove a barreira da vergonha.</div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-antes">❌ "Faça o teste no link da bio."</div>
+    <div class="cta-depois">✓ "Tem um teste no link da bio. 10 perguntas. 5 minutos. Ele vai nomear exatamente em qual estágio do General Solitário você está — e qual é o próximo passo específico para você. Gratuito."</div>
+    <div class="cta-why">Por que funciona: entrega o valor antes do clique, especifica o resultado e remove o risco ("gratuito").</div>
+  </div>
+
+</div>
+
+<!-- 3.5 ESTRUTURA NARRATIVA REPLICÁVEL -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">3.5 Estrutura Narrativa Replicável</h3>
+<div class="card">
+  <div class="card-body">
+    <strong style="color:var(--bege);display:block;margin-bottom:16px;">O template de história que sempre funciona:</strong>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">1.</span><div><strong style="color:var(--bege);">Detalhe específico</strong> — lugar, idade, objeto real. "Aos 15, na cozinha de Caldas, com R$15 mil no bolso."</div></div>
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">2.</span><div><strong style="color:var(--bege);">O que aconteceu</strong> — sem drama excessivo, sem minimizar. Só os fatos com peso real.</div></div>
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">3.</span><div><strong style="color:var(--bege);">O que aquilo instalou</strong> — o sistema de crenças ou padrão que nasceu dali.</div></div>
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">4.</span><div><strong style="color:var(--bege);">Por quanto tempo operou</strong> — sem data exata, mas com escala temporal.</div></div>
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">5.</span><div><strong style="color:var(--bege);">O que quebrou o padrão</strong> — a Bárbara, a fé, uma decisão específica.</div></div>
+      <div style="display:flex;gap:12px;"><span style="color:var(--ouro);font-weight:700;flex-shrink:0;">6.</span><div><strong style="color:var(--bege);">O que isso significa para o leitor</strong> — transferência direta do aprendizado.</div></div>
+    </div>
+    <div class="highlight" style="margin-top:20px;">
+      <p><strong>Regra de ouro:</strong> o leitor não precisa ter vivido a mesma situação. Precisa reconhecer o sentimento. "Aos 15 em Caldas" é específico de você — "a sensação de que agora é com você e não tem mais ninguém" é universal.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</div><!-- /bloco 3 -->
+
+
+<!-- ═══════════════════════════════════════
+     BLOCO 4 — INFLUÊNCIA E AUTORIDADE
+════════════════════════════════════════ -->
+<div class="bloco">
+<div class="container">
+
+<div class="bloco-header">
+  <div class="bloco-num">Bloco 04</div>
+  <h2 class="bloco-h">Influência<br>e <em>Autoridade.</em></h2>
+  <p class="bloco-desc">Sistema de repetição, aumento de percepção de autoridade, conexão real e conversão.</p>
+</div>
+
+<!-- 4.1 SISTEMA DE REPETIÇÃO -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">4.1 Sistema de Repetição Estratégica</h3>
+<div style="margin-bottom:40px;">
+
+  <div class="rep-card">
+    <div class="rep-freq">Todo post</div>
+    <div class="rep-frase">"Não sou o homem que chegou lá. Sou o homem chegando."</div>
+    <div class="rep-como">Aparece na bio, no último card de todo carrossel, no fechamento de todo vídeo, no encerramento de toda legenda longa. O seguidor novo que chega hoje e o que está há 3 meses devem ouvir isso constantemente.</div>
+  </div>
+
+  <div class="rep-card">
+    <div class="rep-freq">3x por semana</div>
+    <div class="rep-frase">"General Solitário"</div>
+    <div class="rep-como">Não como referência biográfica — como diagnóstico coletivo. "Você provavelmente conhece um General Solitário. Talvez você seja um." A repetição do termo cria propriedade do conceito no mercado.</div>
+  </div>
+
+  <div class="rep-card">
+    <div class="rep-freq">1x por semana</div>
+    <div class="rep-frase">"Eu resolvo" → "Vamos juntos"</div>
+    <div class="rep-como">A virada central do posicionamento. Aparece em conteúdo de família, negócios e finanças como linha unificadora de toda a jornada. Cada área de vida ilustra uma versão diferente dessa transição.</div>
+  </div>
+
+  <div class="rep-card">
+    <div class="rep-freq">Em toda oferta</div>
+    <div class="rep-frase">"R$1.500 · 90 minutos · 4 vagas · Você sai com diagnóstico + plano"</div>
+    <div class="rep-como">A oferta da consultoria com preço, processo e resultado sempre completos. Nunca só "consultoria disponível". A repetição dos detalhes remove a fricção de ir buscar a informação.</div>
+  </div>
+
+</div>
+
+<!-- 4.2 AUTORIDADE TÉCNICA -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">4.2 Conteúdo de Autoridade Técnica — Exemplos Prontos</h3>
+<div class="grid-2" style="margin-bottom:40px;">
+
+  <div class="card">
+    <div class="card-tag">Framework</div>
+    <div class="card-h">Os 4 Estágios do General Solitário</div>
+    <div class="card-body">
+      <strong>Estágio 1 — Ativo sem percepção:</strong> opera no padrão, não sabe que existe um nome.<br>
+      <strong>Estágio 2 — Percepção sem mudança:</strong> sabe que resolve tudo sozinho, chama de virtude.<br>
+      <strong>Estágio 3 — Mudança em processo:</strong> consciente do padrão, trabalhando a transição.<br>
+      <strong>Estágio 4 — Integrado:</strong> sabe quando o General assume o controle e tem protocolo para isso.<br><br>
+      <em>Use esse framework em post, no Manual, na consultoria e no teste.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Análise</div>
+    <div class="card-h">Por que Homens de Alta Performance Falham em Silêncio</div>
+    <div class="card-body">
+      3 razões técnicas:<br><br>
+      <strong>1. Identidade fusa com resultado:</strong> quando o resultado é bom, tudo bem. Quando não é, a identidade ameaça.<br>
+      <strong>2. Supressão como competência:</strong> emoção foi treinada como inimiga da eficiência.<br>
+      <strong>3. Ausência de linguagem interna:</strong> sem palavras para o que sente, não consegue comunicar.<br><br>
+      <em>Post de 8 cards. Autoridade técnica com base na psicologia comportamental.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Sistema</div>
+    <div class="card-h">O Protocolo dos 3 Momentos</div>
+    <div class="card-body">
+      Para quando o General Solitário assumir o controle:<br><br>
+      <strong>Momento 1 — Reconhecimento:</strong> "Estou me fechando agora. Estou resolvendo sozinho."<br>
+      <strong>Momento 2 — Pausa:</strong> 2 minutos. Pergunta: "Quem eu deveria incluir nessa decisão?"<br>
+      <strong>Momento 3 — Ação:</strong> Inclui a pessoa antes de ter a solução, não depois.<br><br>
+      <em>Conteúdo técnico e prático — demonstra que há método, não só narrativa.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Prova</div>
+    <div class="card-h">Bastidor de Negócio Real</div>
+    <div class="card-body">
+      Documentar os negócios com dados reais (sem expor o que não deve ser exposto):<br><br>
+      • "Essa semana no Atlas: o problema que apareceu e como resolvemos juntos."<br>
+      • "Primeiro lote de leilão analisado — aqui está o critério que usei."<br>
+      • "Reunião de finanças com a Bárbara: o que mudou esse mês."<br><br>
+      <em>Prova de competência através de documentação, não de afirmação.</em>
+    </div>
+  </div>
+
+</div>
+
+<!-- 4.3 VULNERABILIDADE CONTROLADA -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">4.3 Exposição Controlada — Vulnerabilidade Que Converte</h3>
+<div class="card" style="margin-bottom:40px;">
+  <div class="card-body">
+    <strong style="color:var(--bege);display:block;margin-bottom:16px;">Regra: vulnerabilidade + aprendizado + direção</strong>
+    Vulnerabilidade sem aprendizado é trauma. Com aprendizado é insight. Com direção é autoridade.<br><br>
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px;">
+      <div>
+        <strong style="color:var(--ouro);">✓ Vulnerabilidade que funciona:</strong><br>
+        "Às vezes falta dinheiro antes do fim do mês. Não porque não entro — porque eu e a Bárbara ainda não fechamos o sistema financeiro. Aqui está o que estamos mudando esta semana."
+      </div>
+      <div>
+        <strong style="color:rgba(242,237,216,.4);">✗ Vulnerabilidade que não funciona:</strong><br>
+        "Estou passando por um momento difícil." — sem detalhe, sem aprendizado, sem direção.
+      </div>
+      <div>
+        <strong style="color:var(--ouro);">✓ Vulnerabilidade que funciona:</strong><br>
+        "Essa semana o General Solitário assumiu o controle numa decisão sobre o Atlas. Eu percebi depois. Aqui está o que eu fiz — e o que eu deveria ter feito."
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:16px;">
+      <p><strong>O Bárbara Test aplicado à vulnerabilidade:</strong> antes de publicar algo vulnerável, pergunte — "se a Bárbara lesse isso, ela reconheceria a experiência real?" Se sim, publica. Se é uma versão editada do que aconteceu, reescreve ou não publica.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4.4 GATILHOS DE CONVERSÃO -->
+<h3 style="font-family:'Cinzel',serif;font-size:18px;color:var(--bege);margin-bottom:24px;">4.4 Gatilhos de Ação — Exemplos Prontos</h3>
+<div class="grid-2">
+
+  <div class="card">
+    <div class="card-tag">Gatilho — Escassez Real</div>
+    <div class="card-h">4 Vagas por Vez</div>
+    <div class="card-body">
+      "Consultoria aberta. 4 vagas — não como artifício de marketing, mas porque é o que consigo atender com qualidade. Quando fechar, fecha. Formulário no link da bio."<br><br>
+      <em>A escassez verdadeira não precisa ser amplificada. Precisa ser declarada com clareza.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Gatilho — Especificidade</div>
+    <div class="card-h">O Resultado Nomeado</div>
+    <div class="card-body">
+      "Você sai da sessão com: (1) o nome exato do padrão que está sabotando você, (2) onde ele aparece na sua vida com mais força, (3) 3 ações dos próximos 60 dias."<br><br>
+      <em>Específico bate vago sempre. O leitor precisa visualizar o que acontece, não só que "vai ser transformador".</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Gatilho — Identificação</div>
+    <div class="card-h">O Espelho Exato</div>
+    <div class="card-body">
+      "Se você é o cara que: resolve antes de perguntar, se fecha quando a pressão sobe, está no casamento mas não está de verdade presente — isso foi escrito para você."<br><br>
+      <em>Descrever o cliente mais do que o produto gera mais conversão do que qualquer headline.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-tag">Gatilho — Autoridade Experiencial</div>
+    <div class="card-h">A Prova Vivida</div>
+    <div class="card-body">
+      "Não estou ensinando o que li num livro. Estou ensinando o que aprendi na bicicleta de volta pra casa aos 6 anos. Nos R$15 mil gastos sem construir nada. Na decisão que afetou a confiança da Bárbara."<br><br>
+      <em>Autoridade experiencial não se cria — se declara com especificidade.</em>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- /container -->
+</div><!-- /bloco 4 -->
+
+</body>
+</html>
