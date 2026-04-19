@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Chat · @vssp · Vinícius Padovani</title>
+<title>Chat IA · @vssp · Vinícius Padovani</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
@@ -99,7 +99,7 @@ body { background:var(--petroleo); }
   <div class="chat-sidebar">
     <div class="chat-avatar">VP</div>
     <div class="chat-nome">Vinícius Padovani</div>
-    <div class="chat-status"><span class="chat-status-dot"></span>Assistente ativo</div>
+    <div class="chat-status"><span class="chat-status-dot"></span>IA online agora</div>
     <div class="chat-bio">Pode me perguntar sobre decisões reais da minha vida, dinheiro, casamento, erros, negócios e o que estou construindo agora.</div>
     <div class="chat-divider"></div>
     <div class="chat-topicos-label">Perguntas sugeridas</div>
@@ -127,7 +127,7 @@ body { background:var(--petroleo); }
       <div class="msg">
         <div class="msg-avatar vssp">VP</div>
         <div>
-          <div class="msg-bubble vssp">Olá. Sou uma IA treinada com a vida real do Vinícius Padovani.<br><br>Pode me perguntar sobre dinheiro, casamento, erros, negócios, o General Solitário ou qualquer coisa da minha trajetória.<br><br>O que você quer saber?</div>
+          <div class="msg-bubble vssp">Olá. Aqui é uma IA baseada na vida real do Vinícius Padovani.<br><br>Me pergunte sobre dinheiro, casamento, erros, negócios, o General Solitário ou qualquer parte da minha trajetória. Respondo com o que vivi, não com teoria.<br><br>O que você quer saber?</div>
           <div class="msg-time">Agora</div>
         </div>
       </div>
@@ -145,7 +145,7 @@ body { background:var(--petroleo); }
     </div>
 
     <div class="chat-input-wrap">
-      <textarea class="chat-input" id="chatInput" placeholder="Escreva sua pergunta..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      <textarea class="chat-input" id="chatInput" placeholder="O que você quer saber?" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
       <button class="chat-send" id="sendBtn" onclick="enviar()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
