@@ -53,6 +53,21 @@ body { background:var(--petroleo); }
 .res-ponto-desc { font-size:13px; color:rgba(242,237,216.5); line-height:1.7; }
 .res-cta { background:rgba(200,169,126.08); border:1px solid rgba(200,169,126.2); border-radius:14px; padding:32px; text-align:center; }
 .res-cta-txt { font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--bege); margin-bottom:20px; line-height:1.6; }
+
+/* ── CORRECAO DE LEGIBILIDADE DO RESULTADO ── */
+.resultado { background: #0E1B2C; min-height: 100vh; padding: 40px 0; }
+.res-score-wrap { background: #152438; border-radius: 16px; padding: 40px 32px; border: 1px solid rgba(200,169,126,.15); margin-bottom: 40px; }
+.res-num { color: #F2EDD8 !important; text-shadow: 0 0 40px rgba(200,169,126,.3); }
+.res-score-label { color: rgba(194,182,170,.7) !important; }
+.res-nivel { color: #C8A97E !important; }
+.res-nivel-wrap, .res-nivel-box { background: rgba(200,169,126,.08); border: 1px solid rgba(200,169,126,.15); border-radius: 10px; padding: 20px 24px; }
+.res-desc { color: rgba(242,237,216,.75) !important; line-height: 1.8; }
+.res-card { background: #152438 !important; border: 1px solid rgba(200,169,126,.12) !important; border-left: 2px solid #C8A97E !important; }
+.res-ponto-titulo { color: #F2EDD8 !important; }
+.res-ponto-desc { color: rgba(242,237,216,.6) !important; }
+.res-cta-txt { color: rgba(242,237,216,.65) !important; font-style: italic; }
+.res-cta a, .res-cta .btn { background: #C8A97E; color: #0E1B2C; }
+
 </style>
 </head>
 <body>
@@ -324,6 +339,7 @@ function mostrarResultado() {
       <div class="res-cta-txt">"Diagnóstico sem ação é só informação. O próximo passo depende de você."</div>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria</a>
+        <a href="https://wa.me/5535953267086" target="_blank" class="btn btn-outline">WhatsApp</a>
         <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn btn-outline">Seguir @vssp</a>
       </div>
     </div>
@@ -333,5 +349,11 @@ function mostrarResultado() {
   `;
 }
 </script>
+<div style="text-align:center;padding:24px;font-family:monospace;font-size:11px;color:rgba(242,237,216,.2);">
+  <a href="mailto:vssp.vincius@gmail.com" style="color:rgba(200,169,126,.3);text-decoration:none;">vssp.vincius@gmail.com</a>
+  &nbsp;·&nbsp;
+  <a href="https://wa.me/5535953267086" target="_blank" style="color:rgba(200,169,126,.3);text-decoration:none;">wa.me/5535953267086</a>
+  &nbsp;·&nbsp; © 2026 Vinícius Padovani
+</div>
 </body>
 </html>

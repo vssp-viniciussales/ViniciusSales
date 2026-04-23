@@ -462,10 +462,7 @@ body::after {
   color:rgba(242,237,216,.5);
 }
 
-/* ── SEÇÃO CHAT IA ── */
-.s-chat {
-  padding:100px 48px;background:var(--petroleo);
-}
+
 .chat-inner {
   max-width:720px;margin:0 auto;text-align:center;
 }
@@ -670,7 +667,7 @@ body::after {
   .nav-links { display:none; }
   .nav-menu { display:flex; }
   .hero { padding:110px 24px 70px; }
-  .s-conceito,.s-historia,.s-oferta,.s-chat,.s-pilares,.s-final { padding:72px 24px; }
+  .s-conceito,.s-historia,.s-oferta,.s-pilares,.s-final { padding:72px 24px; }
   .conceito-grid,.historia-grid,.oferta-grid { grid-template-columns:1fr;gap:48px; }
   .pilares-grid { grid-template-columns:1fr 1fr; }
   .footer { padding:40px 24px; }
@@ -680,6 +677,50 @@ body::after {
   .pilares-grid { grid-template-columns:1fr; }
   .hero-cta-secondary { flex-direction:column;align-items:center; }
 }
+
+/* ── DIAGNOSTICO ESTRATEGICO ── */
+.s-diagnostico{padding:100px 48px;background:var(--petroleo2);position:relative;}
+.s-diagnostico::before{content:'';position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);}
+.diag-wrap{max-width:700px;margin:56px auto 0;}
+.diag-intro{font-size:15px;line-height:1.9;color:rgba(242,237,216,.55);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(200,169,126,.1);}
+.diag-form{display:flex;flex-direction:column;gap:28px;}
+.diag-group{display:flex;flex-direction:column;gap:10px;}
+.diag-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ouro,#C8A97E);opacity:.9;}
+.diag-field{background:rgba(255,255,255,.04);border:1px solid rgba(200,169,126,.18);border-radius:8px;padding:16px 20px;font-family:'Syne',sans-serif;font-size:15px;color:#F2EDD8;outline:none;resize:vertical;transition:border-color .2s;}
+.diag-field::placeholder{color:rgba(242,237,216,.25);}
+.diag-field:focus{border-color:rgba(200,169,126,.5);}
+.diag-submit-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:8px;}
+.diag-submit{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;background:#C8A97E;color:#0E1B2C;border:none;padding:18px 36px;border-radius:4px;cursor:pointer;transition:background .2s,transform .15s;}
+.diag-submit:hover{background:#A8855A;transform:translateY(-2px);}
+.diag-submit:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.diag-aviso{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.25);}
+.diag-success{text-align:center;padding:48px 32px;background:rgba(200,169,126,.07);border:1px solid rgba(200,169,126,.2);border-radius:12px;}
+.diag-success-icon{font-size:40px;color:#C8A97E;margin-bottom:16px;}
+.diag-success-title{font-family:'Cinzel',serif;font-size:28px;color:#F2EDD8;margin-bottom:12px;}
+.diag-success-txt{font-size:15px;line-height:1.75;color:rgba(242,237,216,.6);}
+@media(max-width:900px){.s-diagnostico{padding:72px 24px;}}
+
+
+/* ── DIAGNOSTICO ESTRATEGICO ── */
+.s-diagnostico{padding:100px 48px;background:var(--petroleo2);position:relative;}
+.s-diagnostico::before{content:'';position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);}
+.diag-wrap{max-width:700px;margin:56px auto 0;}
+.diag-intro{font-size:15px;line-height:1.9;color:rgba(242,237,216,.55);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid rgba(200,169,126,.1);}
+.diag-form{display:flex;flex-direction:column;gap:28px;}
+.diag-group{display:flex;flex-direction:column;gap:10px;}
+.diag-label{font-family:var(--ff-mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ouro,#C8A97E);opacity:.9;}
+.diag-field{background:rgba(255,255,255,.04);border:1px solid rgba(200,169,126,.18);border-radius:8px;padding:16px 20px;font-family:var(--ff-sans,'Syne',sans-serif);font-size:15px;color:var(--bege,#F2EDD8);outline:none;resize:vertical;transition:border-color .2s;}
+.diag-field::placeholder{color:rgba(242,237,216,.25);}
+.diag-field:focus{border-color:rgba(200,169,126,.5);}
+.diag-submit-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:8px;}
+.diag-submit{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;background:var(--ouro,#C8A97E);color:var(--petroleo,#0E1B2C);border:none;padding:18px 36px;border-radius:4px;cursor:pointer;transition:background .2s,transform .2s;}
+.diag-submit:hover{background:var(--ouro-dark,#A8855A);transform:translateY(-2px);}
+.diag-aviso{font-family:var(--ff-mono,'JetBrains Mono',monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.25);}
+.diag-success{text-align:center;padding:48px 32px;background:rgba(200,169,126,.07);border:1px solid rgba(200,169,126,.2);border-radius:12px;margin-top:24px;}
+.diag-success-icon{font-size:40px;color:var(--ouro,#C8A97E);margin-bottom:16px;}
+.diag-success-title{font-family:var(--ff-display,'Cinzel',serif);font-size:28px;font-weight:900;color:var(--bege,#F2EDD8);margin-bottom:12px;}
+.diag-success-txt{font-size:15px;line-height:1.75;color:rgba(242,237,216,.6);}
+@media(max-width:900px){.s-diagnostico{padding:72px 24px;}}
 </style>
 </head>
 <body>
@@ -692,7 +733,7 @@ body::after {
     <a href="manifesto.html" class="nav-link">Manifesto</a>
     <a href="blog.html" class="nav-link">Blog</a>
     <a href="teste-masculinidade.html" class="nav-link">Teste</a>
-    <a href="chat.html" class="nav-link">Chat IA</a>
+    
     <a href="consultoria.html" class="nav-cta">Consultoria</a>
   </div>
   <button class="nav-menu" id="navMenu" aria-label="Menu">
@@ -705,7 +746,7 @@ body::after {
   <a href="manifesto.html" class="mobile-link">Manifesto</a>
   <a href="blog.html" class="mobile-link">Blog</a>
   <a href="teste-masculinidade.html" class="mobile-link">Teste</a>
-  <a href="chat.html" class="mobile-link">Chat IA</a>
+  
   <a href="consultoria.html" class="mobile-link" style="color:var(--ouro);">Consultoria →</a>
 </div>
 
@@ -729,14 +770,14 @@ body::after {
 
     <!-- CTA ÚNICO E DOMINANTE -->
     <div class="hero-cta-wrap">
-      <a href="chat.html" class="btn-hero-primary">
+      <a href="#diagnostico" class="btn-hero-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Fale com a IA do @vssp. Gratuito.
+        Diagnóstico gratuito
       </a>
       <div class="hero-cta-sub">Treinada com minha história real · Responde agora</div>
       <div class="hero-cta-secondary">
         <a href="teste-masculinidade.html" class="btn-ghost">Fazer o teste de masculinidade</a>
-        <a href="consultoria.html" class="btn-ghost">Ver consultoria · R$1.500</a>
+        <a href="consultoria.html" class="btn-ghost">Ver consultoria · R$497</a>
       </div>
     </div>
 
@@ -870,7 +911,7 @@ body::after {
 
       <div class="price-card">
         <div class="price-badge">Sessão estratégica 1:1</div>
-        <div class="price-value">R$1.500</div>
+        <div class="price-value">R$497</div>
         <div class="price-period">por sessão de 90 minutos</div>
         <div class="price-itens">
           <div class="price-item">
@@ -933,45 +974,7 @@ body::after {
   </div>
 </section>
 
-<!-- ═══════════════ CHAT IA ═══════════════ -->
-<section class="s-chat" id="chat">
-  <div class="container">
-    <div class="chat-inner" data-reveal>
 
-      <div class="chat-badge">
-        <span></span> IA ativa agora
-      </div>
-      <h2 class="chat-h">
-        Fale com a IA<br>treinada na <em>minha história.</em>
-      </h2>
-      <p class="chat-sub">
-        Um assistente com IA baseado na minha trajetória real. Responde sobre fé, família, finanças, negócios, o General Solitário e a construção de vida masculina. Gratuito. Sem cadastro.
-      </p>
-
-      <!-- Preview de conversa -->
-      <div class="chat-preview">
-        <div class="chat-msg">
-          <div class="chat-avatar">VP</div>
-          <div class="chat-bubble">Olá. Sou uma IA baseada na história e nos valores do Vinícius Padovani. Posso conversar sobre fé, família, finanças, negócios e o padrão do General Solitário. O que você quer saber?</div>
-        </div>
-        <div class="chat-msg user">
-          <div class="chat-avatar" style="background:rgba(200,169,126,.12);color:rgba(242,237,216,.6);">?</div>
-          <div class="chat-bubble user">O que é o General Solitário e como sei se sou um?</div>
-        </div>
-        <div class="chat-msg">
-          <div class="chat-avatar">VP</div>
-          <div class="chat-bubble">O General Solitário é o padrão do homem que funciona perfeitamente por fora, entrega no trabalho, sustenta em casa, e está falhando silenciosamente por dentro. Ele resolve tudo, não pede nada, e chama esse isolamento de força. O primeiro sinal: quando algo dá errado, você processa sozinho antes de falar com alguém. Isso te soa familiar?</div>
-        </div>
-      </div>
-
-      <a href="chat.html" class="btn-chat-enter">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Iniciar conversa · Gratuito
-      </a>
-
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════ PILARES ═══════════════ -->
 <section class="s-pilares">
@@ -1010,10 +1013,107 @@ body::after {
         <div class="pilar-title">Paternidade</div>
         <div class="pilar-desc">Ainda não chegou, mas já está sendo construída. O pai que o meu filho vai ver é construído agora, antes dele nascer.</div>
       </div>
+      <div class="pilar-card">
+        <div class="pilar-icon">◆</div>
+        <div class="pilar-title">General Solitário</div>
+        <div class="pilar-desc">O conceito central. O padrão que sabota homens de alta performance em silêncio. Identificado, nomeado e documentado ao vivo neste perfil.</div>
+      </div>
     </div>
   </div>
 </section>
 
+
+<!-- DIAGNOSTICO ESTRATEGICO -->
+<section class="s-diagnostico" id="diagnostico">
+  <div class="container">
+    <div class="sec-label">Diagnóstico gratuito</div>
+    <h2 class="sec-title"><em>Onde você está</em><br>agora?</h2>
+    <div class="diag-wrap" data-reveal>
+      <p class="diag-intro">Antes de qualquer conversa sobre consultoria, quero entender o que está acontecendo de verdade. Preencha as perguntas abaixo. Leio pessoalmente e respondo em até 48 horas via WhatsApp.</p>
+      <form class="diag-form" id="diagForm" onsubmit="enviarDiagnostico(event)">
+        <div class="diag-group">
+          <label class="diag-label">01 &middot; Em uma frase: qual é o maior problema da sua vida agora?</label>
+          <textarea class="diag-field" name="problema" rows="3" placeholder="Seja específico. Quanto mais real, mais útil." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">02 &middot; Você já se reconheceu no General Solitário? Em qual situação ele aparece com mais força?</label>
+          <textarea class="diag-field" name="general" rows="3" placeholder="No trabalho, em casa, no casamento, com dinheiro..." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">03 &middot; O que você quer que seja diferente daqui a 60 dias?</label>
+          <textarea class="diag-field" name="objetivo" rows="3" placeholder="Resultado concreto, não vago." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">04 &middot; O que te impediu de resolver isso até agora?</label>
+          <textarea class="diag-field" name="impedimento" rows="3" placeholder="Seja honesto. Essa é a pergunta mais importante." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">05 &middot; Seu WhatsApp</label>
+          <input class="diag-field" type="tel" name="whatsapp" placeholder="+55 (XX) XXXXX-XXXX" required>
+        </div>
+        <div class="diag-submit-wrap">
+          <button type="submit" class="diag-submit" id="diagSubmit">
+            Enviar diagnóstico
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+          </button>
+          <span class="diag-aviso">Retorno pessoal em até 48 horas via WhatsApp.</span>
+        </div>
+        <div class="diag-success" id="diagSuccess" style="display:none;">
+          <div class="diag-success-icon">&#10003;</div>
+          <div class="diag-success-title">Recebido.</div>
+          <div class="diag-success-txt">Vou ler com atenção e entrar em contato pelo WhatsApp em até 48 horas. Obrigado pela honestidade.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTICO ESTRATEGICO -->
+<section class="s-diagnostico" id="diagnostico">
+  <div class="container">
+    <div class="sec-label">Diagnóstico gratuito</div>
+    <h2 class="sec-title"><em>Onde você está</em><br>agora?</h2>
+    <div class="diag-wrap" data-reveal>
+      <p class="diag-intro">
+        Antes de qualquer conversa sobre consultoria, quero entender o que está acontecendo de verdade. Preencha as perguntas abaixo. Leio pessoalmente e respondo em até 48 horas via WhatsApp.
+      </p>
+      <form class="diag-form" id="diagForm" onsubmit="enviarDiagnostico(event)">
+        <div class="diag-group">
+          <label class="diag-label">01 &middot; Em uma frase: qual é o maior problema da sua vida agora?</label>
+          <textarea class="diag-field" name="problema" rows="3" placeholder="Seja específico. Quanto mais real, mais útil." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">02 &middot; Você já se reconheceu no General Solitário? Em qual situação ele aparece com mais força?</label>
+          <textarea class="diag-field" name="general" rows="3" placeholder="No trabalho, em casa, no casamento, com dinheiro..." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">03 &middot; O que você quer que seja diferente daqui a 60 dias?</label>
+          <textarea class="diag-field" name="objetivo" rows="3" placeholder="Resultado concreto, não vago." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">04 &middot; O que te impediu de resolver isso até agora?</label>
+          <textarea class="diag-field" name="impedimento" rows="3" placeholder="Seja honesto. Essa é a pergunta mais importante." required></textarea>
+        </div>
+        <div class="diag-group">
+          <label class="diag-label">05 &middot; Seu WhatsApp</label>
+          <input class="diag-field" type="tel" name="whatsapp" placeholder="+55 (XX) XXXXX-XXXX" required>
+        </div>
+        <div class="diag-submit-wrap">
+          <button type="submit" class="diag-submit">
+            Enviar diagnóstico
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+          </button>
+          <div class="diag-aviso">Retorno pessoal em até 48 horas via WhatsApp.</div>
+        </div>
+        <div class="diag-success" id="diagSuccess" style="display:none;">
+          <div class="diag-success-icon">&#10003;</div>
+          <div class="diag-success-title">Recebido.</div>
+          <div class="diag-success-txt">Vou ler com atenção e entrar em contato pelo WhatsApp em até 48 horas.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 <!-- ═══════════════ CTA FINAL ═══════════════ -->
 <section class="s-final">
   <div class="final-inner" data-reveal>
@@ -1027,7 +1127,7 @@ body::after {
     </p>
     <div class="final-cta-group">
       <a href="consultoria.html" class="btn-final-primary">Quero uma consultoria →</a>
-      <a href="chat.html" class="btn-final-ghost">Falar com a IA primeiro</a>
+      
     </div>
   </div>
 </section>
@@ -1044,7 +1144,7 @@ body::after {
       <a href="manifesto.html">Manifesto</a>
       <a href="blog.html">Blog</a>
       <a href="teste-masculinidade.html">Teste</a>
-      <a href="chat.html">Chat IA</a>
+      
       <a href="consultoria.html">Consultoria</a>
       <a href="produtos.html">Produtos</a>
       <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
@@ -1095,6 +1195,44 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => obs.observe(el));
+
+function enviarDiagnostico(e) {
+  e.preventDefault();
+  var btn = document.getElementById('diagSubmit');
+  var success = document.getElementById('diagSuccess');
+  var form = document.getElementById('diagForm');
+  var data = new FormData(form);
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  var texto = 'Diagnostico @vssp\n\n' +
+    '01 Problema: ' + data.get('problema') + '\n\n' +
+    '02 General Solitario: ' + data.get('general') + '\n\n' +
+    '03 Objetivo 60 dias: ' + data.get('objetivo') + '\n\n' +
+    '04 Impedimento: ' + data.get('impedimento') + '\n\n' +
+    'WhatsApp: ' + data.get('whatsapp');
+  var wa = 'https://wa.me/5535953267086?text=' + encodeURIComponent(texto);
+  window.open(wa, '_blank');
+  form.querySelectorAll('.diag-group, .diag-submit-wrap').forEach(function(el){ el.style.display='none'; });
+  success.style.display = 'block';
+}
+
+
+function enviarDiagnostico(e) {
+  e.preventDefault();
+  var form = document.getElementById('diagForm');
+  var success = document.getElementById('diagSuccess');
+  var data = new FormData(form);
+  var texto = 'Diagnóstico @vssp\n\n'
+    + '01 · Problema: ' + data.get('problema') + '\n\n'
+    + '02 · General Solitário: ' + data.get('general') + '\n\n'
+    + '03 · Objetivo 60 dias: ' + data.get('objetivo') + '\n\n'
+    + '04 · Impedimento: ' + data.get('impedimento') + '\n\n'
+    + 'WhatsApp: ' + data.get('whatsapp');
+  window.open('https://wa.me/5535953267086?text=' + encodeURIComponent(texto), '_blank');
+  form.style.opacity = '0.3';
+  form.style.pointerEvents = 'none';
+  success.style.display = 'block';
+}
 </script>
 </body>
 </html>
