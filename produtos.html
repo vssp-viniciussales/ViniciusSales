@@ -2,53 +2,147 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Produtos · @vssp · Vinícius Padovani</title>
+<title>Produtos · @vssp · Vinícius Padovani · Ferramentas para construção real</title>
+<meta name="description" content="Planilha de Controle Financeiro VSSP e ferramentas desenvolvidas por Vinícius Padovani. Gratuito e premium. Estrutura antes de crescimento.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-.produtos-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:48px; }
-.produto-card {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126.12);
-  border-radius:16px; overflow:hidden; transition:transform .2s, border-color .2s;
+/* HERO */
+.produtos-hero {
+  padding:140px 48px 100px;
+  background:var(--petroleo);
+  position:relative; text-align:center;
+}
+.produtos-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(200,169,126,.05) 0%, transparent 70%);
+}
+.produtos-hero-inner { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+
+/* GRID PRODUTOS */
+.s-produtos {
+  padding:100px 48px;
+  background:var(--petroleo2);
+  position:relative;
+}
+.s-produtos::before {
+  content:''; position:absolute;
+  top:-1px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);
+}
+.produtos-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:24px; margin-top:56px;
+}
+
+/* CARD PRODUTO */
+.prod-card {
+  background:var(--petroleo);
+  border:1px solid rgba(200,169,126,.15);
+  border-radius:16px; padding:48px;
+  position:relative; overflow:hidden;
+  transition:border-color .3s, transform .3s;
   display:flex; flex-direction:column;
 }
-.produto-card:hover { transform:translateY(-4px); border-color:rgba(200,169,126.3); }
-.produto-card.destaque { border-color:rgba(200,169,126.35); }
+.prod-card:hover { border-color:rgba(200,169,126,.4); transform:translateY(-4px); }
+.prod-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+.prod-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:24px;
+}
+.prod-badge-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--ouro);
+}
+.prod-badge.em-breve { color:var(--taupe); }
+.prod-badge.em-breve .prod-badge-dot { background:var(--taupe); }
 
-.produto-badge { background:var(--petroleo); padding:40px; display:flex; align-items:center; justify-content:center; font-size:52px; position:relative; }
-.produto-badge-tag { position:absolute; top:16px; right:16px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--ouro); color:var(--petroleo); padding:4px 12px; border-radius:100px; font-weight:700; }
-.produto-badge-soon { background:rgba(242,237,216.15); color:var(--bege); }
+.prod-icon {
+  font-size:40px; margin-bottom:20px;
+  line-height:1;
+}
+.prod-nome {
+  font-family:var(--font-display); font-size:22px;
+  font-weight:900; color:var(--bege);
+  line-height:1.2; margin-bottom:8px;
+}
+.prod-preco {
+  font-family:var(--font-mono); font-size:12px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:20px;
+}
+.prod-desc {
+  font-size:14px; line-height:1.9;
+  color:rgba(242,237,216,.5);
+  flex:1; margin-bottom:28px;
+}
+.prod-itens { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+.prod-item {
+  display:flex; gap:12px; font-size:13px;
+  color:rgba(242,237,216,.65); line-height:1.55;
+}
+.prod-item::before { content:'→'; color:var(--ouro); flex-shrink:0; }
+.prod-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:2px; text-transform:uppercase; font-weight:700;
+  background:var(--ouro); color:var(--petroleo);
+  padding:16px 28px; border-radius:4px;
+  transition:all .2s; text-decoration:none;
+  align-self:flex-start;
+}
+.prod-cta:hover { background:var(--ouro-dark); transform:translateY(-2px); }
+.prod-cta.ghost {
+  background:none; color:rgba(242,237,216,.3);
+  border:1px solid rgba(242,237,216,.12);
+}
+.prod-cta.ghost:hover { border-color:rgba(200,169,126,.3); color:var(--ouro); }
 
-.produto-body { padding:28px; flex:1; display:flex; flex-direction:column; }
-.produto-categoria { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:10px; }
-.produto-nome { font-family:var(--font-display); font-size:20px; color:var(--bege); margin-bottom:12px; }
-.produto-desc { font-size:14px; line-height:1.8; color:rgba(242,237,216.5); margin-bottom:20px; flex:1; }
-.produto-includes { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
-.produto-includes li { font-size:13px; color:rgba(242,237,216.55); display:flex; align-items:flex-start; gap:8px; }
-.produto-includes li::before { content:'✓'; color:var(--ouro); flex-shrink:0; }
-.produto-footer { display:flex; align-items:center; justify-content:space-between; padding-top:20px; border-top:1px solid rgba(200,169,126.1); }
-.produto-preco { font-family:var(--font-display); font-size:24px; color:var(--ouro); }
-.produto-preco span { font-family:var(--font-mono); font-size:11px; color:var(--taupe); display:block; margin-bottom:2px; }
+/* CARD EM BREVE */
+.prod-card.em-breve-card {
+  border-style:dashed;
+  border-color:rgba(200,169,126,.1);
+  opacity:.7;
+}
+.prod-card.em-breve-card:hover { opacity:1; }
 
-/* EM BREVE */
-.em-breve-banner { background:rgba(200,169,126.06); border:1px solid rgba(200,169,126.15); border-radius:12px; padding:24px; text-align:center; margin-top:12px; }
-.em-breve-txt { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--taupe); opacity:.6; }
+/* SEÇÃO FILOSOFIA */
+.s-filosofia-prod {
+  padding:100px 48px;
+  background:var(--petroleo);
+  position:relative;
+}
+.filosofia-prod-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center; margin-top:56px;
+}
+.frase-central {
+  font-family:var(--font-serif); font-style:italic;
+  font-size:clamp(20px,2.5vw,28px);
+  color:var(--bege); line-height:1.65;
+  border-left:2px solid var(--ouro); padding-left:24px;
+}
+.frase-central em { color:var(--ouro); font-style:normal; }
 
-/* NOTIFICAÇÃO */
-.notif-form { background:var(--petroleo2); border:1px solid rgba(200,169,126.15); border-radius:16px; padding:40px; margin-top:60px; text-align:center; }
-.notif-titulo { font-family:var(--font-display); font-size:24px; color:var(--bege); margin-bottom:8px; }
-.notif-sub { font-size:14px; color:rgba(242,237,216.45); margin-bottom:28px; }
-.notif-row { display:flex; gap:12px; max-width:480px; margin:0 auto; }
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .produtos-hero { padding:110px 24px 70px; }
+  .s-produtos { padding:72px 24px; }
+  .produtos-grid { grid-template-columns:1fr; }
+  .s-filosofia-prod { padding:72px 24px; }
+  .filosofia-prod-grid { grid-template-columns:1fr; gap:48px; }
+  .prod-card { padding:32px; }
+}
 </style>
 </head>
 <body>
-
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
-  <span class="lang-sep">·</span>
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-</div>
 
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">VSSP</a>
@@ -64,164 +158,167 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" class="mobile-link">Início</a>
   <a href="historia.html" class="mobile-link">História</a>
-  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+  <a href="manifesto.html" class="mobile-link">Manifesto</a>
+  <a href="negocios.html" class="mobile-link">Negócios</a>
+  <a href="consultoria.html" class="mobile-link" style="color:var(--ouro);">Consultoria →</a>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-frame"></div>
-  <div class="page-hero-inner fade-up">
-    <div class="page-kicker">Produtos · @vssp</div>
-    <h1 class="page-title" data-pt="Ferramentas para<br><span>quem está construindo.</span>" data-en="Tools for<br><span>those who are building.</span>">Ferramentas para<br><span>quem está construindo.</span></h1>
-    <p class="page-subtitle" data-pt="Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real, para quem quer estrutura, não inspiração vaga." data-en="Not a motivation course. These are practical resources based on what I learned in real life, for those who want structure, not vague inspiration.">Não é curso de motivação. São recursos práticos baseados no que aprendi na vida real, para quem quer estrutura, não inspiração vaga.</p>
+<!-- HERO -->
+<div class="produtos-hero">
+  <div class="produtos-hero-inner">
+    <div class="page-kicker">Ferramentas · @vssp</div>
+    <h1 class="page-title">Ferramentas para<br><span>construção real.</span></h1>
+    <p style="font-size:16px; line-height:1.85; color:rgba(242,237,216,.5); margin-top:24px;">
+      Não vendo teoria. Compartilho o que uso. Cada ferramenta aqui foi construída a partir de problema real que enfrentei.
+    </p>
   </div>
 </div>
 
-<section class="section section-dark">
-<div class="container">
-  <div class="sec-label light" data-pt="Disponíveis agora" data-en="Available now">Disponíveis agora</div>
-  <h2 class="sec-title light" data-pt="Recursos que você pode usar hoje." data-en="Resources you can use today.">Recursos que você pode usar hoje.</h2>
+<!-- PRODUTOS -->
+<section class="s-produtos">
+  <div class="container">
+    <div class="sec-label">Disponível agora</div>
+    <h2 class="sec-title">O que você pode<br><em>usar hoje.</em></h2>
 
-  <div class="produtos-grid">
+    <div class="produtos-grid" data-reveal>
 
-    <!-- PLANILHA FINANCEIRA -->
-    <div class="produto-card destaque">
-      <div class="produto-badge">
-        📊
-        <span class="produto-badge-tag" data-pt="Grátis" data-en="Free">Grátis</span>
-      </div>
-      <div class="produto-body">
-        <div class="produto-categoria" data-pt="Planilha · Finanças" data-en="Spreadsheet · Finances">Planilha · Finanças</div>
-        <div class="produto-nome" data-pt="Planilha de Controle Financeiro @vssp" data-en="@vssp Financial Control Spreadsheet">Planilha de Controle Financeiro @vssp</div>
-        <div class="produto-desc" data-pt="A planilha que uso para dar destino a cada real antes do mês começar. Simples, sem fórmulas complicadas, direto ao ponto." data-en="The spreadsheet I use to allocate every dollar before the month begins. Simple, no complex formulas, straight to the point.">A planilha que uso para dar destino a cada real antes do mês começar. Simples, sem fórmulas complicadas, direto ao ponto.</div>
-        <ul class="produto-includes">
-          <li data-pt="Controle de entradas e saídas por categoria" data-en="Income and expense tracking by category">Controle de entradas e saídas por categoria</li>
-          <li data-pt="Planejamento mensal com destino definido" data-en="Monthly planning with defined allocation">Planejamento mensal com destino definido</li>
-          <li data-pt="Reserva de emergência e metas" data-en="Emergency reserve and goals">Reserva de emergência e metas</li>
-          <li data-pt="Revisão semanal (15 min por semana)" data-en="Weekly review (15 min per week)">Revisão semanal (15 min por semana)</li>
-        </ul>
-        <div class="produto-footer">
-          <div class="produto-preco"><span data-pt="Investimento" data-en="Investment">Investimento</span>R$ 0</div>
-          <a class="btn btn-primary" href="controle-financeiro-vssp.xlsx" download="Controle-Financeiro-@vssp.xlsx" data-pt="Baixar grátis" data-en="Download free">Baixar planilha (xlsx)</a>
+      <!-- PLANILHA GRATUITA -->
+      <div class="prod-card">
+        <div class="prod-badge"><span class="prod-badge-dot"></span> Gratuito</div>
+        <div class="prod-icon">◈</div>
+        <div class="prod-nome">Planilha de Controle Financeiro VSSP</div>
+        <div class="prod-preco">Gratuito · Download imediato</div>
+        <p class="prod-desc">
+          A planilha que uso para organizar o caixa pessoal e da família. Desenvolvida depois de anos operando no improviso e entendendo que dinheiro sem destino é caos com saldo positivo.
+        </p>
+        <div class="prod-itens">
+          <div class="prod-item">Controle de receitas e despesas mensais</div>
+          <div class="prod-item">Destino de cada real antes do mês começar</div>
+          <div class="prod-item">Acompanhamento de metas de reserva</div>
+          <div class="prod-item">Visão de 3 meses para antecipação de decisões</div>
+          <div class="prod-item">Simples o suficiente para usar toda semana</div>
         </div>
+        <a href="https://wa.me/5535953267086?text=Quero%20a%20planilha%20de%20controle%20financeiro%20do%20%40vssp" target="_blank" class="prod-cta">
+          Quero a planilha →
+        </a>
       </div>
-    </div>
 
-    <!-- GUIA DO TESTE -->
-    <div class="produto-card">
-      <div class="produto-badge">
-        📋
-        <span class="produto-badge-tag" data-pt="Grátis" data-en="Free">Grátis</span>
-      </div>
-      <div class="produto-body">
-        <div class="produto-categoria" data-pt="Guia · Desenvolvimento" data-en="Guide · Development">Guia · Desenvolvimento</div>
-        <div class="produto-nome" data-pt="Guia de Resultado. Teste de Masculinidade" data-en="Result Guide. Masculinity Test">Guia de Resultado. Teste de Masculinidade</div>
-        <div class="produto-desc" data-pt="PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história." data-en="Complete PDF with in-depth analysis of the 4 test profiles + action plan for each. Based on my own story.">PDF completo com análise aprofundada dos 4 perfis do teste + plano de ação para cada um. Baseado na minha própria história.</div>
-        <ul class="produto-includes">
-          <li data-pt="Análise dos 4 perfis de masculinidade" data-en="Analysis of 4 masculinity profiles">Análise dos 4 perfis de masculinidade</li>
-          <li data-pt="Plano de ação de 90 dias por perfil" data-en="90-day action plan by profile">Plano de ação de 90 dias por perfil</li>
-          <li data-pt="Os padrões que ninguém nomeia" data-en="The patterns no one names">Os padrões que ninguém nomeia</li>
-        </ul>
-        <div class="produto-footer">
-          <div class="produto-preco"><span>Investimento</span>R$ 0</div>
-          <a href="teste-masculinidade.html" class="btn btn-primary" data-pt="Fazer o teste" data-en="Take the test">Fazer o teste</a>
+      <!-- CONSULTORIA -->
+      <div class="prod-card">
+        <div class="prod-badge"><span class="prod-badge-dot"></span> 4 vagas abertas</div>
+        <div class="prod-icon">◉</div>
+        <div class="prod-nome">Consultoria Individual · Sessão 1:1</div>
+        <div class="prod-preco">R$497 · 90 minutos</div>
+        <p class="prod-desc">
+          Uma sessão direta focada no problema real que você está enfrentando. Diagnóstico preciso e plano dos próximos 60 dias. Não é curso, não é mentoria recorrente. É uma conversa que move.
+        </p>
+        <div class="prod-itens">
+          <div class="prod-item">Diagnóstico do padrão que está travando</div>
+          <div class="prod-item">Plano de 60 dias específico e não genérico</div>
+          <div class="prod-item">Gravação da sessão para revisitar</div>
+          <div class="prod-item">Finanças, negócios, família ou identidade masculina</div>
+          <div class="prod-item">Sem teoria de prateleira. Só o que foi testado</div>
         </div>
+        <a href="consultoria.html" class="prod-cta">
+          Quero uma vaga →
+        </a>
       </div>
-    </div>
 
+      <!-- EM BREVE: GUIA -->
+      <div class="prod-card em-breve-card">
+        <div class="prod-badge em-breve"><span class="prod-badge-dot"></span> Em desenvolvimento</div>
+        <div class="prod-icon">▲</div>
+        <div class="prod-nome">Guia do General Solitário</div>
+        <div class="prod-preco">Em breve</div>
+        <p class="prod-desc">
+          O mapa completo do padrão: como se forma, onde aparece, como sair. Da identificação ao sistema de saída, baseado em experiência real e documentado com erros nomeados.
+        </p>
+        <div class="prod-itens">
+          <div class="prod-item">As 3 fases e como identificar a sua</div>
+          <div class="prod-item">Os gatilhos do padrão em cada área da vida</div>
+          <div class="prod-item">Sistema de transição da Fase 1 para a Fase 3</div>
+          <div class="prod-item">Exercícios práticos baseados em experiência real</div>
+        </div>
+        <a href="https://wa.me/5535953267086?text=Quero%20ser%20avisado%20quando%20o%20Guia%20do%20General%20Solit%C3%A1rio%20sair" target="_blank" class="prod-cta ghost">
+          Avise-me quando sair →
+        </a>
+      </div>
+
+      <!-- EM BREVE: CURSO -->
+      <div class="prod-card em-breve-card">
+        <div class="prod-badge em-breve"><span class="prod-badge-dot"></span> Em desenvolvimento</div>
+        <div class="prod-icon">◆</div>
+        <div class="prod-nome">Sistema Financeiro VSSP</div>
+        <div class="prod-preco">Em breve</div>
+        <p class="prod-desc">
+          O sistema completo de gestão financeira pessoal e familiar. Do zero organizado até a estrutura de crescimento deliberado. Para quem cansa de ganhar mais e não acumular nada.
+        </p>
+        <div class="prod-itens">
+          <div class="prod-item">Estrutura de caixa pessoal e familiar</div>
+          <div class="prod-item">Sistema de destino de renda por categoria</div>
+          <div class="prod-item">Reserva de emergência com método real</div>
+          <div class="prod-item">Planejamento de crescimento patrimonial</div>
+        </div>
+        <a href="https://wa.me/5535953267086?text=Quero%20ser%20avisado%20quando%20o%20Sistema%20Financeiro%20VSSP%20sair" target="_blank" class="prod-cta ghost">
+          Avise-me quando sair →
+        </a>
+      </div>
+
+    </div>
   </div>
-
-  <!-- EM BREVE -->
-  <div style="margin-top:60px;">
-    <div class="sec-label light" data-pt="Em breve" data-en="Coming soon">Em breve</div>
-    <h2 class="sec-title light" data-pt="O que está sendo construído." data-en="What's being built.">O que está sendo construído.</h2>
-  </div>
-
-  <div class="produtos-grid">
-
-    <div class="produto-card">
-      <div class="produto-badge">
-        📖
-        <span class="produto-badge-tag produto-badge-soon" data-pt="Em breve" data-en="Soon">Em breve</span>
-      </div>
-      <div class="produto-body">
-        <div class="produto-categoria">Livro Digital</div>
-        <div class="produto-nome" data-pt="Eu Resolvo e o que isso me custou" data-en="I Handle It, and what it cost me">Eu Resolvo e o que isso me custou</div>
-        <div class="produto-desc" data-pt="A história completa da virada de 'eu resolvo sozinho' para 'vamos juntos'. Com os padrões identificados, as ferramentas e o caminho que funcionou." data-en="The complete story of the turn from 'I handle it alone' to 'let's do it together'. With identified patterns, tools and the path that worked.">A história completa da virada de "eu resolvo sozinho" para "vamos juntos". Com os padrões identificados, as ferramentas e o caminho que funcionou.</div>
-        <div class="em-breve-banner"><div class="em-breve-txt" data-pt="PREVISÃO: 2º SEMESTRE 2026" data-en="EXPECTED: 2ND HALF 2025">PREVISÃO: 2º SEMESTRE 2026</div></div>
-      </div>
-    </div>
-
-    <div class="produto-card">
-      <div class="produto-badge">
-        🎯
-        <span class="produto-badge-tag produto-badge-soon">Em breve</span>
-      </div>
-      <div class="produto-body">
-        <div class="produto-categoria">Curso Online</div>
-        <div class="produto-nome" data-pt="Estrutura Antes de Crescimento" data-en="Structure Before Growth">Estrutura Antes de Crescimento</div>
-        <div class="produto-desc" data-pt="Curso prático de estruturação financeira e de negócios para homens que trabalham muito e sentem que não avançam." data-en="Practical course on financial and business structuring for men who work hard and feel they aren't advancing.">Curso prático de estruturação financeira e de negócios para homens que trabalham muito e sentem que não avançam.</div>
-        <div class="em-breve-banner"><div class="em-breve-txt">EM DESENVOLVIMENTO</div></div>
-      </div>
-    </div>
-
-    <div class="produto-card">
-      <div class="produto-badge">
-        🔖
-        <span class="produto-badge-tag produto-badge-soon">Em breve</span>
-      </div>
-      <div class="produto-body">
-        <div class="produto-categoria">Kit Digital</div>
-        <div class="produto-nome" data-pt="Kit Construção Masculina" data-en="Masculine Construction Kit">Kit Construção Masculina</div>
-        <div class="produto-desc" data-pt="Planilhas, templates, roteiros e checklists para as 7 áreas da vida. O sistema que uso para manter tudo em movimento ao mesmo tempo." data-en="Spreadsheets, templates, scripts and checklists for the 7 life areas. The system I use to keep everything moving simultaneously.">Planilhas, templates, roteiros e checklists para as 7 áreas da vida. O sistema que uso para manter tudo em movimento ao mesmo tempo.</div>
-        <div class="em-breve-banner"><div class="em-breve-txt">EM DESENVOLVIMENTO</div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- NOTIFICAÇÃO -->
-  <div class="notif-form" data-reveal>
-    <div class="notif-titulo" data-pt="Quer ser avisado primeiro?" data-en="Want to be notified first?">Quer ser avisado primeiro?</div>
-    <div class="notif-sub" data-pt="Deixe seu WhatsApp e aviso quando cada produto for lançado." data-en="Leave your WhatsApp and I'll notify you when each product launches.">Deixe seu WhatsApp e aviso quando cada produto for lançado.</div>
-    <div class="notif-row">
-      <input class="form-input" id="notifWa" type="tel" placeholder="(XX) XXXXX-XXXX" style="flex:1;">
-      <button class="btn btn-primary" onclick="notificar()" data-pt="Avisa eu" data-en="Notify me">Avisa eu</button>
-    </div>
-    <div id="notifOk" style="display:none;margin-top:16px;font-family:var(--font-mono);font-size:11px;color:var(--ouro);letter-spacing:2px;" data-pt="ANOTADO. TE AVISO EM BREVE." data-en="NOTED. I'LL NOTIFY YOU SOON.">ANOTADO. TE AVISO EM BREVE.</div>
-  </div>
-
-</div>
 </section>
 
+<!-- FILOSOFIA -->
+<section class="s-filosofia-prod">
+  <div class="container">
+    <div class="filosofia-prod-grid" data-reveal>
+      <div>
+        <div class="sec-label">Por que esses produtos</div>
+        <h2 class="sec-title">Só compartilho<br><em>o que uso.</em></h2>
+        <p style="font-size:15px; line-height:1.9; color:rgba(242,237,216,.5); margin-top:24px; margin-bottom:32px;">
+          Não crio produto para ter produto. Cada ferramenta aqui nasceu de um problema real que eu enfrentei, resolvi de forma imperfeita, errei, corrigi e estabilizei. Só depois vira recurso para você.
+        </p>
+        <a href="teste-masculinidade.html" class="btn btn-primary">Fazer o diagnóstico gratuito →</a>
+      </div>
+      <div>
+        <div class="frase-central">
+          "Dinheiro sem destino não é liberdade. É caos com saldo positivo. Aprendi isso da forma mais cara: ganhando bem e voltando ao zero repetidamente, por anos."
+          <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(200,169,126,.5); margin-top:20px;">Vinícius Padovani · @vssp</div>
+        </div>
+        <p style="font-size:14px; line-height:1.9; color:rgba(242,237,216,.4); margin-top:28px;">
+          Com 16 anos recebi R$15 mil da venda de um imóvel. Gastei tudo sem construir nada. Esse padrão se repetiu por anos. A planilha gratuita é o primeiro passo concreto para não repetir o erro.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div><div class="footer-logo">VSSP</div><div class="footer-tag">Um homem em construção em tempo real.</div></div>
-      <nav class="footer-nav">
-        <a href="index.html">Início</a><a href="historia.html">História</a>
-        <a href="manifesto.html">Manifesto</a><a href="consultoria.html">Consultoria</a>
-        <a href="produtos.html">Produtos</a><a href="teste-masculinidade.html">Teste</a>
-      </nav>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;">
-        <a href="https://wa.me/5535953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
-        <a href="mailto:vssp.vincius@gmail.com" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">Email</a>
+      <div>
+        <div class="footer-logo">VSSP</div>
+        <div class="footer-tag">Um homem em construção em tempo real.</div>
       </div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="historia.html">História</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="negocios.html">Negócios</a>
+        <a href="consultoria.html">Consultoria</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
+        <a href="https://wa.me/5535953267086" target="_blank">WhatsApp</a>
+      </nav>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
+      <span>Feito com intenção.</span>
     </div>
   </div>
 </footer>
 
 <script src="shared.js"></script>
-<script>
-function notificar() {
-  const wa = document.getElementById('notifWa').value;
-  if (!wa) return;
-  openWhatsApp(`Olá Vinícius! Quero ser avisado quando lançar os produtos do @vssp. Meu WhatsApp: ${wa}`);
-  document.getElementById('notifOk').style.display = 'block';
-}
-</script>
 </body>
 </html>

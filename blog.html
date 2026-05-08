@@ -2,64 +2,186 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog · @vssp · Vinícius Padovani</title>
+<title>Blog · @vssp · Vinícius Padovani · Processo documentado</title>
+<meta name="description" content="Artigos, reflexões e bastidores reais de Vinícius Padovani. Fé, família, finanças, negócios, corpo e paternidade. Processo documentado, não resultado polido.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-.blog-grid { display:grid; grid-template-columns:2fr 1fr; gap:48px; margin-top:48px; }
-.artigo-destaque {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126.15);
-  border-radius:16px; overflow:hidden; cursor:pointer;
+/* HERO */
+.blog-hero {
+  padding:140px 48px 80px;
+  background:var(--petroleo);
+  position:relative;
+}
+.blog-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 50% at 30% 50%, rgba(200,169,126,.05) 0%, transparent 70%);
+}
+.blog-hero-inner {
+  position:relative; z-index:1;
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center;
+}
+
+/* FILTROS */
+.blog-filtros {
+  display:flex; gap:8px; flex-wrap:wrap;
+  margin-top:40px;
+}
+.filtro-btn {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+  border:1px solid rgba(200,169,126,.2);
+  color:rgba(242,237,216,.4);
+  padding:8px 18px; border-radius:100px;
+  background:none; cursor:pointer;
+  transition:all .2s;
+}
+.filtro-btn:hover, .filtro-btn.ativo {
+  border-color:var(--ouro); color:var(--ouro);
+  background:rgba(200,169,126,.07);
+}
+
+/* GRID ARTIGOS */
+.s-artigos {
+  padding:80px 48px 120px;
+  background:var(--petroleo2);
+  position:relative;
+}
+.s-artigos::before {
+  content:''; position:absolute;
+  top:-1px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);
+}
+.artigos-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:24px; margin-top:48px;
+}
+
+/* CARD ARTIGO */
+.artigo-card {
+  background:var(--petroleo);
+  border:1px solid rgba(200,169,126,.1);
+  border-radius:12px; overflow:hidden;
   transition:border-color .2s, transform .2s;
+  display:flex; flex-direction:column;
 }
-.artigo-destaque:hover { border-color:rgba(200,169,126.4); transform:translateY(-4px); }
-.artigo-banner { height:240px; background:linear-gradient(135deg, var(--petroleo) 0%, var(--petroleo3) 100%); display:flex; align-items:center; justify-content:center; font-size:72px; position:relative; }
-.artigo-banner-tag { position:absolute; top:20px; left:20px; font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:var(--ouro); color:var(--petroleo); padding:4px 14px; border-radius:100px; font-weight:700; }
-.artigo-corpo { padding:32px; }
-.artigo-categoria { font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:10px; }
-.artigo-titulo { font-family:var(--font-display); font-size:clamp(18px,2.5vw,26px); color:var(--bege); margin-bottom:12px; line-height:1.3; }
-.artigo-resumo { font-size:14px; line-height:1.8; color:rgba(242,237,216.5); margin-bottom:20px; }
-.artigo-meta { display:flex; align-items:center; gap:16px; font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.3); letter-spacing:1px; }
-
-/* LISTA LATERAL */
-.lista-artigos { display:flex; flex-direction:column; gap:16px; }
-.artigo-mini {
-  background:var(--petroleo2); border:1px solid rgba(200,169,126.1);
-  border-radius:12px; padding:20px; cursor:pointer; transition:border-color .2s;
+.artigo-card:hover {
+  border-color:rgba(200,169,126,.35);
+  transform:translateY(-4px);
 }
-.artigo-mini:hover { border-color:rgba(200,169,126.35); }
-.am-cat { font-family:var(--font-mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:6px; }
-.am-titulo { font-family:var(--font-display); font-size:15px; color:var(--bege); margin-bottom:6px; line-height:1.3; }
-.am-meta { font-family:var(--font-mono); font-size:9px; color:rgba(242,237,216.25); }
+.artigo-card-destaque {
+  grid-column:span 2;
+}
+.artigo-topo {
+  height:8px;
+  background:linear-gradient(90deg, var(--ouro), var(--ouro-dark));
+  opacity:.4;
+}
+.artigo-corpo { padding:32px; flex:1; display:flex; flex-direction:column; }
+.artigo-meta {
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:16px;
+}
+.artigo-pilar {
+  font-family:var(--font-mono); font-size:8px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ouro); opacity:.75;
+}
+.artigo-data {
+  font-family:var(--font-mono); font-size:8px;
+  letter-spacing:2px; color:rgba(242,237,216,.25);
+}
+.artigo-sep { color:rgba(200,169,126,.2); font-size:10px; }
+.artigo-titulo {
+  font-family:var(--font-display); font-size:18px;
+  color:var(--bege); line-height:1.3;
+  margin-bottom:14px; font-weight:700;
+}
+.artigo-card-destaque .artigo-titulo {
+  font-size:clamp(20px,2.5vw,28px);
+}
+.artigo-resumo {
+  font-size:14px; line-height:1.8;
+  color:rgba(242,237,216,.45); flex:1;
+  margin-bottom:24px;
+}
+.artigo-link {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--ouro); opacity:.7;
+  transition:opacity .2s; align-self:flex-start;
+}
+.artigo-card:hover .artigo-link { opacity:1; }
 
-/* ARTIGO ABERTO */
-.artigo-open { display:none; }
-.artigo-open.visible { display:block; }
-.ao-back { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--taupe); cursor:pointer; display:flex; align-items:center; gap:8px; margin-bottom:32px; }
-.ao-back:hover { color:var(--ouro); }
-.ao-titulo { font-family:var(--font-display); font-size:clamp(28px,5vw,52px); color:var(--bege); margin-bottom:20px; line-height:1.15; }
-.ao-meta { font-family:var(--font-mono); font-size:11px; color:rgba(242,237,216.3); letter-spacing:1px; margin-bottom:48px; }
-.ao-corpo { font-size:17px; line-height:2; color:rgba(242,237,216.7); max-width:680px; }
-.ao-corpo p { margin-bottom:24px; }
-.ao-corpo strong { color:var(--bege); }
-.ao-corpo em { color:var(--ouro); font-style:normal; }
-.ao-corpo h3 { font-family:var(--font-display); font-size:22px; color:var(--bege); margin:40px 0 16px; }
-.ao-corpo blockquote { border-left:2px solid var(--ouro); padding-left:24px; margin:32px 0; font-family:var(--font-serif); font-style:italic; font-size:20px; color:var(--bege); }
+/* CARD EM BREVE */
+.artigo-card.breve {
+  border-style:dashed;
+  border-color:rgba(200,169,126,.08);
+  opacity:.5;
+}
+.artigo-card.breve:hover { opacity:.8; transform:none; }
 
-/* CATEGORIAS */
-.cats { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
-.cat-btn { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:100px; border:1px solid rgba(200,169,126.2); color:rgba(242,237,216.45); cursor:pointer; transition:all .2s; background:none; }
-.cat-btn:hover.cat-btn.active { border-color:var(--ouro); color:var(--ouro); }
+/* NEWSLETTER */
+.s-newsletter {
+  padding:100px 48px;
+  background:var(--petroleo);
+  text-align:center; position:relative;
+}
+.s-newsletter::before {
+  content:''; position:absolute;
+  width:500px; height:500px;
+  background:radial-gradient(ellipse, rgba(200,169,126,.05) 0%, transparent 65%);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+}
+.newsletter-wrap {
+  position:relative; z-index:1;
+  max-width:560px; margin:0 auto;
+}
+.newsletter-form {
+  display:flex; gap:12px; margin-top:32px;
+  flex-wrap:wrap; justify-content:center;
+}
+.newsletter-input {
+  flex:1; min-width:240px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,169,126,.2);
+  border-radius:6px; padding:14px 20px;
+  font-family:var(--font-sans); font-size:15px;
+  color:var(--bege); outline:none;
+  transition:border-color .2s;
+}
+.newsletter-input::placeholder { color:rgba(242,237,216,.25); }
+.newsletter-input:focus { border-color:rgba(200,169,126,.5); }
+.newsletter-btn {
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:2px; text-transform:uppercase; font-weight:700;
+  background:var(--ouro); color:var(--petroleo);
+  border:none; padding:14px 28px; border-radius:6px;
+  cursor:pointer; transition:all .2s; white-space:nowrap;
+}
+.newsletter-btn:hover { background:var(--ouro-dark); transform:translateY(-2px); }
+
+/* RESPONSIVE */
+@media(max-width:1100px) {
+  .artigos-grid { grid-template-columns:1fr 1fr; }
+  .artigo-card-destaque { grid-column:span 2; }
+}
+@media(max-width:900px) {
+  .blog-hero { padding:110px 24px 60px; }
+  .blog-hero-inner { grid-template-columns:1fr; gap:40px; }
+  .s-artigos { padding:60px 24px 80px; }
+  .artigos-grid { grid-template-columns:1fr; }
+  .artigo-card-destaque { grid-column:span 1; }
+  .s-newsletter { padding:72px 24px; }
+  .newsletter-form { flex-direction:column; }
+  .newsletter-input { min-width:0; }
+}
 </style>
 </head>
 <body>
-
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
-  <span class="lang-sep">·</span>
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-</div>
 
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">VSSP</a>
@@ -67,7 +189,7 @@
     <a href="index.html" class="nav-link">Início</a>
     <a href="historia.html" class="nav-link">História</a>
     <a href="manifesto.html" class="nav-link">Manifesto</a>
-    <a href="blog.html" class="nav-link active">Blog</a>
+    <a href="negocios.html" class="nav-link">Negócios</a>
     <a href="consultoria.html" class="nav-link nav-cta">Consultoria</a>
   </div>
   <button class="nav-menu" id="navMenu"><span></span><span></span><span></span></button>
@@ -75,223 +197,231 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" class="mobile-link">Início</a>
   <a href="historia.html" class="mobile-link">História</a>
-  <a href="blog.html" class="mobile-link">Blog</a>
-  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+  <a href="manifesto.html" class="mobile-link">Manifesto</a>
+  <a href="negocios.html" class="mobile-link">Negócios</a>
+  <a href="consultoria.html" class="mobile-link" style="color:var(--ouro);">Consultoria →</a>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-frame"></div>
-  <div class="page-hero-inner fade-up">
-    <div class="page-kicker">Reflexões · @vssp</div>
-    <h1 class="page-title">O que não<br><span>cabe em post.</span></h1>
-    <p class="page-subtitle">Reflexões mais longas sobre fé, família, finanças, negócios e identidade masculina. Sem filtro de engajamento.</p>
-  </div>
-</div>
-
-<section class="section section-dark">
-<div class="container">
-
-  <!-- CATEGORIAS -->
-  <div class="cats">
-    <button class="cat-btn active" onclick="filtrar('todos', this)">Todos</button>
-    <button class="cat-btn" onclick="filtrar('mentalidade', this)">Mentalidade</button>
-    <button class="cat-btn" onclick="filtrar('financas', this)">Finanças</button>
-    <button class="cat-btn" onclick="filtrar('familia', this)">Família</button>
-    <button class="cat-btn" onclick="filtrar('fe', this)">Fé</button>
-    <button class="cat-btn" onclick="filtrar('negocios', this)">Negócios</button>
-  </div>
-
-  <!-- LISTA DE ARTIGOS -->
-  <div id="blogLista">
-  <div class="blog-grid">
-
-    <!-- DESTAQUE -->
-    <div class="artigo-destaque" onclick="abrirArtigo(0)">
-      <div class="artigo-banner">
-        🧭
-        <span class="artigo-banner-tag">Destaque</span>
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <div>
+      <div class="page-kicker">Processo documentado · @vssp</div>
+      <h1 class="page-title" style="text-align:left; max-width:500px;">
+        Processo<br><span>ao vivo.</span>
+      </h1>
+      <p style="font-size:15px; line-height:1.9; color:rgba(242,237,216,.5); margin-top:20px; max-width:460px;">
+        Não é coluna de autoajuda. É o que está sendo vivido, testado e documentado em tempo real. Fé, família, finanças, negócios, corpo e paternidade.
+      </p>
+      <div class="blog-filtros">
+        <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrar('fe', this)">✝ Fé</button>
+        <button class="filtro-btn" onclick="filtrar('familia', this)">⚭ Família</button>
+        <button class="filtro-btn" onclick="filtrar('financas', this)">◈ Finanças</button>
+        <button class="filtro-btn" onclick="filtrar('negocios', this)">▲ Negócios</button>
+        <button class="filtro-btn" onclick="filtrar('corpo', this)">◉ Corpo</button>
       </div>
-      <div class="artigo-corpo">
-        <div class="artigo-categoria">Mentalidade</div>
-        <div class="artigo-titulo">Eu sei resolver tudo. Mas não sei viver: a diferença que ninguém explica.</div>
-        <div class="artigo-resumo">O problema não é competência. É presença. Pode ser extremamente capaz de funcionar e completamente ausente de viver. Isso tem um nome, tem origem e tem saída.</div>
-        <div class="artigo-meta">
-          <span>Vinícius Padovani</span>
-          <span>·</span>
-          <span>8 min de leitura</span>
-          <span>·</span>
-          <span>Abr 2026</span>
+    </div>
+    <div style="background:var(--petroleo2); border:1px solid rgba(200,169,126,.15); border-radius:14px; padding:36px;">
+      <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:16px;">Regra editorial</div>
+      <p style="font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--bege); line-height:1.65; margin-bottom:16px;">"Isso poderia ter sido escrito por qualquer outro perfil? Se sim, não vai ao ar."</p>
+      <p style="font-size:13px; line-height:1.75; color:rgba(242,237,216,.4);">Cada texto aqui tem história real do Vinícius dentro. Nome, lugar, valor, data. Sem generalização, sem motivação de palco.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTIGOS -->
+<section class="s-artigos">
+  <div class="container">
+    <div class="sec-label">Publicações</div>
+    <h2 class="sec-title">O que está sendo<br><em>documentado.</em></h2>
+
+    <div class="artigos-grid" data-reveal id="artigosGrid">
+
+      <!-- ARTIGO DESTAQUE 1 -->
+      <div class="artigo-card artigo-card-destaque" data-pilar="financas">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">◈ Finanças</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Mai 2026</span>
+          </div>
+          <div class="artigo-titulo">Gastei R$15 mil com 16 anos. O que esse erro me custou de verdade.</div>
+          <p class="artigo-resumo">Não era irresponsabilidade. Era um sistema instalado aos 6 anos que me ensinava que dinheiro prova controle. Cada gasto era uma tentativa de confirmar que eu estava bem. Levei anos para entender o que estava fazendo com cada real que entrava.</p>
+          <span class="artigo-link">Ler artigo →</span>
         </div>
       </div>
+
+      <!-- ARTIGO 2 -->
+      <div class="artigo-card" data-pilar="familia">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">⚭ Família</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Abr 2026</span>
+          </div>
+          <div class="artigo-titulo">O silêncio da Bárbara que pesou mais do que qualquer briga.</div>
+          <p class="artigo-resumo">Tomei uma decisão financeira dentro do casamento sem consultar. Ela não gritou. Ficou em silêncio. Aquele silêncio me ensinou mais sobre parceria real do que qualquer livro de relacionamento.</p>
+          <span class="artigo-link">Ler artigo →</span>
+        </div>
+      </div>
+
+      <!-- ARTIGO 3 -->
+      <div class="artigo-card" data-pilar="fe">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">✝ Fé</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Abr 2026</span>
+          </div>
+          <div class="artigo-titulo">A fé não chegou como emoção. Chegou quando o controle parou de funcionar.</div>
+          <p class="artigo-resumo">Não tive uma experiência dramática de conversão. A fé chegou como processo gradual, acelerado pelo momento em que percebi que o "eu resolvo" tinha um teto muito mais baixo do que eu imaginava.</p>
+          <span class="artigo-link">Ler artigo →</span>
+        </div>
+      </div>
+
+      <!-- ARTIGO 4 -->
+      <div class="artigo-card" data-pilar="negocios">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">▲ Negócios</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Mar 2026</span>
+          </div>
+          <div class="artigo-titulo">Ganhar mais quase me deixou mais frágil.</div>
+          <p class="artigo-resumo">Quando a renda aumentou, os gastos aumentaram junto. Não porque eu era irresponsável, mas porque eu não tinha sistema. Dinheiro sem estrutura não é liberdade. É pressão com saldo positivo.</p>
+          <span class="artigo-link">Ler artigo →</span>
+        </div>
+      </div>
+
+      <!-- ARTIGO 5 -->
+      <div class="artigo-card" data-pilar="corpo">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">◉ Corpo</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Mar 2026</span>
+          </div>
+          <div class="artigo-titulo">Por que treino todos os dias mesmo quando não quero.</div>
+          <p class="artigo-resumo">Não é sobre estética. Nunca foi. É sobre capacidade de tomar decisão às 19h depois de um dia inteiro. Homem que não cuida do corpo não aguenta o peso do que está tentando construir.</p>
+          <span class="artigo-link">Ler artigo →</span>
+        </div>
+      </div>
+
+      <!-- ARTIGO 6 - DESTAQUE 2 -->
+      <div class="artigo-card artigo-card-destaque" data-pilar="familia">
+        <div class="artigo-topo"></div>
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">⚭ Família</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Fev 2026</span>
+          </div>
+          <div class="artigo-titulo">O pai que meu filho vai ter está sendo construído agora, antes dele nascer.</div>
+          <p class="artigo-resumo">Paternidade para mim começa antes da criança existir. O homem que meu filho vai ver todos os dias está sendo forjado agora, nas decisões que tomo em casa, na forma como trato a Bárbara, no que faço quando ninguém está olhando. A herança geracional não precisa de testamento. Ela se transfere no padrão.</p>
+          <span class="artigo-link">Ler artigo →</span>
+        </div>
+      </div>
+
+      <!-- EM BREVE -->
+      <div class="artigo-card breve" data-pilar="negocios">
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">▲ Negócios</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Em breve</span>
+          </div>
+          <div class="artigo-titulo">Bastidores da Atlas: o que ninguém vê numa operação de transporte.</div>
+          <p class="artigo-resumo">Gestão de equipe, decisões de crise, o erro que me custou um contrato e o que aprendi sobre liderança que não se resolve com controle.</p>
+          <span class="artigo-link" style="opacity:.3;">Em breve</span>
+        </div>
+      </div>
+
+      <div class="artigo-card breve" data-pilar="fe">
+        <div class="artigo-corpo">
+          <div class="artigo-meta">
+            <span class="artigo-pilar">✝ Fé</span>
+            <span class="artigo-sep">·</span>
+            <span class="artigo-data">Em breve</span>
+          </div>
+          <div class="artigo-titulo">Como o Café com Deus Pai mudou minha manhã e depois meu dia inteiro.</div>
+          <p class="artigo-resumo">Não é sobre a leitura. É sobre o que acontece quando você começa o dia ancorado antes de ser bombardeado pelas demandas de todo mundo.</p>
+          <span class="artigo-link" style="opacity:.3;">Em breve</span>
+        </div>
+      </div>
+
     </div>
-
-    <!-- LATERAL -->
-    <div class="lista-artigos">
-      <div class="artigo-mini" onclick="abrirArtigo(1)">
-        <div class="am-cat">Finanças</div>
-        <div class="am-titulo">Dinheiro sem destino não é liberdade. É caos com saldo positivo.</div>
-        <div class="am-meta">5 min · Abr 2026</div>
-      </div>
-      <div class="artigo-mini" onclick="abrirArtigo(2)">
-        <div class="am-cat">Família</div>
-        <div class="am-titulo">A decisão que mais me custou não foi financeira.</div>
-        <div class="am-meta">6 min · Abr 2026</div>
-      </div>
-      <div class="artigo-mini" onclick="abrirArtigo(3)">
-        <div class="am-cat">Fé</div>
-        <div class="am-titulo">Fé como decisão: o que muda quando você para de esperar sentir.</div>
-        <div class="am-meta">7 min · Mar 2026</div>
-      </div>
-      <div class="artigo-mini" onclick="abrirArtigo(4)">
-        <div class="am-cat">Negócios</div>
-        <div class="am-titulo">Por que homens esforçados ficam parados no mesmo lugar.</div>
-        <div class="am-meta">5 min · Mar 2026</div>
-      </div>
-    </div>
-
   </div>
-  </div>
-
-  <!-- ARTIGO ABERTO -->
-  <div class="artigo-open" id="artigoOpen">
-    <div class="ao-back" onclick="fecharArtigo()">← Voltar para o blog</div>
-    <div id="artigoConteudo"></div>
-  </div>
-
-</div>
 </section>
 
+<!-- NEWSLETTER -->
+<section class="s-newsletter">
+  <div class="newsletter-wrap" data-reveal>
+    <div class="sec-label" style="justify-content:center;">Atualizações</div>
+    <h2 style="font-family:var(--font-display); font-size:clamp(26px,4vw,44px); font-weight:900; color:var(--bege); line-height:1.1; margin-bottom:16px;">
+      Novos artigos<br><em style="color:var(--ouro);">direto no WhatsApp.</em>
+    </h2>
+    <p style="font-size:15px; line-height:1.8; color:rgba(242,237,216,.45);">Sem spam. Quando sair um texto novo, você recebe. Só isso.</p>
+    <div class="newsletter-form">
+      <input type="text" class="newsletter-input" placeholder="Seu nome" id="nomeNews">
+      <a id="btnNews" href="#" onclick="assinarNewsletter(event)" class="newsletter-btn">Quero receber →</a>
+    </div>
+    <p style="font-family:var(--font-mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.2); margin-top:16px;">Sem spam. Cancele quando quiser.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div><div class="footer-logo">VSSP</div><div class="footer-tag">Um homem em construção em tempo real.</div></div>
+      <div>
+        <div class="footer-logo">VSSP</div>
+        <div class="footer-tag">Um homem em construção em tempo real.</div>
+      </div>
       <nav class="footer-nav">
-        <a href="index.html">Início</a><a href="historia.html">História</a>
-        <a href="blog.html">Blog</a><a href="consultoria.html">Consultoria</a>
+        <a href="index.html">Início</a>
+        <a href="historia.html">História</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="negocios.html">Negócios</a>
+        <a href="blog.html">Blog</a>
+        <a href="consultoria.html">Consultoria</a>
         <a href="produtos.html">Produtos</a>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
+        <a href="https://wa.me/5535953267086" target="_blank">WhatsApp</a>
       </nav>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
+      <span>Feito com intenção.</span>
     </div>
   </div>
 </footer>
 
 <script src="shared.js"></script>
 <script>
-const artigos = [
-  {
-    titulo: "Eu sei resolver tudo. Mas não sei viver: a diferença que ninguém explica.",
-    categoria: "Mentalidade", data: "Abril 2026", tempo: "8 min",
-    corpo: `
-      <p>Essa frase saiu de mim num momento específico. Não como insight filosófico, como diagnóstico doloroso.</p>
-      <p>Eu tinha <strong>construído uma capacidade enorme de funcionar</strong>. Trabalho: entregava. Dinheiro: quando faltava, resolvia. Problema: aparecia, eu resolvia. Era o cara. O que dá conta.</p>
-      <blockquote>"Mas viver é diferente de funcionar. E eu estava confundindo os dois há anos."</blockquote>
-      <h3>O problema não é a competência</h3>
-      <p>O problema é quando a competência vira o único modo de existir. Quando você opera no piloto automático de sobrevivência mesmo em momentos que pedem presença, com a parceira, com a família, consigo mesmo.</p>
-      <p>Eu funcionava. <em>Perfeitamente.</em> E estava completamente ausente das coisas que importavam de verdade.</p>
-      <h3>De onde vem isso</h3>
-      <p>No meu caso, vem de ter aprendido cedo que o mundo é instável. Que as pessoas em quem você confia podem desaparecer. Que a única variável confiável é você mesmo.</p>
-      <p>Então o sistema se fechou. <strong>Resolver = sobreviver. Sentir = vulnerabilidade. Vulnerabilidade = risco.</strong></p>
-      <p>Esse sistema funcionou por anos. E cobrou um preço que só percebi quando alguém que eu amava me mostrou o espelho, sem grito, sem drama. Só a clareza silenciosa de quem viu o que eu não queria ver.</p>
-      <h3>A saída</h3>
-      <p>Não é parar de resolver. É aprender que existe espaço entre o problema e a solução onde você pode estar presente. Onde você pode sentir sem precisar imediatamente agir.</p>
-      <p>É entender que <em>viver não é um intervalo entre problemas.</em> É o que acontece enquanto você os resolve ou deixa alguns sem resolver por um tempo.</p>
-      <p>Eu ainda estou aprendendo isso. Todos os dias. Mas pelo menos agora eu sei que existe diferença.</p>
-    `
-  },
-  {
-    titulo: "Dinheiro sem destino não é liberdade. É caos com saldo positivo.",
-    categoria: "Finanças", data: "Abril 2026", tempo: "5 min",
-    corpo: `
-      <p>Aprendi sobre dinheiro da forma mais cara possível: na necessidade. Aos 15, sozinho, pagando minhas próprias contas sem manual, sem rede, sem ninguém pra perguntar.</p>
-      <p>E o que aprendi não foi teoria de investimento. Foi algo mais básico e mais poderoso:</p>
-      <blockquote>"O problema nunca é o quanto entra. É o que você faz com o que entra antes de ele sumir."</blockquote>
-      <h3>O mito do salário</h3>
-      <p>Já vi homens que ganham 10 vezes mais do que eu na época chegando no dia 15 sem nada. Não porque gastavam demais. Porque o dinheiro <strong>não tinha destino antes de entrar.</strong></p>
-      <p>Dinheiro sem missão vai cumprir a missão dos outros: banco, mercado, impulso.</p>
-      <h3>O sistema simples que funciona</h3>
-      <p>Antes do mês começar, cada real já tem nome. Não é orçamento rígido, é intenção clara. A diferença entre planejamento e controle obsessivo é essa: um te liberta, o outro te aprisiona.</p>
-      <p>Quando o dinheiro tem destino, você para de reagir ao mês. Começa a construir o mês.</p>
-    `
-  },
-  {
-    titulo: "A decisão que mais me custou não foi financeira.",
-    categoria: "Família", data: "Abril 2026", tempo: "6 min",
-    corpo: `
-      <p>Tem decisões que custam dinheiro. Essa custou confiança, que é muito mais caro.</p>
-      <p>Tomei uma decisão dentro do meu relacionamento que envolvia mais do que eu. Tomei sozinho. Por padrão, não por maldade. Era o que eu sempre havia feito: analisei, decidi, agi.</p>
-      <blockquote>"Ela não gritou. Não fez cena. Mas ficou claro que a confiança havia sido afetada. E isso pesou mais do que qualquer aperto financeiro jamais pesaria."</blockquote>
-      <h3>O que isso ensinou</h3>
-      <p>Que o sistema de "eu resolvo sozinho" tem um custo oculto que só aparece quando ele afeta alguém além de você.</p>
-      <p>Que <strong>controle não é força.</strong> É o limite do que uma pessoa consegue sustentar sem parceria real.</p>
-      <p>Que a vergonha de errar não é o problema. O problema é a armadura que você usa pra não admitir que errou, para si mesmo e para quem está ao seu lado.</p>
-      <h3>O depois</h3>
-      <p>Aquele momento me obrigou a olhar para mim sem defesa. E ali começou a virada real. Não uma conta que entrou. Uma lição que chegou da forma mais cara possível e que eu não troco por nada.</p>
-    `
-  },
-  {
-    titulo: "Fé como decisão: o que muda quando você para de esperar sentir.",
-    categoria: "Fé", data: "Março 2026", tempo: "7 min",
-    corpo: `
-      <p>Fiquei anos longe de Deus. Não por rejeição, por indiferença. Achava que não precisava. Que eu dava conta.</p>
-      <p>E dava. Até não dar mais.</p>
-      <blockquote>"A fé não veio como emoção. Veio como decisão. Depois de ter tentado tudo do meu jeito e ainda assim sentir um vazio que nenhum resultado externo preenchia."</blockquote>
-      <h3>O que eu entendia errado</h3>
-      <p>Eu esperava sentir algo para começar a crer. Uma crise, uma revelação, um momento de clareza. Nada disso veio da forma que eu imaginava.</p>
-      <p>O que veio foi diferente: um cansaço do controle. Uma percepção de que eu estava carregando sozinho o que não era para ser carregado sozinho.</p>
-      <h3>O que mudou</h3>
-      <p>Não virei outra pessoa. Não parei de ter dúvidas. Mas algo se organizou internamente que eu não consigo explicar só com lógica.</p>
-      <p>As manhãs com a Bárbara, café, Bíblia, o livro, viraram âncora. Não ritual de performance. <em>Ancoragem real.</em> O dia começa diferente quando começa orientado.</p>
-      <p>Isso é o que posso dizer com honestidade: fé como decisão funciona diferente de fé como sentimento. E essa diferença é o que sustenta nos dias que o sentimento não aparece.</p>
-    `
-  },
-  {
-    titulo: "Por que homens esforçados ficam parados no mesmo lugar.",
-    categoria: "Negócios", data: "Março 2026", tempo: "5 min",
-    corpo: `
-      <p>Não é falta de esforço. Nunca foi.</p>
-      <p>Conheço homens que trabalham 12 horas por dia, que não descansam, que não param. E continuam no mesmo lugar ano após ano.</p>
-      <blockquote>"Esforço sem direção não é virtude. É desperdício de vida."</blockquote>
-      <h3>O ciclo invisível</h3>
-      <p>Trabalha mais → ganha mais → gasta mais → precisa trabalhar mais. Parece progresso. Não é. É a esteira funcionando.</p>
-      <p>O problema não é a quantidade de esforço. É a ausência de <strong>destino claro</strong> para onde esse esforço vai.</p>
-      <h3>A pergunta que muda tudo</h3>
-      <p>"Estou trabalhando suficiente?" é a pergunta errada.</p>
-      <p>"Estou trabalhando na direção certa?" é a que muda o jogo.</p>
-      <p>A primeira te faz trabalhar mais. A segunda te faz trabalhar melhor. E melhor, com direção, produz resultado que mais nunca vai produzir.</p>
-      <p>Eu estive nesse ciclo. O que quebrou não foi esforço adicional, foi direção clara. Saber exatamente para onde eu queria ir mudou a qualidade de cada hora que trabalhei a partir daí.</p>
-    `
-  }
-];
+function filtrar(pilar, btn) {
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
 
-function abrirArtigo(idx) {
-  const a = artigos[idx];
-  document.getElementById('blogLista').style.display = 'none';
-  const open = document.getElementById('artigoOpen');
-  open.classList.add('visible');
-  document.getElementById('artigoConteudo').innerHTML = `
-    <div class="artigo-categoria" style="color:var(--ouro);font-family:var(--font-mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;">${a.categoria}</div>
-    <div class="ao-titulo">${a.titulo}</div>
-    <div class="ao-meta">Vinícius Padovani · ${a.tempo} de leitura · ${a.data}</div>
-    <div class="ao-corpo">${a.corpo}</div>
-    <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(200,169,126.1);display:flex;gap:14px;flex-wrap:wrap;">
-      <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria</a>
-      <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn btn-outline">Seguir @vssp</a>
-    </div>
-  `;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.querySelectorAll('.artigo-card').forEach(card => {
+    if (pilar === 'todos' || card.dataset.pilar === pilar) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }
 
-function fecharArtigo() {
-  document.getElementById('blogLista').style.display = 'block';
-  document.getElementById('artigoOpen').classList.remove('visible');
-}
-
-function filtrar(cat, btn) {
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+function assinarNewsletter(e) {
+  e.preventDefault();
+  const nome = document.getElementById('nomeNews').value.trim() || 'Olá';
+  const msg = `Quero receber os novos artigos do @vssp no WhatsApp. Me chamo ${nome}.`;
+  window.open('https://wa.me/5535953267086?text=' + encodeURIComponent(msg), '_blank');
 }
 </script>
 </body>

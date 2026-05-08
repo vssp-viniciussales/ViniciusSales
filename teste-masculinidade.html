@@ -2,90 +2,235 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Teste de Masculinidade · @vssp</title>
+<title>Teste de Masculinidade · @vssp · Diagnóstico do General Solitário</title>
+<meta name="description" content="Em qual fase você está? Diagnóstico gratuito do General Solitário. 10 perguntas. Resultado imediato. Desenvolvido por Vinícius Padovani @vssp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-body { background:var(--petroleo); }
-.quiz-wrap { max-width:680px; margin:0 auto; padding:160px 24px 100px; }
-.quiz-kicker { font-family:var(--font-mono); font-size:10px; letter-spacing:5px; color:var(--ouro); text-transform:uppercase; margin-bottom:20px; opacity:.7; }
-.quiz-titulo { font-family:var(--font-display); font-size:clamp(32px,6vw,56px); font-weight:900; color:var(--bege); line-height:1.1; margin-bottom:16px; }
-.quiz-titulo span { color:var(--ouro); }
-.quiz-sub { font-family:var(--font-serif); font-style:italic; font-size:18px; color:rgba(242,237,216.55); margin-bottom:48px; line-height:1.6; }
+:root {
+  --petroleo:#0E1B2C; --petroleo2:#152438; --petroleo3:#1C2F45;
+  --bege:#F2EDD8; --taupe:#C2B6AA; --ouro:#C8A97E; --ouro-dark:#A8855A;
+  --font-display:'Cinzel',serif; --font-serif:'Fraunces',serif;
+  --font-sans:'Syne',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
+/* HERO TESTE */
+.teste-hero {
+  min-height:60vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center; text-align:center;
+  padding:140px 48px 80px; position:relative; overflow:hidden;
+  background:var(--petroleo);
+}
+.teste-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,169,126,.06) 0%, transparent 70%);
+}
+.teste-hero-inner { position:relative; z-index:1; max-width:720px; }
+
+/* QUIZ */
+.s-quiz {
+  padding:80px 48px 120px;
+  background:var(--petroleo2);
+  position:relative;
+}
+.s-quiz::before {
+  content:''; position:absolute;
+  top:-1px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);
+}
+.quiz-wrap { max-width:760px; margin:0 auto; }
 
 /* PROGRESSO */
-.progress-bar { height:2px; background:rgba(200,169,126.1); border-radius:1px; margin-bottom:40px; }
-.progress-fill { height:100%; background:var(--ouro); border-radius:1px; transition:width .5s var(--ease); }
-.progress-label { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.3); letter-spacing:2px; margin-bottom:12px; }
+.quiz-progresso {
+  display:flex; align-items:center; gap:16px;
+  margin-bottom:48px;
+}
+.prog-bar {
+  flex:1; height:2px;
+  background:rgba(200,169,126,.12);
+  border-radius:2px; overflow:hidden;
+}
+.prog-fill {
+  height:100%; background:var(--ouro);
+  border-radius:2px;
+  transition:width .4s var(--ease);
+  width:0%;
+}
+.prog-txt {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--ouro); opacity:.65; white-space:nowrap;
+}
 
 /* PERGUNTA */
-.pergunta { animation:fadeUp .4s var(--ease) both; }
-.q-num { font-family:var(--font-mono); font-size:10px; letter-spacing:3px; color:var(--ouro); opacity:.6; margin-bottom:12px; }
-.q-texto { font-family:var(--font-display); font-size:clamp(18px,3vw,26px); color:var(--bege); line-height:1.4; margin-bottom:32px; }
-.q-opcoes { display:flex; flex-direction:column; gap:12px; }
-.opcao {
-  background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.15);
-  border-radius:10px; padding:18px 20px; cursor:pointer;
-  font-size:15px; color:rgba(242,237,216.7); line-height:1.5;
-  transition:all .2s; text-align:left;
-}
-.opcao:hover { border-color:rgba(200,169,126.5); background:rgba(200,169,126.08); color:var(--bege); }
-.opcao.selected { border-color:var(--ouro); background:rgba(200,169,126.12); color:var(--bege); }
-.opcao-letra { display:inline-block; font-family:var(--font-mono); font-size:10px; color:var(--ouro); letter-spacing:2px; margin-right:12px; }
+.pergunta-wrap { display:none; }
+.pergunta-wrap.ativa { display:block; animation:fadeUp .5s var(--ease) both; }
 
-.btn-next { margin-top:28px; opacity:0; pointer-events:none; transition:opacity .3s; }
-.btn-next.visible { opacity:1; pointer-events:all; }
+.perg-num {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--ouro); opacity:.6; margin-bottom:16px;
+}
+.perg-txt {
+  font-family:var(--font-display); font-size:clamp(18px,2.5vw,26px);
+  color:var(--bege); line-height:1.35; margin-bottom:36px;
+  font-weight:700;
+}
+.opcoes { display:flex; flex-direction:column; gap:12px; }
+.opcao {
+  display:flex; align-items:flex-start; gap:16px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(200,169,126,.12);
+  border-radius:10px; padding:20px 24px;
+  cursor:pointer; transition:all .2s;
+}
+.opcao:hover {
+  border-color:rgba(200,169,126,.4);
+  background:rgba(200,169,126,.06);
+}
+.opcao.selecionada {
+  border-color:var(--ouro);
+  background:rgba(200,169,126,.1);
+}
+.opcao-radio {
+  width:18px; height:18px; border-radius:50%;
+  border:2px solid rgba(200,169,126,.3);
+  flex-shrink:0; margin-top:2px;
+  transition:all .2s; position:relative;
+}
+.opcao.selecionada .opcao-radio {
+  border-color:var(--ouro);
+  background:var(--ouro);
+}
+.opcao.selecionada .opcao-radio::after {
+  content:''; position:absolute;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  width:6px; height:6px; border-radius:50%;
+  background:var(--petroleo);
+}
+.opcao-texto {
+  font-size:15px; line-height:1.7;
+  color:rgba(242,237,216,.7);
+}
+.opcao.selecionada .opcao-texto { color:var(--bege); }
+
+.quiz-nav {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:40px;
+}
+.btn-quiz-prev {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:rgba(242,237,216,.35); background:none; border:none;
+  cursor:pointer; transition:color .2s; padding:0;
+}
+.btn-quiz-prev:hover { color:var(--ouro); }
+.btn-quiz-prev:disabled { opacity:.2; cursor:not-allowed; }
+.btn-quiz-next {
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:2px; text-transform:uppercase; font-weight:700;
+  background:var(--ouro); color:var(--petroleo);
+  border:none; padding:14px 32px; border-radius:4px;
+  cursor:pointer; transition:all .2s;
+}
+.btn-quiz-next:hover { background:var(--ouro-dark); transform:translateY(-2px); }
+.btn-quiz-next:disabled { opacity:.4; cursor:not-allowed; transform:none; }
 
 /* RESULTADO */
-.resultado { display:none; animation:fadeUp .6s var(--ease) both; }
-.res-score-wrap { text-align:center; margin-bottom:48px; }
-.res-num { font-family:var(--font-display); font-size:96px; font-weight:900; color:var(--ouro); line-height:1; }
-.res-label { font-family:var(--font-mono); font-size:11px; letter-spacing:3px; color:var(--taupe); margin-top:8px; }
-.res-categoria { font-family:var(--font-display); font-size:28px; color:var(--bege); text-align:center; margin-bottom:24px; }
-.res-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216.6); margin-bottom:32px; }
-.res-pontos { display:flex; flex-direction:column; gap:16px; margin-bottom:40px; }
-.res-ponto {
-  background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.1);
-  border-radius:10px; padding:20px;
+.resultado-wrap {
+  display:none; animation:fadeUp .6s var(--ease) both;
 }
-.res-ponto-titulo { font-family:var(--font-display); font-size:15px; color:var(--bege); margin-bottom:6px; }
-.res-ponto-desc { font-size:13px; color:rgba(242,237,216.5); line-height:1.7; }
-.res-cta { background:rgba(200,169,126.08); border:1px solid rgba(200,169,126.2); border-radius:14px; padding:32px; text-align:center; }
-.res-cta-txt { font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--bege); margin-bottom:20px; line-height:1.6; }
+.resultado-wrap.visivel { display:block; }
 
-/* ── CORRECAO DE LEGIBILIDADE DO RESULTADO ── */
-.resultado { background: #0E1B2C; min-height: 100vh; padding: 40px 0; }
-.res-score-wrap { background: #152438; border-radius: 16px; padding: 40px 32px; border: 1px solid rgba(200,169,126,.15); margin-bottom: 40px; }
-.res-num { color: #F2EDD8 !important; text-shadow: 0 0 40px rgba(200,169,126,.3); }
-.res-score-label { color: rgba(194,182,170,.7) !important; }
-.res-nivel { color: #C8A97E !important; }
-.res-nivel-wrap, .res-nivel-box { background: rgba(200,169,126,.08); border: 1px solid rgba(200,169,126,.15); border-radius: 10px; padding: 20px 24px; }
-.res-desc { color: rgba(242,237,216,.75) !important; line-height: 1.8; }
-.res-card { background: #152438 !important; border: 1px solid rgba(200,169,126,.12) !important; border-left: 2px solid #C8A97E !important; }
-.res-ponto-titulo { color: #F2EDD8 !important; }
-.res-ponto-desc { color: rgba(242,237,216,.6) !important; }
-.res-cta-txt { color: rgba(242,237,216,.65) !important; font-style: italic; }
-.res-cta a, .res-cta .btn { background: #C8A97E; color: #0E1B2C; }
+.resultado-fase {
+  text-align:center; padding:48px;
+  background:var(--petroleo);
+  border:1px solid rgba(200,169,126,.2);
+  border-radius:16px; margin-bottom:32px;
+  position:relative; overflow:hidden;
+}
+.resultado-fase::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+.res-label {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--ouro); opacity:.65; margin-bottom:16px;
+}
+.res-fase {
+  font-family:var(--font-display); font-size:clamp(22px,4vw,42px);
+  font-weight:900; color:var(--bege); margin-bottom:12px;
+  line-height:1.1;
+}
+.res-sub {
+  font-family:var(--font-serif); font-style:italic;
+  font-size:clamp(16px,2vw,20px);
+  color:rgba(242,237,216,.65); line-height:1.65;
+  max-width:520px; margin:0 auto 24px;
+}
+.res-desc {
+  font-size:15px; line-height:1.9;
+  color:rgba(242,237,216,.5);
+  max-width:600px; margin:0 auto;
+}
+.res-sinais {
+  margin-top:32px; text-align:left;
+  background:rgba(200,169,126,.05);
+  border:1px solid rgba(200,169,126,.1);
+  border-radius:10px; padding:28px;
+}
+.res-sinais-titulo {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ouro); opacity:.65; margin-bottom:16px;
+}
+.res-sinal-item {
+  display:flex; gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(200,169,126,.07);
+  font-size:14px; color:rgba(242,237,216,.6); line-height:1.65;
+}
+.res-sinal-item:last-child { border-bottom:none; }
+.res-sinal-item::before { content:'→'; color:var(--ouro); flex-shrink:0; }
 
+.res-cta-wrap {
+  display:flex; flex-direction:column; align-items:center;
+  gap:16px; margin-top:40px; text-align:center;
+}
+.res-cta-txt {
+  font-size:14px; color:rgba(242,237,216,.4);
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .teste-hero { padding:110px 24px 60px; }
+  .s-quiz { padding:60px 24px 80px; }
+  .opcao { padding:16px 18px; }
+}
 </style>
 </head>
 <body>
 
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
-  <span class="lang-sep">·</span>
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-</div>
-
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">VSSP</a>
   <div class="nav-links">
-    <a href="index.html" class="nav-link" data-pt="Início" data-en="Home">Início</a>
-    <a href="historia.html" class="nav-link" data-pt="História" data-en="Story">História</a>
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="historia.html" class="nav-link">História</a>
     <a href="manifesto.html" class="nav-link">Manifesto</a>
-    <a href="negocios.html" class="nav-link" data-pt="Negócios" data-en="Business">Negócios</a>
-    <a href="consultoria.html" class="nav-link nav-cta" data-pt="Consultoria" data-en="Consulting">Consultoria</a>
+    <a href="negocios.html" class="nav-link">Negócios</a>
+    <a href="consultoria.html" class="nav-link nav-cta">Consultoria</a>
   </div>
   <button class="nav-menu" id="navMenu"><span></span><span></span><span></span></button>
 </nav>
@@ -93,267 +238,414 @@ body { background:var(--petroleo); }
   <a href="index.html" class="mobile-link">Início</a>
   <a href="historia.html" class="mobile-link">História</a>
   <a href="manifesto.html" class="mobile-link">Manifesto</a>
-  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+  <a href="negocios.html" class="mobile-link">Negócios</a>
+  <a href="consultoria.html" class="mobile-link" style="color:var(--ouro);">Consultoria →</a>
 </div>
 
-<div class="quiz-wrap">
-  <!-- INTRO -->
-  <div id="quizIntro">
-    <div class="quiz-kicker">Teste · @vssp · 2026</div>
-    <h1 class="quiz-titulo" data-pt="Que tipo de homem<br>você está <span>sendo</span>?" data-en="What kind of man<br>are you <span>being</span>?">Que tipo de homem<br>você está <span>sendo</span>?</h1>
-    <p class="quiz-sub" data-pt="Não é sobre o que você quer ser. É sobre quem você está sendo agora, nos momentos reais, nas decisões difíceis, nas relações que importam." data-en="It's not about who you want to be. It's about who you're being now, in real moments, difficult decisions, the relationships that matter.">Não é sobre o que você quer ser. É sobre quem você está sendo agora, nos momentos reais, nas decisões difíceis, nas relações que importam.</p>
-    <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px;font-family:var(--font-mono);font-size:11px;color:rgba(242,237,216.35);letter-spacing:2px;">
-      <span>10 perguntas</span><span>·</span><span>5 min</span><span>·</span><span>Resultado honesto</span>
+<!-- HERO -->
+<div class="teste-hero">
+  <div class="teste-hero-inner">
+    <div class="page-kicker">Diagnóstico gratuito · @vssp</div>
+    <h1 class="page-title">Em qual fase<br><span>você está?</span></h1>
+    <p style="font-size:16px; line-height:1.85; color:rgba(242,237,216,.55); margin-top:20px; max-width:520px; margin-left:auto; margin-right:auto;">
+      10 perguntas. Resultado imediato. Sem enrolação. Desenvolvido a partir da minha própria história e dos padrões que identifiquei em outros homens.
+    </p>
+    <div style="margin-top:32px; display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap;">
+      <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.3);">⏱ 3 minutos</div>
+      <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.3);">✓ Gratuito</div>
+      <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.3);">◉ Resultado imediato</div>
     </div>
-    <button class="btn btn-primary" onclick="iniciarQuiz()" data-pt="Começar o teste" data-en="Start the test">Começar o teste</button>
   </div>
-
-  <!-- QUIZ -->
-  <div id="quizArea" style="display:none;">
-    <div class="progress-label" id="progressLabel">Pergunta 1 de 10</div>
-    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
-    <div id="perguntaArea"></div>
-    <button class="btn btn-primary btn-next" id="btnNext" onclick="proximaPergunta()">Próxima →</button>
-  </div>
-
-  <!-- RESULTADO -->
-  <div class="resultado" id="resultadoArea"></div>
 </div>
+
+<!-- QUIZ -->
+<section class="s-quiz">
+  <div class="quiz-wrap">
+
+    <!-- PROGRESSO -->
+    <div class="quiz-progresso">
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-txt" id="progTxt">1 / 10</div>
+    </div>
+
+    <!-- PERGUNTAS -->
+    <div id="quizPerguntas">
+
+      <div class="pergunta-wrap ativa" data-pergunta="0">
+        <div class="perg-num">Pergunta 01 · 10</div>
+        <div class="perg-txt">Quando surge um problema sério em casa ou no trabalho, qual é a sua primeira reação?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Já começo a pensar em como resolver antes de falar com alguém.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Analiso sozinho primeiro, mas depois consulto quem está envolvido.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Envolvo as pessoas certas desde o início antes de tomar qualquer decisão.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="1">
+        <div class="perg-num">Pergunta 02 · 10</div>
+        <div class="perg-txt">Como você se sente quando alguém oferece ajuda em algo que você está fazendo?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Desconfortável. Prefiro resolver sem depender de ninguém.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Aceito às vezes, mas ainda tenho resistência interna em pedir.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Aceito com facilidade. Sei que construção real não é trabalho solitário.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="2">
+        <div class="perg-num">Pergunta 03 · 10</div>
+        <div class="perg-txt">No seu relacionamento ou casamento, quando você toma uma decisão financeira importante, como age?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Decido e comunico depois. Sou eu quem entendo das finanças da família.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Às vezes consulto, às vezes não. Depende do tamanho da decisão.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Toda decisão relevante é tomada junto. Parceria real exige isso.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="3">
+        <div class="perg-num">Pergunta 04 · 10</div>
+        <div class="perg-txt">Você consegue estar fisicamente presente e emocionalmente presente ao mesmo tempo?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Raramente. Minha cabeça está sempre em outro lugar mesmo quando estou em casa.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Às vezes consigo, mas é um esforço consciente. Não é natural ainda.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Tenho desenvolvido isso com consistência. Presença real é uma prática diária.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="4">
+        <div class="perg-num">Pergunta 05 · 10</div>
+        <div class="perg-txt">Como você lida com a sua própria vulnerabilidade? Com dificuldades reais que está enfrentando?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Guardo para mim. Mostrar fraqueza não é uma opção.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Compartilho com pouquíssimas pessoas, com filtro e dificuldade.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Consigo ser honesto com quem está próximo. Vulnerabilidade não é fraqueza.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="5">
+        <div class="perg-num">Pergunta 06 · 10</div>
+        <div class="perg-txt">Qual frase descreve melhor sua relação com dinheiro hoje?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Entra, sai. Nunca sobra o suficiente para construir algo real.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Tenho algum controle, mas ainda não tenho sistema claro de destino.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Cada real tem destino antes do mês começar. Construção deliberada.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="6">
+        <div class="perg-num">Pergunta 07 · 10</div>
+        <div class="perg-txt">Você sente que está avançando na vida ou apenas ocupado?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Ocupado. Muito esforço, pouca sensação de avanço real.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Avanço em algumas áreas, mas sinto que falta direção no todo.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Avanço com intenção. Tenho clareza do que estou construindo.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="7">
+        <div class="perg-num">Pergunta 08 · 10</div>
+        <div class="perg-txt">Como é a sua relação com fé ou algo maior do que você?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Não faz parte da minha vida ou é algo que ainda não explorei.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Existe, mas é inconsistente. Não é ainda uma âncora real nas decisões.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">É âncora real. Parte da rotina, não da emoção do momento.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="8">
+        <div class="perg-num">Pergunta 09 · 10</div>
+        <div class="perg-txt">Quando você pensa no homem que quer ser daqui a 5 anos, como se sente?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Distante. Não sei se consigo chegar lá do jeito que estou.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Possível, mas ainda não tenho o caminho claro para chegar.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Estou nesse caminho agora. Cada decisão está alinhada com quem quero ser.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pergunta-wrap" data-pergunta="9">
+        <div class="perg-num">Pergunta 10 · 10</div>
+        <div class="perg-txt">Qual frase descreve melhor onde você está agora?</div>
+        <div class="opcoes">
+          <div class="opcao" data-valor="1" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Funciono por fora. Por dentro há um vazio que não consigo nomear direito.</div>
+          </div>
+          <div class="opcao" data-valor="2" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Estou em transição. Já percebi o padrão, ainda estou saindo dele.</div>
+          </div>
+          <div class="opcao" data-valor="3" onclick="selecionarOpcao(this)">
+            <div class="opcao-radio"></div>
+            <div class="opcao-texto">Estou em construção deliberada. Com erros, mas com direção clara.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /quizPerguntas -->
+
+    <!-- NAVEGAÇÃO -->
+    <div class="quiz-nav" id="quizNav">
+      <button class="btn-quiz-prev" id="btnPrev" onclick="navegar(-1)" disabled>← Anterior</button>
+      <button class="btn-quiz-next" id="btnNext" onclick="navegar(1)" disabled>Próxima →</button>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="resultado-wrap" id="resultadoWrap">
+      <div class="resultado-fase" id="resultadoFase">
+        <!-- Preenchido via JS -->
+      </div>
+      <div class="res-cta-wrap">
+        <p style="font-size:15px; line-height:1.85; color:rgba(242,237,216,.5); max-width:500px; text-align:center;">
+          Esse diagnóstico é o ponto de partida. O próximo passo é uma conversa real sobre onde você está e o que quer construir.
+        </p>
+        <a href="consultoria.html" class="btn btn-primary" style="margin-top:8px;">Quero uma consultoria · R$497 →</a>
+        <a href="https://wa.me/5535953267086?text=Fiz%20o%20teste%20do%20General%20Solit%C3%A1rio%20e%20quero%20conversar%20sobre%20meu%20resultado." target="_blank" style="font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.35); margin-top:4px; transition:color .2s;">Falar pelo WhatsApp →</a>
+        <button onclick="reiniciarTeste()" style="font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(242,237,216,.2); background:none; border:none; cursor:pointer; margin-top:16px; transition:color .2s;" onmouseover="this.style.color='rgba(200,169,126,.5)'" onmouseout="this.style.color='rgba(242,237,216,.2)'">Refazer o teste</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">VSSP</div>
+        <div class="footer-tag">Um homem em construção em tempo real.</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="historia.html">História</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="negocios.html">Negócios</a>
+        <a href="consultoria.html">Consultoria</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
+        <a href="https://wa.me/5535953267086" target="_blank">WhatsApp</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
+      <span>Feito com intenção.</span>
+    </div>
+  </div>
+</footer>
 
 <script src="shared.js"></script>
 <script>
-const perguntas = [
-  {
-    texto: "Quando algo dá errado numa decisão que afeta a sua família ou parceira, o que você faz primeiro?",
-    opcoes: [
-      { letra:"A", texto:"Processo sozinho, resolvo o problema antes de falar com ela.", pontos: 1 },
-      { letra:"B", texto:"Fico na defensiva, é difícil admitir que errei.", pontos: 2 },
-      { letra:"C", texto:"Falo sobre o que aconteceu antes de ter todas as respostas.", pontos: 4 },
-      { letra:"D", texto:"Assumo a responsabilidade diretamente e trabalho a solução junto.", pontos: 5 }
+const resultados = {
+  baixo: {
+    fase: 'Fase 1 · O General Solitário',
+    subtitulo: 'Você resolve tudo. E carrega tudo. Sozinho.',
+    desc: 'Você funciona. Entrega no trabalho, sustenta as responsabilidades, não desmorona. Mas há um vazio que o esforço não preenche. Você controla porque aprendeu cedo que depender é risco. Esse padrão foi uma solução. Hoje está se tornando um problema.',
+    sinais: [
+      'Toma decisões importantes sem consultar quem está envolvido',
+      'Presença física frequente, presença emocional rara',
+      'Dinheiro entra mas nunca há estrutura real de destino',
+      'Vulnerabilidade parece fraqueza, não estratégia',
+      'Ocupação intensa sem sensação de avanço'
     ]
   },
-  {
-    texto: "Você sabe exatamente para onde vai cada real que você ganha?",
-    opcoes: [
-      { letra:"A", texto:"Não, o dinheiro some e não sei bem como.", pontos: 1 },
-      { letra:"B", texto:"Mais ou menos, conheço os gastos maiores.", pontos: 2 },
-      { letra:"C", texto:"Tenho uma ideia, mas sem sistema formal.", pontos: 3 },
-      { letra:"D", texto:"Sim, tenho destino definido para cada categoria.", pontos: 5 }
+  medio: {
+    fase: 'Fase 2 · A Transição',
+    subtitulo: 'Você já viu o padrão. Ainda não saiu dele.',
+    desc: 'A percepção já chegou. Você sabe que algo precisa mudar e em algumas áreas já está mudando. Mas o sistema antigo ainda puxa. Em pressão, o automático volta. O General Solitário ainda aparece, só que agora você o reconhece. Esse reconhecimento é o começo real.',
+    sinais: [
+      'Consulta mais, mas ainda sente resistência interna',
+      'Presença emocional melhorou mas ainda é esforço consciente',
+      'Algum controle financeiro, mas falta sistema completo',
+      'Compartilha com poucos, com filtro',
+      'Sente avanço em partes, falta visão do todo'
     ]
   },
-  {
-    texto: "Quando você está sob pressão extrema (crise, prazo, conflito), o que acontece com quem está perto de você?",
-    opcoes: [
-      { letra:"A", texto:"Eles ficam distantes, eu me fecho e resolvo sozinho.", pontos: 1 },
-      { letra:"B", texto:"Às vezes eles sentem o peso mesmo eu não dizendo nada.", pontos: 2 },
-      { letra:"C", texto:"Eu aviso que estou em modo foco, mas explico o que acontece.", pontos: 4 },
-      { letra:"D", texto:"Incluo quem é relevante na solução, não carrego sozinho.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Com que frequência você age de acordo com o que diz que acredita, em casa, no trabalho, nas relações?",
-    opcoes: [
-      { letra:"A", texto:"Raramente, existe distância entre o que falo e como ajo.", pontos: 1 },
-      { letra:"B", texto:"Às vezes, dependo do ambiente e de quem está olhando.", pontos: 2 },
-      { letra:"C", texto:"Na maior parte, mas ainda tenho inconsistências que vejo.", pontos: 3 },
-      { letra:"D", texto:"Consistentemente, coerência é inegociável para mim.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Como você lida com o seu corpo, saúde e energia física?",
-    opcoes: [
-      { letra:"A", texto:"Ignoro, tudo bem enquanto funciona.", pontos: 1 },
-      { letra:"B", texto:"Penso nisso mas raramente faço algo.", pontos: 2 },
-      { letra:"C", texto:"Tenho rotina inconsistente, começo e paro.", pontos: 3 },
-      { letra:"D", texto:"Trato como responsabilidade, cuido com regularidade.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Você tem uma direção clara para os próximos 12 meses, não desejos vagos, mas direção concreta?",
-    opcoes: [
-      { letra:"A", texto:"Não, vou vivendo e adaptando conforme aparece.", pontos: 1 },
-      { letra:"B", texto:"Tenho alguns objetivos mas sem plano real.", pontos: 2 },
-      { letra:"C", texto:"Tenho direção mas falta estrutura para executar.", pontos: 3 },
-      { letra:"D", texto:"Sim, tenho metas definidas e estou em movimento.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Quando você falha, em qualquer área, qual é sua resposta interna mais honesta?",
-    opcoes: [
-      { letra:"A", texto:"Me culpo por muito tempo ou nego que foi erro meu.", pontos: 1 },
-      { letra:"B", texto:"Aceito, mas é difícil, demoro pra processar.", pontos: 2 },
-      { letra:"C", texto:"Analiso o que aconteceu e ajusto sem drama excessivo.", pontos: 4 },
-      { letra:"D", texto:"Assumo, aprendo e sigo, erro faz parte de construção.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Sua fé ou espiritualidade tem espaço real no seu dia a dia?",
-    opcoes: [
-      { letra:"A", texto:"Não, não é uma área que trabalho.", pontos: 1 },
-      { letra:"B", texto:"Às vezes, mais em momentos difíceis.", pontos: 2 },
-      { letra:"C", texto:"Estou buscando, ainda em desenvolvimento.", pontos: 3 },
-      { letra:"D", texto:"Sim, é ancoragem real, não performance.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Como você se relaciona com pedir ajuda quando algo está pesado demais?",
-    opcoes: [
-      { letra:"A", texto:"Não peço, isso parece fraqueza.", pontos: 1 },
-      { letra:"B", texto:"Peço raramente e com muita resistência interna.", pontos: 2 },
-      { letra:"C", texto:"Peço, mas ainda é desconfortável.", pontos: 3 },
-      { letra:"D", texto:"Peço naturalmente, sei que não preciso carregar tudo.", pontos: 5 }
-    ]
-  },
-  {
-    texto: "Se alguém próximo olhasse para a sua vida hoje, sua rotina, suas decisões, suas relações, o que diria que você está construindo?",
-    opcoes: [
-      { letra:"A", texto:"Provavelmente diria que estou sobrevivendo, não construindo.", pontos: 1 },
-      { letra:"B", texto:"Que estou tentando, mas sem clareza de direção.", pontos: 2 },
-      { letra:"C", texto:"Que estou construindo, com alguns pontos a melhorar.", pontos: 3 },
-      { letra:"D", texto:"Que estou em movimento intencional com consistência real.", pontos: 5 }
+  alto: {
+    fase: 'Fase 3 · A Construção Deliberada',
+    subtitulo: 'Você está construindo. Com intenção.',
+    desc: 'Você não chegou. Está chegando. Com direção, com sistema, com parceria real. A fé como âncora, não como emoção. As decisões como construção conjunta, não como resolução solitária. O padrão ainda aparece sob pressão — mas você o reconhece e corrige. Isso é maturidade real.',
+    sinais: [
+      'Decisões tomadas em parceria real, não comunicadas depois',
+      'Presença emocional como prática, não esforço pontual',
+      'Sistema financeiro claro com destino para cada real',
+      'Vulnerabilidade como ferramenta, não fraqueza',
+      'Avanço intencional com clareza de caminho'
     ]
   }
-];
+};
 
-let atual = 0;
-let respostas = [];
-let selecionado = null;
+let perguntaAtual = 0;
+let respostas = new Array(10).fill(0);
+const totalPerguntas = 10;
 
-function iniciarQuiz() {
-  document.getElementById('quizIntro').style.display = 'none';
-  document.getElementById('quizArea').style.display = 'block';
-  renderPergunta();
+function selecionarOpcao(el) {
+  const wrap = el.closest('.pergunta-wrap');
+  wrap.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
+  el.classList.add('selecionada');
+  respostas[perguntaAtual] = parseInt(el.dataset.valor);
+  document.getElementById('btnNext').disabled = false;
 }
 
-function renderPergunta() {
-  selecionado = null;
-  document.getElementById('btnNext').classList.remove('visible');
-  const p = perguntas[atual];
-  const pct = ((atual + 1) / perguntas.length * 100).toFixed(0);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = `Pergunta ${atual + 1} de ${perguntas.length}`;
+function navegar(dir) {
+  if (dir === 1 && respostas[perguntaAtual] === 0) return;
 
-  document.getElementById('perguntaArea').innerHTML = `
-    <div class="pergunta">
-      <div class="q-num">PERGUNTA ${String(atual + 1).padStart(2, '0')}</div>
-      <div class="q-texto">${p.texto}</div>
-      <div class="q-opcoes">
-        ${p.opcoes.map((o, i) => `
-          <button class="opcao" onclick="selecionarOpcao(${i}, ${o.pontos})">
-            <span class="opcao-letra">${o.letra}</span>${o.texto}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-  `;
-}
+  const pergs = document.querySelectorAll('.pergunta-wrap');
+  pergs[perguntaAtual].classList.remove('ativa');
 
-function selecionarOpcao(idx, pontos) {
-  selecionado = pontos;
-  document.querySelectorAll('.opcao').forEach((el, i) => {
-    el.classList.toggle('selected', i === idx);
-  });
-  document.getElementById('btnNext').classList.add('visible');
-  if (atual === perguntas.length - 1) {
-    document.getElementById('btnNext').textContent = 'Ver resultado →';
-  }
-}
-
-function proximaPergunta() {
-  if (selecionado === null) return;
-  respostas.push(selecionado);
-  if (atual < perguntas.length - 1) {
-    atual++;
-    renderPergunta();
-  } else {
+  if (dir === 1 && perguntaAtual === totalPerguntas - 1) {
     mostrarResultado();
+    return;
+  }
+
+  perguntaAtual += dir;
+  pergs[perguntaAtual].classList.add('ativa');
+
+  // Progresso
+  const pct = ((perguntaAtual) / totalPerguntas) * 100;
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progTxt').textContent = (perguntaAtual + 1) + ' / ' + totalPerguntas;
+
+  // Botões
+  document.getElementById('btnPrev').disabled = perguntaAtual === 0;
+  document.getElementById('btnNext').disabled = respostas[perguntaAtual] === 0;
+
+  if (perguntaAtual === totalPerguntas - 1) {
+    document.getElementById('btnNext').textContent = 'Ver resultado →';
+  } else {
+    document.getElementById('btnNext').textContent = 'Próxima →';
   }
 }
 
 function mostrarResultado() {
-  const total = respostas.reduce((a, b) => a + b, 0);
-  const max = perguntas.length * 5;
-  const pct = Math.round((total / max) * 100);
+  document.getElementById('progFill').style.width = '100%';
+  document.getElementById('progTxt').textContent = '✓ Concluído';
+  document.getElementById('quizPerguntas').style.display = 'none';
+  document.getElementById('quizNav').style.display = 'none';
 
-  document.getElementById('quizArea').style.display = 'none';
-  const resArea = document.getElementById('resultadoArea');
-  resArea.style.display = 'block';
+  const soma = respostas.reduce((a, b) => a + b, 0);
+  const media = soma / totalPerguntas;
 
-  let categoria, desc, pontos, cor;
+  let tipo;
+  if (media <= 1.5) tipo = 'baixo';
+  else if (media <= 2.3) tipo = 'medio';
+  else tipo = 'alto';
 
-  if (pct <= 30) {
-    categoria = "Suportando a vida";
-    cor = "#E57373";
-    desc = "Você está reagindo mais do que construindo. Não é julgamento, é diagnóstico. O padrão que está operando agora tem custo e você provavelmente já sente isso.";
-    pontos = [
-      { titulo: "Direção urgente", desc: "Sem destino definido, esforço vira movimento sem progresso. O primeiro passo é definir onde você quer chegar, mesmo que ainda não saiba como." },
-      { titulo: "Estrutura antes de crescimento", desc: "Resolver o que aparece funciona a curto prazo. A longo prazo, é balde com buraco. Precisa de sistema." },
-      { titulo: "Abertura como força", desc: "Carregar tudo sozinho não é força. É o limite do que uma pessoa consegue sustentar sozinha." }
-    ];
-  } else if (pct <= 55) {
-    categoria = "Em movimento, sem direção clara";
-    cor = "#FFCC80";
-    desc = "Você está se esforçando, mas a sensação de correr numa esteira é real. Tem algo sendo construído, mas falta estrutura e clareza de onde você quer chegar.";
-    pontos = [
-      { titulo: "Defina o destino", desc: "Esforço sem direção é desperdício de vida. Antes de aumentar a velocidade, confirme a direção." },
-      { titulo: "Consistência sobre intensidade", desc: "O problema não é falta de motivação, é falta de sistema que funciona mesmo nos dias ruins." },
-      { titulo: "Inclua quem importa", desc: "A construção solitária tem um teto. Quem está ao seu lado pode ser recurso, não só responsabilidade." }
-    ];
-  } else if (pct <= 75) {
-    categoria = "Construindo com consciência";
-    cor = "#C8A97E";
-    desc = "Você está em construção real, com direção, com responsabilidade e com algum nível de consciência sobre o que ainda não está funcionando. Isso já é muito diferente da maioria.";
-    pontos = [
-      { titulo: "Afine a consistência", desc: "O próximo nível não é fazer mais, é ser mais consistente no que já está fazendo bem." },
-      { titulo: "Nomeie o que ainda trava", desc: "Você já vê os pontos cegos. Nomeá-los publicamente, para você e para quem confia, acelera a mudança." },
-      { titulo: "Parceria real", desc: "Construção junto não é delegar, é decidir junto. Quanto mais você incluir, maior o teto do que você pode construir." }
-    ];
-  } else {
-    categoria = "Homem em construção intencional";
-    cor = "#81C784";
-    desc = "Você está operando com consistência, responsabilidade e clareza. Não perfeição, intenção. Esse é o padrão que faz diferença a longo prazo.";
-    pontos = [
-      { titulo: "Documente e compartilhe", desc: "O que você está construindo tem valor para outros homens que ainda não chegaram onde você está. Não guarde." },
-      { titulo: "Cuide do que ainda falta", desc: "Mesmo com consistência, há pontos de melhoria. Identifique-os e trabalhe com a mesma intenção." },
-      { titulo: "Legado", desc: "Homem que constrói intencionalmente deixa rastro. Pense no impacto que sua construção tem nas próximas gerações." }
-    ];
-  }
+  const r = resultados[tipo];
+  const faseEl = document.getElementById('resultadoFase');
 
-  resArea.innerHTML = `
-    <div class="quiz-kicker">Resultado · @vssp</div>
-    <div class="res-score-wrap">
-      <div class="res-num" style="color:${cor}">${pct}</div>
-      <div class="res-label">PONTUAÇÃO / 100</div>
-    </div>
-    <div class="res-categoria" style="color:${cor}">${categoria}</div>
-    <div class="res-desc">${desc}</div>
-    <div class="res-pontos">
-      ${pontos.map(p => `
-        <div class="res-ponto">
-          <div class="res-ponto-titulo">→ ${p.titulo}</div>
-          <div class="res-ponto-desc">${p.desc}</div>
-        </div>
-      `).join('')}
-    </div>
-    <div class="res-cta">
-      <div class="res-cta-txt">"Diagnóstico sem ação é só informação. O próximo passo depende de você."</div>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria</a>
-        <a href="https://wa.me/5535953267086" target="_blank" class="btn btn-outline">WhatsApp</a>
-        <a href="https://instagram.com/vssp.viniciussales" target="_blank" class="btn btn-outline">Seguir @vssp</a>
-      </div>
-    </div>
-    <div style="margin-top:24px;text-align:center;">
-      <button class="btn btn-dark" onclick="location.reload()">Refazer o teste</button>
+  faseEl.innerHTML = `
+    <div class="res-label">Seu resultado</div>
+    <div class="res-fase">${r.fase}</div>
+    <div class="res-sub">${r.subtitulo}</div>
+    <div class="res-desc">${r.desc}</div>
+    <div class="res-sinais">
+      <div class="res-sinais-titulo">Sinais presentes no seu perfil</div>
+      ${r.sinais.map(s => `<div class="res-sinal-item">${s}</div>`).join('')}
     </div>
   `;
+
+  const wrap = document.getElementById('resultadoWrap');
+  wrap.classList.add('visivel');
+  wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function reiniciarTeste() {
+  perguntaAtual = 0;
+  respostas = new Array(10).fill(0);
+  document.querySelectorAll('.opcao').forEach(o => o.classList.remove('selecionada'));
+  document.querySelectorAll('.pergunta-wrap').forEach((p, i) => {
+    p.classList.toggle('ativa', i === 0);
+  });
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('progTxt').textContent = '1 / 10';
+  document.getElementById('btnPrev').disabled = true;
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = 'Próxima →';
+  document.getElementById('quizPerguntas').style.display = 'block';
+  document.getElementById('quizNav').style.display = 'flex';
+  document.getElementById('resultadoWrap').classList.remove('visivel');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-<div style="text-align:center;padding:24px;font-family:monospace;font-size:11px;color:rgba(242,237,216,.2);">
-  <a href="mailto:vssp.vincius@gmail.com" style="color:rgba(200,169,126,.3);text-decoration:none;">vssp.vincius@gmail.com</a>
-  &nbsp;·&nbsp;
-  <a href="https://wa.me/5535953267086" target="_blank" style="color:rgba(200,169,126,.3);text-decoration:none;">wa.me/5535953267086</a>
-  &nbsp;·&nbsp; © 2026 Vinícius Padovani
-</div>
 </body>
 </html>

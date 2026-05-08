@@ -2,43 +2,163 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Negócios · Vinícius Padovani @vssp</title>
+<title>Negócios · Vinícius Padovani @vssp · 4 operações ativas</title>
+<meta name="description" content="Atlas Logística, VS Negócios, Primemobile e Grupo Villela Brasil Bank. Quatro operações simultâneas documentadas ao vivo. Bastidores reais, não teoria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-.empresa-bloco { padding:80px 0; border-bottom:1px solid rgba(200,169,126.1); }
-.empresa-bloco:last-child { border-bottom:none; }
-.empresa-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; align-items:center; }
-.empresa-grid.reverse { }
-.empresa-num { font-family:var(--font-display); font-size:96px; font-weight:900; color:var(--ouro); opacity:.08; line-height:1; margin-bottom:8px; }
-.empresa-categoria { font-family:var(--font-mono); font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:12px; }
-.empresa-nome { font-family:var(--font-display); font-size:clamp(28px,4vw,44px); color:var(--bege); margin-bottom:16px; }
-.empresa-desc { font-size:16px; line-height:1.9; color:rgba(242,237,216.55); margin-bottom:28px; }
-.empresa-detalhe { display:flex; flex-direction:column; gap:12px; }
-.ed-item { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:rgba(242,237,216.5); line-height:1.7; }
-.ed-item::before { content:'→'; color:var(--ouro); flex-shrink:0; font-weight:700; }
-.empresa-visual { background:var(--petroleo2); border:1px solid rgba(200,169,126.12); border-radius:16px; padding:48px; text-align:center; min-height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
-.ev-icon { font-size:56px; }
-.ev-nome { font-family:var(--font-display); font-size:22px; color:var(--ouro); letter-spacing:2px; }
-.ev-sub { font-family:var(--font-mono); font-size:10px; color:rgba(242,237,216.25); letter-spacing:3px; text-transform:uppercase; }
-.ev-tag { font-family:var(--font-mono); font-size:9px; letter-spacing:2px; text-transform:uppercase; background:rgba(200,169,126.1); border:1px solid rgba(200,169,126.2); color:var(--ouro); padding:4px 14px; border-radius:100px; }
+/* NEGÓCIO CARD */
+.negocio-hero {
+  padding:120px 48px 80px;
+  background:var(--petroleo);
+  position:relative; overflow:hidden;
+}
+.negocio-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 40%, rgba(200,169,126,.05) 0%, transparent 70%);
+}
+.negocio-hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
 
-/* FRENTES */
-.frentes { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:48px; }
-.frente-card { background:rgba(255,255,255.04); border:1px solid rgba(200,169,126.1); border-radius:12px; padding:24px; text-align:center; }
-.frente-icon { font-size:32px; margin-bottom:12px; }
-.frente-nome { font-family:var(--font-display); font-size:16px; color:var(--bege); margin-bottom:6px; }
-.frente-desc { font-size:12px; color:rgba(242,237,216.4); line-height:1.6; }
+.negocios-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:24px; margin-top:64px;
+}
+.neg-card {
+  background:var(--petroleo2);
+  border:1px solid rgba(200,169,126,.12);
+  border-radius:16px; padding:48px;
+  position:relative; overflow:hidden;
+  transition:border-color .3s, transform .3s;
+}
+.neg-card:hover {
+  border-color:rgba(200,169,126,.35);
+  transform:translateY(-4px);
+}
+.neg-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--ouro), transparent);
+  opacity:0; transition:opacity .3s;
+}
+.neg-card:hover::before { opacity:1; }
+.neg-num {
+  font-family:var(--font-display); font-size:80px; font-weight:900;
+  color:var(--ouro); opacity:.07; line-height:1;
+  position:absolute; top:24px; right:32px;
+}
+.neg-status {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:20px;
+}
+.neg-status-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--ouro);
+  animation:pulse 2s ease-in-out infinite;
+}
+.neg-nome {
+  font-family:var(--font-display); font-size:28px;
+  font-weight:900; color:var(--bege);
+  line-height:1.15; margin-bottom:8px;
+}
+.neg-segmento {
+  font-family:var(--font-mono); font-size:10px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--taupe); opacity:.6; margin-bottom:24px;
+}
+.neg-desc {
+  font-size:15px; line-height:1.9;
+  color:rgba(242,237,216,.55);
+  margin-bottom:28px;
+}
+.neg-frase {
+  font-family:var(--font-serif); font-style:italic;
+  font-size:17px; color:rgba(242,237,216,.8);
+  border-left:2px solid var(--ouro);
+  padding-left:18px; line-height:1.65;
+  margin-bottom:28px;
+}
+.neg-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.neg-tag {
+  font-family:var(--font-mono); font-size:9px;
+  letter-spacing:2px; text-transform:uppercase;
+  border:1px solid rgba(200,169,126,.25);
+  color:var(--ouro); padding:5px 14px;
+  border-radius:100px;
+}
+
+/* SEÇÃO FILOSOFIA */
+.s-filosofia {
+  padding:100px 48px;
+  background:var(--petroleo2);
+  position:relative;
+}
+.s-filosofia::before {
+  content:''; position:absolute;
+  top:-1px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,169,126,.2),transparent);
+}
+.filosofia-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center; margin-top:56px;
+}
+.filosofia-quote {
+  font-family:var(--font-serif); font-style:italic;
+  font-size:clamp(22px,2.8vw,32px);
+  color:var(--bege); line-height:1.6;
+  position:relative;
+}
+.filosofia-quote::before {
+  content:'"'; font-family:var(--font-serif);
+  font-size:120px; color:var(--ouro); opacity:.1;
+  position:absolute; top:-32px; left:-16px;
+  line-height:1;
+}
+.filosofia-lista { display:flex; flex-direction:column; gap:20px; }
+.fil-item {
+  display:flex; gap:16px;
+  padding:20px 0;
+  border-bottom:1px solid rgba(200,169,126,.08);
+}
+.fil-item:last-child { border-bottom:none; }
+.fil-icon { color:var(--ouro); font-size:18px; flex-shrink:0; margin-top:2px; }
+.fil-corpo {}
+.fil-titulo {
+  font-family:var(--font-display); font-size:15px;
+  color:var(--bege); margin-bottom:6px;
+}
+.fil-texto {
+  font-size:14px; line-height:1.8;
+  color:rgba(242,237,216,.5);
+}
+
+/* SEÇÃO CTA */
+.s-neg-cta {
+  padding:100px 48px;
+  background:var(--petroleo);
+  text-align:center; position:relative;
+}
+.s-neg-cta::before {
+  content:''; position:absolute;
+  width:500px; height:500px;
+  background:radial-gradient(ellipse, rgba(200,169,126,.06) 0%, transparent 65%);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+  .negocio-hero { padding:110px 24px 60px; }
+  .negocios-grid { grid-template-columns:1fr; }
+  .s-filosofia { padding:72px 24px; }
+  .filosofia-grid { grid-template-columns:1fr; gap:48px; }
+  .s-neg-cta { padding:72px 24px; }
+  .neg-card { padding:32px; }
+}
 </style>
 </head>
 <body>
-
-<div class="lang-toggle">
-  <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">PT</button>
-  <span class="lang-sep">·</span>
-  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-</div>
 
 <nav class="nav" id="nav">
   <a href="index.html" class="nav-logo">VSSP</a>
@@ -54,175 +174,181 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" class="mobile-link">Início</a>
   <a href="historia.html" class="mobile-link">História</a>
+  <a href="manifesto.html" class="mobile-link">Manifesto</a>
   <a href="negocios.html" class="mobile-link">Negócios</a>
-  <a href="consultoria.html" class="mobile-link">Consultoria</a>
+  <a href="consultoria.html" class="mobile-link" style="color:var(--ouro);">Consultoria →</a>
 </div>
 
-<div class="page-hero">
-  <div class="page-hero-frame"></div>
-  <div class="page-hero-inner fade-up">
-    <div class="page-kicker">Negócios · @vssp</div>
-    <h1 class="page-title" data-pt="Construindo em<br><span>múltiplas frentes.</span>" data-en="Building on<br><span>multiple fronts.</span>">Construindo em<br><span>múltiplas frentes.</span></h1>
-    <p class="page-subtitle" data-pt="Não por agitação. Por direção. Cada frente tem propósito, tem estrutura e está em movimento." data-en="Not out of restlessness. Out of direction. Each front has purpose, structure and is in motion.">Não por agitação. Por direção. Cada frente tem propósito, tem estrutura e está em movimento.</p>
+<!-- HERO -->
+<div class="negocio-hero">
+  <div class="negocio-hero-inner">
+    <div class="page-kicker">4 operações ativas · Paulínia, SP</div>
+    <h1 class="page-title" style="text-align:left; max-width:700px;">
+      Negócios em<br><span>processo real.</span>
+    </h1>
+    <p style="font-size:16px; line-height:1.9; color:rgba(242,237,216,.55); max-width:580px; margin-top:24px;">
+      Não mostro só o que deu certo. Mostro o que custou, o que errei e como corrigi. Quatro frentes simultâneas, bastidores documentados ao vivo.
+    </p>
 
-    <div class="frentes" style="max-width:800px;margin-top:48px;">
-      <div class="frente-card"><div class="frente-icon">🚌</div><div class="frente-nome">Atlas Logística</div><div class="frente-desc">Transporte & Serviços</div></div>
-      <div class="frente-card"><div class="frente-icon">🏢</div><div class="frente-nome">VS Negócios</div><div class="frente-desc">Holding</div></div>
-      <div class="frente-card"><div class="frente-icon">🍎</div><div class="frente-nome">Primemobile</div><div class="frente-desc">Tech Premium</div></div>
-      <div class="frente-card"><div class="frente-icon">📊</div><div class="frente-nome">Grupo Villela</div><div class="frente-desc">Restituição Fiscal</div></div>
-      <div class="frente-card"><div class="frente-icon">🎯</div><div class="frente-nome">Consultoria</div><div class="frente-desc">Em desenvolvimento</div></div>
+    <div class="negocios-grid" data-reveal>
+
+      <!-- ATLAS LOGÍSTICA -->
+      <div class="neg-card">
+        <div class="neg-num">01</div>
+        <div class="neg-status"><span class="neg-status-dot"></span> Operação ativa</div>
+        <div class="neg-nome">Atlas Logística</div>
+        <div class="neg-segmento">Transporte de Passageiros · Serviços</div>
+        <div class="neg-frase">"O primeiro negócio que me ensinou que escalar sem sistema não é crescer. É multiplicar o caos."</div>
+        <p class="neg-desc">Transporte executivo e fretamento, com operação de escritório integrada. A Atlas é onde aprendi que gerir pessoas é diferente de resolver sozinho — e que o "eu resolvo" custa caro quando você tem equipe dependendo de decisões que só você toma.</p>
+        <div class="neg-tags">
+          <span class="neg-tag">Transporte</span>
+          <span class="neg-tag">Gestão de equipe</span>
+          <span class="neg-tag">Operação</span>
+        </div>
+      </div>
+
+      <!-- VS NEGÓCIOS -->
+      <div class="neg-card">
+        <div class="neg-num">02</div>
+        <div class="neg-status"><span class="neg-status-dot"></span> Operação ativa</div>
+        <div class="neg-nome">VS Negócios</div>
+        <div class="neg-segmento">Holding · Gestão de Negócios</div>
+        <div class="neg-frase">"Construir uma holding com sócio me ensinou mais sobre comunicação do que qualquer livro de gestão."</div>
+        <p class="neg-desc">Estrutura holding que centraliza e organiza as demais operações. Sociedade que exige o que o casamento exige: decisão conjunta, comunicação real e confiança construída no processo. Aprendizado permanente sobre governança e parceria estratégica.</p>
+        <div class="neg-tags">
+          <span class="neg-tag">Holding</span>
+          <span class="neg-tag">Sociedade</span>
+          <span class="neg-tag">Governança</span>
+        </div>
+      </div>
+
+      <!-- PRIMEMOBILE -->
+      <div class="neg-card">
+        <div class="neg-num">03</div>
+        <div class="neg-status"><span class="neg-status-dot"></span> Operação ativa</div>
+        <div class="neg-nome">Primemobile</div>
+        <div class="neg-segmento">Tecnologia · Revenda Apple</div>
+        <div class="neg-frase">"Entrar no mercado Apple me forçou a entender margem, posicionamento e o que separa revenda de marca."</div>
+        <p class="neg-desc">Braço de tecnologia com foco em revenda e serviços Apple. Mercado exigente que obriga precisão na precificação, qualidade no atendimento e diferenciação real. O nicho que mais me ensinou sobre posicionamento de produto e experiência do cliente.</p>
+        <div class="neg-tags">
+          <span class="neg-tag">Apple</span>
+          <span class="neg-tag">Tecnologia</span>
+          <span class="neg-tag">Varejo</span>
+        </div>
+      </div>
+
+      <!-- GRUPO VILLELA BRASIL BANK -->
+      <div class="neg-card">
+        <div class="neg-num">04</div>
+        <div class="neg-status"><span class="neg-status-dot"></span> Operação ativa</div>
+        <div class="neg-nome">Grupo Villela Brasil Bank</div>
+        <div class="neg-segmento">Representação Comercial · Restituição Fiscal</div>
+        <div class="neg-frase">"Representar uma operação financeira me colocou diante de pessoas que precisam de clareza, não de promessa."</div>
+        <p class="neg-desc">Representação comercial especializada em restituição de impostos. Produto que resolve um problema real de empresas e pessoas físicas que pagaram tributos indevidos. Aprendi que vender serviço financeiro exige confiança antes de qualquer argumento técnico.</p>
+        <div class="neg-tags">
+          <span class="neg-tag">Finanças</span>
+          <span class="neg-tag">Representação</span>
+          <span class="neg-tag">Tributos</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<section class="section section-dark">
-<div class="container">
+<!-- FILOSOFIA DE NEGÓCIOS -->
+<section class="s-filosofia">
+  <div class="container">
+    <div class="sec-label">Como opero</div>
+    <h2 class="sec-title">O que 4 negócios<br><em>simultâneos ensinam.</em></h2>
 
-  <!-- ATLAS -->
-  <div class="empresa-bloco" data-reveal>
-    <div class="empresa-grid">
+    <div class="filosofia-grid" data-reveal>
       <div>
-        <div class="empresa-num">01</div>
-        <div class="empresa-categoria">Logística · Paulínia, SP</div>
-        <div class="empresa-nome">Atlas Logística</div>
-        <div class="empresa-desc" data-pt="Transporte de passageiros e serviços para escritório em Paulínia, SP. Operação consolidada com foco em consistência e confiança." data-en="Passenger transport and office services in Paulínia, SP. Consolidated operation focused on consistency and trust.">Transporte de passageiros e serviços para escritório em Paulínia, SP. Operação consolidada com foco em consistência e confiança.</div>
-        <div class="empresa-detalhe">
-          <div class="ed-item" data-pt="Transporte executivo e corporativo de passageiros" data-en="Executive and corporate passenger transport">Transporte executivo e corporativo de passageiros</div>
-          <div class="ed-item" data-pt="Serviços de suporte para escritórios" data-en="Office support services">Serviços de suporte para escritórios</div>
-          <div class="ed-item" data-pt="Operação em Paulínia e região" data-en="Operation in Paulínia and region">Operação em Paulínia e região</div>
+        <div class="filosofia-quote">
+          "Quatro operações não são quatro vezes mais trabalho. São quatro vezes mais decisão. E decisão mal tomada em escala multiplica o estrago."
+        </div>
+        <p style="font-size:15px; line-height:1.9; color:rgba(242,237,216,.45); margin-top:28px;">
+          Opero múltiplas frentes porque entendo que diversificação real exige sistema, não só vontade. Cada negócio tem modelo próprio, equipe ou parceiro específico e margem clara antes de qualquer expansão.
+        </p>
+        <div style="margin-top:32px;">
+          <a href="consultoria.html" class="btn btn-primary">Falar sobre o seu negócio →</a>
         </div>
       </div>
-      <div class="empresa-visual">
-        <div class="ev-icon">🚌</div>
-        <div class="ev-nome">ATLAS LOGÍSTICA</div>
-        <div class="ev-sub">Paulínia · SP · Brasil</div>
-        <div class="ev-tag">Logística & Transporte</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- VS NEGÓCIOS -->
-  <div class="empresa-bloco" data-reveal>
-    <div class="empresa-grid">
-      <div class="empresa-visual">
-        <div class="ev-icon">🏢</div>
-        <div class="ev-nome">VS NEGÓCIOS</div>
-        <div class="ev-sub">Holding em construção</div>
-        <div class="ev-tag">Holding · Empreendedorismo</div>
-      </div>
-      <div>
-        <div class="empresa-num">02</div>
-        <div class="empresa-categoria">Holding · Sociedade</div>
-        <div class="empresa-nome">VS Negócios</div>
-        <div class="empresa-desc" data-pt="Holding fundada em sociedade com Bárbara. Estrutura criada para abrigar múltiplos negócios verticais com identidade e gestão centralizadas." data-en="Holding company founded in partnership with Bárbara. Structure created to house multiple vertical businesses with centralized identity and management.">Holding fundada em sociedade com Bárbara. Estrutura criada para abrigar múltiplos negócios verticais com identidade e gestão centralizadas.</div>
-        <div class="empresa-detalhe">
-          <div class="ed-item" data-pt="Estrutura holding para múltiplas empresas" data-en="Holding structure for multiple companies">Estrutura holding para múltiplas empresas</div>
-          <div class="ed-item" data-pt="Sociedade estratégica com parceira Bárbara" data-en="Strategic partnership with partner Bárbara">Sociedade estratégica com parceira Bárbara</div>
-          <div class="ed-item" data-pt="Expansão com novas verticais em planejamento" data-en="Expansion with new verticals in planning">Expansão com novas verticais em planejamento</div>
+      <div class="filosofia-lista">
+        <div class="fil-item">
+          <div class="fil-icon">→</div>
+          <div class="fil-corpo">
+            <div class="fil-titulo">Sistema antes de escala</div>
+            <div class="fil-texto">Nenhum negócio escala saudável sem processo. Aprendi isso errando: crescer sem sistema é multiplicar caos, não resultado.</div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRIMEMOBILE -->
-  <div class="empresa-bloco" data-reveal>
-    <div class="empresa-grid">
-      <div>
-        <div class="empresa-num">03</div>
-        <div class="empresa-categoria">Tecnologia · Tech Premium</div>
-        <div class="empresa-nome">Primemobile</div>
-        <div class="empresa-desc" data-pt="O braço tecnológico da VS Negócios. Revenda de produtos tecnológicos com posicionamento premium, focada na experiência e no valor, não apenas no produto." data-en="VS Negócios' technology arm. Apple product resale with premium positioning, focused on experience and value, not just product.">O braço tecnológico da VS Negócios. Revenda de produtos tecnológicos com posicionamento premium, focada na experiência e no valor, não apenas no produto.</div>
-        <div class="empresa-detalhe">
-          <div class="ed-item" data-pt="Revenda de produtos tecnológicos com posicionamento premium" data-en="Apple product resale with premium positioning">Revenda de produtos tecnológicos com posicionamento premium</div>
-          <div class="ed-item" data-pt="Foco na experiência e no valor, não apenas no produto" data-en="Focus on purchase experience, not just product">Foco na experiência e no valor, não apenas no produto</div>
-          <div class="ed-item" data-pt="Instagram: @primemobile.store" data-en="Instagram: @primemobile.store">Instagram: @primemobile.store</div>
+        <div class="fil-item">
+          <div class="fil-icon">→</div>
+          <div class="fil-corpo">
+            <div class="fil-titulo">Sócio como parceria, não solução</div>
+            <div class="fil-texto">Entrar em sociedade para resolver um problema que você não quer resolver sozinho é o início do fim. Sócio serve para multiplicar capacidade, não dividir responsabilidade.</div>
+          </div>
         </div>
-      </div>
-      <div class="empresa-visual">
-        <div class="ev-icon">🍎</div>
-        <div class="ev-nome">PRIMEMOBILE</div>
-        <div class="ev-sub">Tech Premium · @primemobile.store</div>
-        <div class="ev-tag">Tecnologia · Revenda</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GRUPO VILLELA -->
-  <div class="empresa-bloco" data-reveal>
-    <div class="empresa-grid">
-      <div class="empresa-visual">
-        <div class="ev-icon">📊</div>
-        <div class="ev-nome">GRUPO VILLELA</div>
-        <div class="ev-sub">Brasil Bank · Representação</div>
-        <div class="ev-tag">Financeiro · Restituição</div>
-      </div>
-      <div>
-        <div class="empresa-num">04</div>
-        <div class="empresa-categoria">Financeiro · Representação Comercial</div>
-        <div class="empresa-nome">Grupo Villela Brasil Bank</div>
-        <div class="empresa-desc" data-pt="Representação comercial ativa focada em recuperação tributária, restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva." data-en="Active commercial representation focused on tax recovery, restitution of taxes improperly paid by companies. Consultative, not aggressive approach.">Representação comercial ativa focada em recuperação tributária, restituição de impostos pagos indevidamente por empresas. Abordagem consultiva, não agressiva.</div>
-        <div class="empresa-detalhe">
-          <div class="ed-item" data-pt="Restituição tributária para MEI, ME e empresas de médio porte" data-en="Tax restitution for small and medium businesses">Restituição tributária para MEI, ME e empresas de médio porte</div>
-          <div class="ed-item" data-pt="Prospecção ativa via WhatsApp com abordagem consultiva" data-en="Active para ospecting via WhatsApp with consultative approach">Prospecção ativa via WhatsApp com abordagem consultiva</div>
-          <div class="ed-item" data-pt="Foco em Paulínia, SP e região" data-en="Focus on Paulínia, SP and region">Foco em Paulínia, SP e região</div>
+        <div class="fil-item">
+          <div class="fil-icon">→</div>
+          <div class="fil-corpo">
+            <div class="fil-titulo">Margem antes de volume</div>
+            <div class="fil-texto">Faturamento impressiona. Margem sustenta. Operei por tempo focando no número errado. Hoje: margem líquida real antes de qualquer decisão de expansão.</div>
+          </div>
         </div>
-        <div style="margin-top:24px;">
-          <button class="btn btn-primary" onclick="openWhatsApp('Olá Vinícius, vim pelo site e tenho interesse em saber mais sobre restituição tributária para a minha empresa.')">Saber mais sobre restituição</button>
+        <div class="fil-item">
+          <div class="fil-icon">→</div>
+          <div class="fil-corpo">
+            <div class="fil-titulo">Bastidor documentado</div>
+            <div class="fil-texto">Não mostro só resultado. Mostro o processo, o erro e a correção. Porque autoridade real vem de experiência, não de posição.</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- CONSULTORIA -->
-  <div class="empresa-bloco" data-reveal>
-    <div class="empresa-grid">
-      <div>
-        <div class="empresa-num">05</div>
-        <div class="empresa-categoria">Consultoria · Em desenvolvimento</div>
-        <div class="empresa-nome">Consultoria @vssp</div>
-        <div class="empresa-desc" data-pt="O que a vida cobrou para ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida, com experiência real, não teoria." data-en="What life charged to teach, converted into applied consulting. Finances, business, masculine identity and life construction, with real experience, not theory.">O que a vida cobrou para ensinar, convertido em consultoria aplicada. Finanças, negócios, identidade masculina e construção de vida, com experiência real, não teoria.</div>
-        <div class="empresa-detalhe">
-          <div class="ed-item">Estruturação financeira pessoal e empresarial</div>
-          <div class="ed-item">Primeiros passos e crescimento de negócios</div>
-          <div class="ed-item">Identidade masculina, padrões e propósito</div>
-          <div class="ed-item">Casamento como parceria de construção</div>
-        </div>
-        <div style="margin-top:24px;">
-          <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria</a>
-        </div>
-      </div>
-      <div class="empresa-visual">
-        <div class="ev-icon">🎯</div>
-        <div class="ev-nome">CONSULTORIA</div>
-        <div class="ev-sub">Em desenvolvimento · 2026</div>
-        <div class="ev-tag">Experiência real · Sem teoria</div>
-      </div>
-    </div>
-  </div>
-
-</div>
 </section>
 
+<!-- CTA CONSULTORIA -->
+<section class="s-neg-cta">
+  <div style="position:relative; z-index:1; max-width:640px; margin:0 auto;">
+    <div class="sec-label" style="justify-content:center;">Consultoria</div>
+    <h2 style="font-family:var(--font-display); font-size:clamp(28px,4vw,48px); font-weight:900; color:var(--bege); line-height:1.1; margin-bottom:20px;">
+      Quer discutir<br><em style="color:var(--ouro);">o seu negócio?</em>
+    </h2>
+    <p style="font-size:15px; line-height:1.85; color:rgba(242,237,216,.5); margin-bottom:40px;">
+      Estruturação, modelo, decisões de entrada, parceria societária ou crescimento. Uma sessão de 90 minutos com diagnóstico real e plano de 60 dias.
+    </p>
+    <a href="consultoria.html" class="btn btn-primary">Quero uma consultoria · R$497 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div><div class="footer-logo">VSSP</div><div class="footer-tag">Um homem em construção em tempo real.</div></div>
-      <nav class="footer-nav">
-        <a href="index.html">Início</a><a href="historia.html">História</a>
-        <a href="manifesto.html">Manifesto</a><a href="negocios.html">Negócios</a>
-        <a href="consultoria.html">Consultoria</a><a href="produtos.html">Produtos</a>
-      </nav>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;">
-        <a href="https://wa.me/5535953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
-        <a href="mailto:vssp.vincius@gmail.com" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">Email</a>
+      <div>
+        <div class="footer-logo">VSSP</div>
+        <div class="footer-tag">Um homem em construção em tempo real.</div>
       </div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="historia.html">História</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="negocios.html">Negócios</a>
+        <a href="consultoria.html">Consultoria</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
+        <a href="https://wa.me/5535953267086" target="_blank">WhatsApp</a>
+      </nav>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
+      <span>Feito com intenção.</span>
     </div>
   </div>
 </footer>
+
 <script src="shared.js"></script>
 </body>
 </html>
