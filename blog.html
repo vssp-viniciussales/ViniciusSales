@@ -2,11 +2,26 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog · @vssp · Vinícius Padovani · Processo documentado</title>
-<meta name="description" content="Artigos, reflexões e bastidores reais de Vinícius Padovani. Fé, família, finanças, negócios, corpo e paternidade. Processo documentado, não resultado polido.">
+<title>Blog · @vssp · Vinícius Sales · Processo documentado</title>
+<meta name="description" content="Artigos, reflexões e bastidores reais de Vinícius Sales. Fé, família, finanças, negócios, corpo e paternidade. Processo documentado, não resultado polido.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+<style>
+:root {
+  --petroleo:#0E1B2C; --petroleo2:#152438; --petroleo3:#1C2F45;
+  --bege:#F2EDD8; --taupe:#C2B6AA; --ouro:#C8A97E; --ouro-dark:#A8855A;
+  --font-display:'Cinzel',serif; --font-serif:'Fraunces',serif;
+  --font-sans:'Syne',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ff-display:'Cinzel',serif; --ff-serif:'Fraunces',serif;
+  --ff-sans:'Syne',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+}
+h1,h2,h3,h4 { color: #F2EDD8; }
+.sec-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.sec-title em { color: #C8A97E !important; font-style:normal; }
+.page-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.page-title span { color: #C8A97E !important; }
+</style>
 <style>
 /* HERO */
 .blog-hero {
@@ -213,19 +228,6 @@
       <p style="font-size:15px; line-height:1.9; color:rgba(242,237,216,.5); margin-top:20px; max-width:460px;">
         Não é coluna de autoajuda. É o que está sendo vivido, testado e documentado em tempo real. Fé, família, finanças, negócios, corpo e paternidade.
       </p>
-      <div class="blog-filtros">
-        <button class="filtro-btn ativo" onclick="filtrar('todos', this)">Todos</button>
-        <button class="filtro-btn" onclick="filtrar('fe', this)">✝ Fé</button>
-        <button class="filtro-btn" onclick="filtrar('familia', this)">⚭ Família</button>
-        <button class="filtro-btn" onclick="filtrar('financas', this)">◈ Finanças</button>
-        <button class="filtro-btn" onclick="filtrar('negocios', this)">▲ Negócios</button>
-        <button class="filtro-btn" onclick="filtrar('corpo', this)">◉ Corpo</button>
-      </div>
-    </div>
-    <div style="background:var(--petroleo2); border:1px solid rgba(200,169,126,.15); border-radius:14px; padding:36px;">
-      <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ouro); opacity:.65; margin-bottom:16px;">Regra editorial</div>
-      <p style="font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--bege); line-height:1.65; margin-bottom:16px;">"Isso poderia ter sido escrito por qualquer outro perfil? Se sim, não vai ao ar."</p>
-      <p style="font-size:13px; line-height:1.75; color:rgba(242,237,216,.4);">Cada texto aqui tem história real do Vinícius dentro. Nome, lugar, valor, data. Sem generalização, sem motivação de palco.</p>
     </div>
   </div>
 </div>
@@ -392,11 +394,11 @@
         <a href="consultoria.html">Consultoria</a>
         <a href="produtos.html">Produtos</a>
         <a href="https://instagram.com/vssp.viniciussales" target="_blank">Instagram</a>
-        <a href="https://wa.me/5535953267086" target="_blank">WhatsApp</a>
+        <a href="https://wa.me/5519953267086?text=Olá%20Vinícius!%20Li%20o%20blog%20do%20%40vssp%20e%20quero%20receber%20os%20próximos%20artigos%20no%20WhatsApp." target="_blank">WhatsApp</a>
       </nav>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
+      <span>© 2026 Vinícius Sales · Todos os direitos reservados</span>
       <span>Feito com intenção.</span>
     </div>
   </div>
@@ -421,7 +423,7 @@ function assinarNewsletter(e) {
   e.preventDefault();
   const nome = document.getElementById('nomeNews').value.trim() || 'Olá';
   const msg = `Quero receber os novos artigos do @vssp no WhatsApp. Me chamo ${nome}.`;
-  window.open('https://wa.me/5535953267086?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/5519953267086?text=' + encodeURIComponent(msg), '_blank');
 }
 </script>
 </body>
