@@ -2,47 +2,62 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>História · Vinícius Padovani · @vssp · De Caldas, MG para Paulínia, SP</title>
-<meta name="description" content="A história completa de Vinícius Padovani. De Caldas, MG, emancipado aos 15, até Paulínia. 4 negócios ativos, casado com a Bárbara, fé como âncora. Processo ao vivo.">
+<title>História · Vinícius Sales · @vssp · De Caldas, MG para Paulínia, SP</title>
+<meta name="description" content="A história completa de Vinícius Sales. De Caldas, MG, emancipado aos 15, até Paulínia. 4 negócios ativos, casado com a Bárbara, fé como âncora. Processo ao vivo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+<style>
+:root {
+  --petroleo:#0E1B2C; --petroleo2:#152438; --petroleo3:#1C2F45;
+  --bege:#F2EDD8; --taupe:#C2B6AA; --ouro:#C8A97E; --ouro-dark:#A8855A;
+  --font-display:'Cinzel',serif; --font-serif:'Fraunces',serif;
+  --font-sans:'Syne',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ff-display:'Cinzel',serif; --ff-serif:'Fraunces',serif;
+  --ff-sans:'Syne',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+}
+h1,h2,h3,h4 { color: #F2EDD8; }
+.sec-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.sec-title em { color: #C8A97E !important; font-style:normal; }
+.page-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.page-title span { color: #C8A97E !important; }
+</style>
 <style>
 /* CAPÍTULO */
 .capitulos { display:flex; flex-direction:column; gap:0; }
 .capitulo {
   display:grid; grid-template-columns:1fr 2fr; gap:80px;
-  padding:80px 0; border-bottom:1px solid rgba(194,182,170.2);
+  padding:80px 0; border-bottom:1px solid rgba(194,182,170,.2);
   align-items:start;
 }
 .capitulo:last-child { border-bottom:none; }
 .cap-lado { position:sticky; top:100px; }
 .cap-num { font-family:var(--font-display); font-size:80px; font-weight:900; color:var(--ouro); opacity:.12; line-height:1; margin-bottom:12px; }
 .cap-fase { font-family:var(--font-mono); font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--ouro); margin-bottom:8px; opacity:.7; }
-.cap-titulo { font-family:var(--font-display); font-size:26px; color:var(--text); line-height:1.2; }
-.cap-dark .cap-titulo { color:var(--bege); }
+.cap-titulo { font-family:var(--font-display); font-size:26px; color:#F2EDD8; line-height:1.2; }
+.cap-dark .cap-titulo { color:#F2EDD8; }
 .cap-anos { font-family:var(--font-mono); font-size:12px; color:var(--taupe); margin-top:8px; }
 .cap-corpo { }
 .cap-frase {
   font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(20px,2.5vw,28px); color:var(--text);
+  font-size:clamp(20px,2.5vw,28px); color:#F2EDD8;
   border-left:2px solid var(--ouro); padding-left:24px;
   margin-bottom:32px; line-height:1.6;
 }
-.cap-dark .cap-frase { color:var(--bege); }
+.cap-dark .cap-frase { color:#F2EDD8; }
 .cap-texto { font-size:16px; line-height:1.95; color:var(--taupe); margin-bottom:24px; }
-.cap-dark .cap-texto { color:rgba(242,237,216.55); }
+.cap-dark .cap-texto { color:rgba(242,237,216,.55); }
 .cap-marcador {
   display:flex; align-items:flex-start; gap:14px;
-  padding:16px 0; border-bottom:1px solid rgba(194,182,170.15);
+  padding:16px 0; border-bottom:1px solid rgba(194,182,170,.15);
   font-size:15px; color:var(--taupe); line-height:1.7;
 }
-.cap-dark .cap-marcador { border-color:rgba(200,169,126.1); color:rgba(242,237,216.5); }
+.cap-dark .cap-marcador { border-color:rgba(200,169,126,.1); color:rgba(242,237,216,.5); }
 .cap-marcador:last-child { border-bottom:none; }
 .cap-marcador::before { content:','; color:var(--ouro); flex-shrink:0; font-weight:700; }
 .cap-tag {
   display:inline-block; font-family:var(--font-mono); font-size:9px;
-  letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(200,169,126.3);
+  letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(200,169,126,.3);
   color:var(--ouro); padding:4px 12px; border-radius:100px; margin:4px 4px 0 0;
 }
 
@@ -50,7 +65,7 @@
 .padrao-box {
   background:var(--petroleo); border-radius:16px;
   padding:48px; margin:80px 0; position:relative; overflow:hidden;
-  border:1px solid rgba(200,169,126.15);
+  border:1px solid rgba(200,169,126,.15);
 }
 .padrao-box::before { content:'"'; font-family:var(--font-serif); font-size:200px; color:var(--ouro); opacity:.05; position:absolute; top:-40px; left:20px; line-height:1; }
 .padrao-titulo { font-family:var(--font-mono); font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--ouro); margin-bottom:20px; opacity:.7; }
@@ -59,15 +74,15 @@
 
 /* LINHA DO TEMPO VISUAL */
 .ltv { display:flex; gap:0; overflow-x:auto; padding:40px 0; margin:60px 0; }
-.ltv-item { flex:0 0 200px; padding:0 20px; border-right:1px solid rgba(200,169,126.15); position:relative; }
+.ltv-item { flex:0 0 200px; padding:0 20px; border-right:1px solid rgba(200,169,126,.15); position:relative; }
 .ltv-item:last-child { border-right:none; }
-.ltv-dot { width:10px; height:10px; border-radius:50%; background:rgba(200,169,126.3); border:2px solid rgba(200,169,126.5); margin-bottom:12px; }
+.ltv-dot { width:10px; height:10px; border-radius:50%; background:rgba(200,169,126,.3); border:2px solid rgba(200,169,126,.5); margin-bottom:12px; }
 .ltv-dot.active { background:var(--ouro); border-color:var(--ouro); animation:pulse 2s ease-in-out infinite; }
 .ltv-ano { font-family:var(--font-mono); font-size:11px; color:var(--ouro); letter-spacing:2px; margin-bottom:6px; }
-.ltv-desc { font-size:12px; color:rgba(242,237,216.4); line-height:1.6; }
+.ltv-desc { font-size:12px; color:rgba(242,237,216,.4); line-height:1.6; }
 
 /* CAPITULO DARK */
-.section-dark .capitulo { border-color:rgba(200,169,126.1); }
+.section-dark .capitulo { border-color:rgba(200,169,126,.1); }
 </style>
 </head>
 <body>
@@ -194,9 +209,9 @@
     <div class="cap-corpo">
       <div class="cap-frase" style="color:var(--bege);border-color:var(--ouro);" data-pt="'Liberdade e responsabilidade chegaram juntas. Sem manual para nenhuma das duas.'" data-en="'Freedom and responsibility arrived together. No manual for either.'">"Liberdade e responsabilidade chegaram juntas. Sem manual para nenhuma das duas."</div>
       <p class="cap-texto" data-pt="Saiu de casa aos 15, não por escolha dramática, mas por circunstância que tomou forma de decisão. Foi emancipado legalmente para assinar um documento de propriedade da família. Mãe e irmãs se mudaram de cidade. Ele ficou. A família continuava presente — só que à distância. O mesmo lugar, mas irreconhecível." data-en="Left home at 15, not by dramatic choice, but out of circumstance that took the shape of decision. Legally emancipated to sign a family property document. Mother and sisters moved to another city. He stayed. The family remained present — just at a distance. The same place, but unrecognizable.">Saiu de casa aos 15, não por escolha dramática, mas por circunstância que tomou forma de decisão. Foi emancipado legalmente para assinar um documento de propriedade da família. Mãe e irmãs se mudaram de cidade. Ele ficou. A família continuava presente — só que à distância. O mesmo lugar, mas irreconhecível.</p>
-      <div class="cap-marcador" style="color:rgba(242,237,216.5);border-color:rgba(200,169,126.1);" data-pt="Os amigos não sabiam o que ele vivia. Externamente: tudo certo. Internamente: pressão constante. A persona de 'o cara independente' que motivava e aprisionava ao mesmo tempo." data-en="Friends didn't know what he was living. Externally: everything fine. Internally: constant pressure. The persona of 'the independent guy' that motivated and trapped him simultaneously.">Os amigos não sabiam o que ele vivia. Externamente: tudo certo. Internamente: pressão constante. A persona de "o cara independente" que motivava e aprisionava ao mesmo tempo.</div>
-      <div class="cap-marcador" style="color:rgba(242,237,216.5);border-color:rgba(200,169,126.1);" data-pt="'Se eu não continuasse, ninguém continuava por mim.' A frase que salvou e que isolou. Que deu agência e eliminou interdependência." data-en="'If I didn't continue, no one would continue for me.' The phrase that saved and isolated. That gave agency and eliminated interdependence.">"Se eu não continuasse, ninguém continuava por mim." A frase que salvou e que isolou. Que deu agência e eliminou interdependência.</div>
-      <div class="cap-marcador" style="color:rgba(242,237,216.5);border-color:rgba(200,169,126.1);" data-pt="Aprendeu a não sentir como estratégia de sobrevivência. Quando você desliga a dor, desliga a vulnerabilidade. Quando desliga a vulnerabilidade, desliga a intimidade real." data-en="Learned not to feel as a survival strategy. When you turn off pain, you turn off vulnerability. When you turn off vulnerability, you turn off real intimacy.">Aprendeu a não sentir como estratégia de sobrevivência. Quando você desliga a dor, desliga a vulnerabilidade. Quando desliga a vulnerabilidade, desliga a intimidade real.</div>
+      <div class="cap-marcador" style="color:rgba(242,237,216,.5);border-color:rgba(200,169,126,.1);" data-pt="Os amigos não sabiam o que ele vivia. Externamente: tudo certo. Internamente: pressão constante. A persona de 'o cara independente' que motivava e aprisionava ao mesmo tempo." data-en="Friends didn't know what he was living. Externally: everything fine. Internally: constant pressure. The persona of 'the independent guy' that motivated and trapped him simultaneously.">Os amigos não sabiam o que ele vivia. Externamente: tudo certo. Internamente: pressão constante. A persona de "o cara independente" que motivava e aprisionava ao mesmo tempo.</div>
+      <div class="cap-marcador" style="color:rgba(242,237,216,.5);border-color:rgba(200,169,126,.1);" data-pt="'Se eu não continuasse, ninguém continuava por mim.' A frase que salvou e que isolou. Que deu agência e eliminou interdependência." data-en="'If I didn't continue, no one would continue for me.' The phrase that saved and isolated. That gave agency and eliminated interdependence.">"Se eu não continuasse, ninguém continuava por mim." A frase que salvou e que isolou. Que deu agência e eliminou interdependência.</div>
+      <div class="cap-marcador" style="color:rgba(242,237,216,.5);border-color:rgba(200,169,126,.1);" data-pt="Aprendeu a não sentir como estratégia de sobrevivência. Quando você desliga a dor, desliga a vulnerabilidade. Quando desliga a vulnerabilidade, desliga a intimidade real." data-en="Learned not to feel as a survival strategy. When you turn off pain, you turn off vulnerability. When you turn off vulnerability, you turn off real intimacy.">Aprendeu a não sentir como estratégia de sobrevivência. Quando você desliga a dor, desliga a vulnerabilidade. Quando desliga a vulnerabilidade, desliga a intimidade real.</div>
     </div>
   </div>
 
@@ -206,7 +221,7 @@
       <div class="cap-num" style="color:var(--ouro);opacity:.15;">IV</div>
       <div class="cap-fase">Vida Adulta</div>
       <h2 class="cap-titulo" style="color:var(--bege);" data-pt="Funcionava. Mas não vivia." data-en="Functioning. But not living.">Funcionava. Mas não vivia.</h2>
-      <div class="cap-anos" style="color:rgba(242,237,216.4);">18 – 25 anos</div>
+      <div class="cap-anos" style="color:rgba(242,237,216,.4);">18 – 25 anos</div>
       <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:6px;">
         <span class="cap-tag">Resultado</span>
         <span class="cap-tag">Vazio</span>
@@ -217,8 +232,8 @@
       <div class="cap-frase" style="color:var(--bege);border-color:var(--ouro);" data-pt="'Eu sei resolver tudo. Mas não sei viver.'" data-en="'I know how to solve everything. But I don't know how to live.'">"Eu sei resolver tudo. Mas não sei viver."</div>
       <p class="cap-texto" data-pt="Logística em Poços de Caldas. O sistema 'eu resolvo' ganhou a confiança do dono da empresa. Resultado externo impecável. O mesmo sistema que produzia resultado no trabalho produzia isolamento no resto da vida." data-en="Logistics in Poços de Caldas. The 'I handle it' system earned the owner's trust. Impeccable external results. The same system that produced results at work produced isolation in the rest of life.">Logística em Poços de Caldas. O sistema "eu resolvo" ganhou a confiança do dono da empresa. Resultado externo impecável. O mesmo sistema que produzia resultado no trabalho produzia isolamento no resto da vida.</p>
       <p class="cap-texto" data-pt="Melhor salário entre os amigos. Festas, roupas, status. 'Todos os meus gastos eram para completar o vazio que tinha dentro de mim.' Dinheiro como automedicação. Como prova de que estava no controle." data-en="Best salary among friends. Parties, clothes, status. 'All my spending was to fill the emptiness inside me.' Money as self-medication. As proof of being in control.">Melhor salário entre os amigos. Festas, roupas, status. "Todos os meus gastos eram para completar o vazio que tinha dentro de mim." Dinheiro como automedicação. Como prova de que estava no controle.</p>
-      <div class="cap-marcador" style="color:rgba(242,237,216.5);border-color:rgba(200,169,126.1);">Aos 25, o inventário: <strong style="color:var(--bege);">construído</strong>, capacidade, resiliência, resultado. <strong style="color:var(--bege);">perdido</strong>, leveza, conexão, profundidade. <strong style="color:var(--bege);">ainda não encontrado</strong>, sentido, direção real, paz.</div>
-      <div class="cap-marcador" style="color:rgba(242,237,216.5);border-color:rgba(200,169,126.1);" data-pt="Não construía família porque não se achava suficiente. Fugia por indignidade, não por falta de interesse." data-en="Didn't build family because he didn't feel sufficient. Fled out of unworthiness, not lack of interest.">Não construía família porque não se achava suficiente. Fugia por indignidade, não por falta de interesse.</div>
+      <div class="cap-marcador" style="color:rgba(242,237,216,.5);border-color:rgba(200,169,126,.1);">Aos 25, o inventário: <strong style="color:var(--bege);">construído</strong>, capacidade, resiliência, resultado. <strong style="color:var(--bege);">perdido</strong>, leveza, conexão, profundidade. <strong style="color:var(--bege);">ainda não encontrado</strong>, sentido, direção real, paz.</div>
+      <div class="cap-marcador" style="color:rgba(242,237,216,.5);border-color:rgba(200,169,126,.1);" data-pt="Não construía família porque não se achava suficiente. Fugia por indignidade, não por falta de interesse." data-en="Didn't build family because he didn't feel sufficient. Fled out of unworthiness, not lack of interest.">Não construía família porque não se achava suficiente. Fugia por indignidade, não por falta de interesse.</div>
     </div>
   </div>
 
@@ -269,8 +284,9 @@
       <div class="cap-anos" style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--ouro);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span> Em andamento</div>
     </div>
     <div class="cap-corpo">
-      <div class="cap-frase" data-pt="'Não sou o homem que chegou lá. Sou o homem chegando.
-<div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,169,126,.4);margin-top:16px;">Fé · Família · Finanças · Negócios · Corpo · Paternidade</div>'" data-en="'I'm not the man who made it. I'm the man on his way.'">"Não sou o homem que chegou lá. Sou o homem chegando."</div>
+      <div class="cap-frase" data-pt="'Não sou o homem que chegou lá. Sou o homem chegando.'" data-en="'I'm not the man who made it. I'm the man on his way.'">"Não sou o homem que chegou lá. Sou o homem chegando."
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,169,126,.4);margin-top:16px;">Fé · Família · Finanças · Negócios · Corpo · Paternidade</div>
+      </div>
       <p class="cap-texto" data-pt="Casado com a Bárbara desde 29 de novembro de 2024. Café, Bíblia e 'Café com Deus Pai' toda manhã, juntos. Atlas Logística, VS Negócios, Primemobile e Grupo Villela rodando. Consultoria em desenvolvimento. Paternidade no horizonte — planejando o primeiro filho após agosto." data-en="Married to Bárbara since November 29, 2024. Coffee, Bible and 'Café com Deus Pai' every morning, together. Atlas Logística, VS Negócios, Primemobile and Grupo Villela running. Consulting in development. Fatherhood on the horizon — planning the first child after August.">Casado com a Bárbara desde 29 de novembro de 2024. Café, Bíblia e "Café com Deus Pai" toda manhã, juntos. Atlas Logística, VS Negócios, Primemobile e Grupo Villela rodando. Consultoria em desenvolvimento. Paternidade no horizonte — planejando o primeiro filho após agosto.</p>
       <div class="cap-marcador" data-pt="O que está resolvido: direção. Antes era reação, hoje é construção intencional." data-en="What's resolved: direction. Before it was reaction, today it's intentional construction.">O que está resolvido: direção. Antes era reação, hoje é construção intencional.</div>
       <div class="cap-marcador" data-pt="O que ainda está sendo trabalhado: carregar tudo sozinho. O controle ainda existe, menos impulsivo, mais consciente. Mas ainda precisa de vigilância." data-en="What's still being worked on: carrying everything alone. Control still exists, less impulsive, more conscious. But still needs watching.">O que ainda está sendo trabalhado: carregar tudo sozinho. O controle ainda existe, menos impulsivo, mas ainda precisa de vigilância.</div>
@@ -300,13 +316,13 @@
         <a href="produtos.html" data-pt="Produtos" data-en="Products">Produtos</a>
       </nav>
       <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;">
-        <a href="https://wa.me/5535953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
+        <a href="https://wa.me/5519953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
         <a href="mailto:vssp.vincius@gmail.com" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">Email</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-pt="© 2026 Vinícius Padovani · Todos os direitos reservados" data-en="© 2026 Vinícius Padovani · All rights reserved">© 2026 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126.4);" data-pt="Feito com intenção." data-en="Made with intention.">Feito com intenção.</span>
+      <span data-pt="© 2026 Vinícius Sales · Todos os direitos reservados" data-en="© 2026 Vinícius Sales · All rights reserved">© 2026 Vinícius Sales · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126,.4);" data-pt="Feito com intenção." data-en="Made with intention.">Feito com intenção.</span>
     </div>
   </div>
 </footer>

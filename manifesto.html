@@ -2,10 +2,25 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Manifesto · @vssp · Vinícius Padovani · O que guia cada decisão</title>
+<title>Manifesto · @vssp · Vinícius Sales · O que guia cada decisão</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+<style>
+:root {
+  --petroleo:#0E1B2C; --petroleo2:#152438; --petroleo3:#1C2F45;
+  --bege:#F2EDD8; --taupe:#C2B6AA; --ouro:#C8A97E; --ouro-dark:#A8855A;
+  --font-display:'Cinzel',serif; --font-serif:'Fraunces',serif;
+  --font-sans:'Syne',sans-serif; --font-mono:'JetBrains Mono',monospace;
+  --ff-display:'Cinzel',serif; --ff-serif:'Fraunces',serif;
+  --ff-sans:'Syne',sans-serif; --ff-mono:'JetBrains Mono',monospace;
+}
+h1,h2,h3,h4 { color: #F2EDD8; }
+.sec-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.sec-title em { color: #C8A97E !important; font-style:normal; }
+.page-title { color: #F2EDD8 !important; font-family:'Cinzel',serif; }
+.page-title span { color: #C8A97E !important; }
+</style>
 <style>
 body { background:var(--petroleo); }
 .manifesto-full {
@@ -16,17 +31,17 @@ body { background:var(--petroleo); }
 .manifesto-full::before {
   content:''; position:absolute; inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(27,58,107.3) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(200,169,126.06) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(27,58,107,.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 70%, rgba(200,169,126,.06) 0%, transparent 60%);
 }
-.manifesto-frame { position:absolute; inset:24px; border:1px solid rgba(200,169,126.12); pointer-events:none; }
+.manifesto-frame { position:absolute; inset:24px; border:1px solid rgba(200,169,126,.12); pointer-events:none; }
 .manifesto-inner { position:relative; z-index:1; max-width:820px; }
 .manifesto-kicker { font-family:var(--font-mono); font-size:10px; letter-spacing:6px; color:var(--ouro); text-transform:uppercase; margin-bottom:40px; opacity:.7; }
 .manifesto-titulo { font-family:var(--font-display); font-size:clamp(36px,7vw,80px); font-weight:900; color:var(--bege); line-height:1.08; margin-bottom:48px; letter-spacing:1px; }
 .manifesto-titulo span { color:var(--ouro); }
 .manifesto-corpo {
   font-family:var(--font-serif); font-style:italic;
-  font-size:clamp(18px,2.5vw,26px); color:rgba(242,237,216.75);
+  font-size:clamp(18px,2.5vw,26px); color:rgba(242,237,216,.75);
   line-height:1.85; margin-bottom:24px;
 }
 .manifesto-corpo strong { color:var(--bege); font-style:normal; }
@@ -42,31 +57,31 @@ body { background:var(--petroleo); }
 .principios { background:var(--bege); padding:100px 0; }
 .principio-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:60px; }
 .principio-card {
-  background:var(--petroleo); border:1px solid rgba(200,169,126.12);
+  background:var(--petroleo); border:1px solid rgba(200,169,126,.12);
   border-radius:14px; padding:40px; transition:border-color .2s;
 }
-.principio-card:hover { border-color:rgba(200,169,126.35); }
+.principio-card:hover { border-color:rgba(200,169,126,.35); }
 .p-num { font-family:var(--font-display); font-size:48px; font-weight:900; color:var(--ouro); opacity:.15; line-height:1; margin-bottom:12px; }
 .p-titulo { font-family:var(--font-display); font-size:20px; color:var(--bege); margin-bottom:14px; }
-.p-texto { font-size:14px; line-height:1.85; color:rgba(242,237,216.5); }
+.p-texto { font-size:14px; line-height:1.85; color:rgba(242,237,216,.5); }
 
 /* INIMIGO */
 .inimigo-box { background:var(--petroleo); padding:80px 0; }
 .inimigo-inner { max-width:720px; margin:0 auto; text-align:center; }
 .inimigo-frase { font-family:var(--font-serif); font-style:italic; font-size:clamp(20px,3vw,32px); color:var(--bege); line-height:1.6; margin-bottom:20px; }
 .inimigo-frase span { color:var(--ouro); font-style:normal; }
-.inimigo-desc { font-size:15px; color:rgba(242,237,216.5); line-height:1.85; }
+.inimigo-desc { font-size:15px; color:rgba(242,237,216,.5); line-height:1.85; }
 
 /* LINHAS NA AREIA */
 .linhas-grid { display:flex; flex-direction:column; gap:0; margin-top:48px; }
 .linha-item {
   display:flex; align-items:flex-start; gap:20px;
-  padding:24px 0; border-bottom:1px solid rgba(194,182,170.15);
+  padding:24px 0; border-bottom:1px solid rgba(194,182,170,.15);
 }
 .linha-item:last-child { border-bottom:none; }
 .linha-check { font-size:20px; flex-shrink:0; margin-top:2px; }
 .linha-texto { font-size:15px; line-height:1.8; color:var(--taupe); }
-.linha-texto strong { color:var(--text); }
+.linha-texto strong { color:#F2EDD8; }
 </style>
 </head>
 <body>
@@ -257,13 +272,13 @@ body { background:var(--petroleo); }
         <a href="consultoria.html">Consultoria</a><a href="produtos.html">Produtos</a>
       </nav>
       <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;">
-        <a href="https://wa.me/5535953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
+        <a href="https://wa.me/5519953267086" target="_blank" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">WhatsApp</a>
         <a href="mailto:vssp.vincius@gmail.com" style="font-family:var(--font-mono,monospace);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(242,237,216,.3);transition:color .2s;" onmouseover="this.style.color='#C8A97E'" onmouseout="this.style.color='rgba(242,237,216,.3)'">Email</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Vinícius Padovani · Todos os direitos reservados</span>
-      <span style="color:rgba(200,169,126.4);">Feito com intenção.</span>
+      <span>© 2026 Vinícius Sales · Todos os direitos reservados</span>
+      <span style="color:rgba(200,169,126,.4);">Feito com intenção.</span>
     </div>
   </div>
 </footer>
