@@ -46,6 +46,13 @@ h1,h2,h3,h4 { color: #F2EDD8; }
 }
 .cap-dark .cap-frase { color:#F2EDD8; }
 .cap-texto { font-size:16px; line-height:1.95; color:var(--taupe); margin-bottom:24px; }
+/* Capítulos com fundo claro: texto escuro */
+.cap-wrap:not(.cap-dark) .cap-titulo { color: #0E1B2C !important; }
+.cap-wrap:not(.cap-dark) .cap-anos { color: rgba(14,27,44,.5) !important; }
+.cap-wrap:not(.cap-dark) .cap-frase { color: #1C2F45 !important; border-color: #C8A97E; }
+.cap-wrap:not(.cap-dark) .cap-texto { color: #3D4E5C !important; }
+.cap-wrap:not(.cap-dark) .cap-marcador { color: rgba(14,27,44,.6) !important; border-color: rgba(14,27,44,.15) !important; }
+.cap-wrap:not(.cap-dark) strong { color: #0E1B2C !important; }
 .cap-dark .cap-texto { color:rgba(242,237,216,.55); }
 .cap-marcador {
   display:flex; align-items:flex-start; gap:14px;
@@ -84,6 +91,148 @@ h1,h2,h3,h4 { color: #F2EDD8; }
 /* CAPITULO DARK */
 .section-dark .capitulo { border-color:rgba(200,169,126,.1); }
 </style>
+
+<style>
+
+/* ── CONTRASTE: FUNDO BEGE → TEXTO PETRÓLEO ── */
+/* Seções com fundo bege */
+.principios,
+[style*="background:#F2EDD8"],
+[style*="background: #F2EDD8"],
+[style*="background:var(--bege)"],
+[style*="fill:#F2EDD8"],
+.cap-light,
+.s-light {
+  color: #0E1B2C !important;
+}
+
+/* Textos dentro de fundos bege */
+.principios *,
+.cap-light *,
+.s-light * {
+  color: #0E1B2C;
+}
+
+/* Títulos dentro de seções bege */
+.principios h1,
+.principios h2,
+.principios h3,
+.principios .sec-title,
+.principios .sec-label,
+.principios .p-titulo {
+  color: #0E1B2C !important;
+}
+
+/* Descrições dentro de seções bege */
+.principios .p-texto,
+.principios .p-numero,
+.principios p {
+  color: #2C3E50 !important;
+}
+
+/* Cards bege / fundo claro */
+[style*="background:#F9F5EE"],
+[style*="background: #F9F5EE"],
+.artigo-card[style*="background:#F"],
+.neg-card.bege {
+  color: #0E1B2C !important;
+}
+
+/* Cards de carrossel bege nos posts */
+.card-bege,
+.card-light {
+  color: #0E1B2C !important;
+  background: #F2EDD8;
+}
+
+/* Texto cap-texto em seções claras */
+.cap-light .cap-texto,
+.cap-light .cap-frase {
+  color: #1C2F45 !important;
+}
+
+/* Frase do padrão em fundo claro */
+.padrao-texto,
+.linha-texto {
+  color: #0E1B2C;
+}
+
+/* Linhas na areia / cards com fundo bege */
+.linha-card,
+.linha-item {
+  color: #0E1B2C;
+}
+
+/* Tabela com shading bege */
+td[style*="#F9F5EE"],
+td[style*="#F2EDD8"],
+th[style*="#F9F5EE"] {
+  color: #0E1B2C !important;
+}
+
+/* Artigos com fundo claro no blog */
+.artigo-card {
+  background: #152438;
+  color: #F2EDD8;
+}
+.artigo-titulo { color: #F2EDD8 !important; }
+.artigo-resumo { color: rgba(242,237,216,.65) !important; }
+
+/* Produtos cards fundo claro */
+.prod-desc { color: rgba(14,27,44,.7) !important; }
+
+/* Garantia de legibilidade global */
+/* Fundo escuro → texto bege (padrão) */
+body { color: #F2EDD8; }
+
+/* Força contraste mínimo em todos os parágrafos sobre fundo escuro */
+.sec-title { color: #F2EDD8 !important; }
+.sec-label { color: #C8A97E !important; opacity: 1 !important; }
+
+/* Seção principios especificamente */
+.principios .sec-title { color: #0E1B2C !important; }
+.principios .sec-label { color: #0E1B2C !important; opacity: .7 !important; }
+.principios .p-numero { color: #C8A97E !important; }
+.principios .p-titulo { color: #0E1B2C !important; }
+.principios .p-texto { color: #2C3E50 !important; }
+
+/* ── CONTRASTE EXTRA: elementos específicos ── */
+/* Cap-texto (história) sempre legível */
+.cap-texto { color: #C2B6AA; }
+.cap-dark .cap-texto { color: rgba(242,237,216,.65) !important; }
+
+/* Diagnóstico - campos de formulário */
+.diag-label { color: #C8A97E !important; }
+.diag-field { color: #F2EDD8 !important; background: rgba(255,255,255,.06) !important; border-color: rgba(200,169,126,.25) !important; }
+
+/* Opções do quiz */
+.opcao-texto { color: rgba(242,237,216,.75) !important; }
+.opcao.selecionada .opcao-texto { color: #F2EDD8 !important; }
+
+/* Resultado do teste */
+.res-desc { color: rgba(242,237,216,.7) !important; }
+.res-sub { color: rgba(242,237,216,.8) !important; }
+.res-sinal-item { color: rgba(242,237,216,.7) !important; }
+
+/* Blog filtros */
+.filtro-btn { color: rgba(242,237,216,.5) !important; }
+.filtro-btn.ativo { color: #C8A97E !important; }
+
+/* Link page cards */
+.lc-title { color: #F2EDD8 !important; }
+.lc-sub { color: rgba(242,237,216,.55) !important; }
+
+/* Nav links */
+.nav-link { color: rgba(242,237,216,.7) !important; }
+.nav-link:hover { color: #F2EDD8 !important; }
+.nav-cta { color: #C8A97E !important; }
+
+/* Footer */
+.footer-tag { color: rgba(242,237,216,.4) !important; }
+.footer-nav a { color: rgba(242,237,216,.5) !important; }
+.footer-bottom { color: rgba(242,237,216,.25) !important; }
+
+</style>
 </head>
 <body>
 
@@ -118,7 +267,7 @@ h1,h2,h3,h4 { color: #F2EDD8; }
   <div class="page-hero-frame"></div>
   <div class="page-hero-inner fade-up">
     <div class="page-kicker" data-pt="A história que ninguém copia" data-en="The story no one can copy">A história que ninguém copia</div>
-    <h1 class="page-title" data-pt="Uma vida em construção." data-en="A life<br><span>under construction.</span>">Uma vida em construção.
+    <h1 class="page-title" data-pt="Uma vida<br><span>em construção.</span>" data-en="A life<br><span>under construction.</span>">Uma vida<br><span>em construção.</span></h1>
     <p class="page-subtitle" data-pt="Não é uma história de chegada. É uma história de caminho, com os erros nomeados, as viradas documentadas e a construção acontecendo agora." data-en="This is not a story of arrival. It's a story of the journey, with named mistakes, documented turns, and construction happening now.">Não é uma história de chegada. É uma história de caminho, com os erros nomeados, as viradas documentadas e a construção acontecendo agora.</p>
 
     <!-- LINHA DO TEMPO VISUAL -->
@@ -247,7 +396,7 @@ h1,h2,h3,h4 { color: #F2EDD8; }
 
   <div class="padrao-box" data-reveal>
     <div class="padrao-titulo" data-pt="O padrão que se repetia" data-en="The pattern that repeated">O padrão que se repetia</div>
-    <div class="padrao-texto" data-pt="O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong>" data-en="The 6-year-old boy who lost a stable family became the 15-year-old who chose the empty house, and became the adult man who made financial decisions alone without consulting his partner. <strong>It's the same pattern. The same system. The same attempt to control what the world doesn't promise to protect.</strong>">O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</div>
+    <div class="padrao-texto" data-pt="O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong>" data-en="The 6-year-old boy who lost a stable family became the 15-year-old who chose the empty house, and became the adult man who made financial decisions alone without consulting his partner. <strong>It's the same pattern. The same system. The same attempt to control what the world doesn't promise to protect.</strong>">O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong></div>
   </div>
 
 <div class="capitulos" style="margin-top:60px;">
