@@ -233,6 +233,72 @@ body { color: #F2EDD8; }
 .footer-bottom { color: rgba(242,237,216,.25) !important; }
 
 </style>
+
+<style>
+/* ── HISTORIA: CONTRASTE TOTAL FUNDO CLARO ── */
+/* Qualquer seção com fundo claro/bege */
+.cap-wrap { background: #0E1B2C; }
+.cap-wrap.cap-dark { background: #0E1B2C; }
+
+/* Seções alternadas com fundo bege/claro */
+.cap-wrap:nth-child(even),
+section.cap-wrap:not(.cap-dark) {
+  background: #F2EDD8 !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-titulo,
+section.cap-wrap:not(.cap-dark) h2,
+section.cap-wrap:not(.cap-dark) h3 {
+  color: #0E1B2C !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-frase {
+  color: #1C2F45 !important;
+  border-color: #C8A97E !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-texto {
+  color: #3A4A5A !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-anos,
+section.cap-wrap:not(.cap-dark) .cap-kicker {
+  color: rgba(14,27,44,.55) !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-tag {
+  color: rgba(14,27,44,.7) !important;
+  border-color: rgba(14,27,44,.2) !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-marcador {
+  color: rgba(14,27,44,.55) !important;
+  border-color: rgba(14,27,44,.12) !important;
+}
+section.cap-wrap:not(.cap-dark) strong {
+  color: #0E1B2C !important;
+}
+section.cap-wrap:not(.cap-dark) li,
+section.cap-wrap:not(.cap-dark) .cap-lista li {
+  color: #3A4A5A !important;
+}
+section.cap-wrap:not(.cap-dark) .cap-lista li::before {
+  color: #C8A97E !important;
+}
+
+/* Garantia geral: seções com background bege visível */
+[style*="background:#F2EDD8"] *,
+[style*="background: #F2EDD8"] *,
+[style*="background:var(--bege)"] * {
+  color: #0E1B2C !important;
+}
+[style*="background:#F2EDD8"] .cap-frase,
+[style*="background: #F2EDD8"] .cap-frase {
+  color: #1C2F45 !important;
+}
+[style*="background:#F2EDD8"] p,
+[style*="background: #F2EDD8"] p {
+  color: #3A4A5A !important;
+}
+
+/* Linha do tempo lateral */
+.ltv-ano { color: #C8A97E; }
+.ltv-desc { color: rgba(242,237,216,.55); }
+</style>
 </head>
 <body>
 
@@ -267,7 +333,7 @@ body { color: #F2EDD8; }
   <div class="page-hero-frame"></div>
   <div class="page-hero-inner fade-up">
     <div class="page-kicker" data-pt="A história que ninguém copia" data-en="The story no one can copy">A história que ninguém copia</div>
-    <h1 class="page-title" data-pt="Uma vida<br><span>em construção.</span>" data-en="A life<br><span>under construction.</span>">Uma vida<br><span>em construção.</span></h1>
+    <h1 class="page-title">Uma vida<br><span>em construção.</span></h1>
     <p class="page-subtitle" data-pt="Não é uma história de chegada. É uma história de caminho, com os erros nomeados, as viradas documentadas e a construção acontecendo agora." data-en="This is not a story of arrival. It's a story of the journey, with named mistakes, documented turns, and construction happening now.">Não é uma história de chegada. É uma história de caminho, com os erros nomeados, as viradas documentadas e a construção acontecendo agora.</p>
 
     <!-- LINHA DO TEMPO VISUAL -->
@@ -396,7 +462,7 @@ body { color: #F2EDD8; }
 
   <div class="padrao-box" data-reveal>
     <div class="padrao-titulo" data-pt="O padrão que se repetia" data-en="The pattern that repeated">O padrão que se repetia</div>
-    <div class="padrao-texto" data-pt="O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong>" data-en="The 6-year-old boy who lost a stable family became the 15-year-old who chose the empty house, and became the adult man who made financial decisions alone without consulting his partner. <strong>It's the same pattern. The same system. The same attempt to control what the world doesn't promise to protect.</strong>">O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong></div>
+    <div class="padrao-texto"  >O menino de 6 anos que perdeu a família estável virou o adolescente de 15 que escolheu a casa vazia e virou o homem adulto que tomava decisões financeiras sozinho sem consultar a parceira. <strong>É o mesmo padrão. É o mesmo sistema. É a mesma tentativa de controlar o que o mundo não promete proteger.</strong></div>
   </div>
 
 <div class="capitulos" style="margin-top:60px;">
